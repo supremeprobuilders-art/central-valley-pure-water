@@ -36,6 +36,13 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   openGraph: {
     title: "Central Valley Pure Water | Better Water for Your Whole Home",
@@ -60,9 +67,6 @@ export const metadata: Metadata = {
     description:
       "Water softeners and reverse osmosis systems for Central Valley homes. Call for special pricing.",
     images: ["/cvpurewater-hero.png"],
-  },
-  other: {
-    "codex-preview": "development",
   },
 };
 
