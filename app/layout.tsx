@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     url: "/",
     images: [
       {
-        url: "/cvpurewater-hero.png",
+        url: "/cvpurewater-hero.webp",
         width: 1586,
         height: 992,
         alt: "Central Valley Pure Water whole-home and reverse osmosis systems",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     title: "Central Valley Pure Water",
     description:
       "Water softeners and reverse osmosis systems for Central Valley homes. Call for special pricing.",
-    images: ["/cvpurewater-hero.png"],
+    images: ["/cvpurewater-hero.webp"],
   },
 };
 
