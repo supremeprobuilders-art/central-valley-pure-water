@@ -144,7 +144,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "Central Valley Pure Water LLC",
-    url: "https://cvpurewater.com",
+    url: "https://www.cvpurewater.com",
     telephone: "+1-510-725-5120",
     address: {
       "@type": "PostalAddress",

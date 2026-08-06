@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://cvpurewater.com"),
+  metadataBase: new URL("https://www.cvpurewater.com"),
   title: "Water Softeners & Reverse Osmosis | Central Valley Pure Water",
   description:
     "Water softeners, whole-home water systems, and reverse osmosis installation in Modesto and California's Central Valley. Call for special pricing and a quote.",

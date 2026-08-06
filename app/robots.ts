@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/", "/signin-with-chatgpt", "/signout-with-chatgpt", "/callback"],
     },
-    sitemap: "https://cvpurewater.com/sitemap.xml",
-    host: "https://cvpurewater.com",
+    sitemap: "https://www.cvpurewater.com/sitemap.xml",
+    host: "https://www.cvpurewater.com",
   };
 }
