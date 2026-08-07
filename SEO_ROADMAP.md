@@ -1,6 +1,6 @@
 # Central Valley Pure Water SEO Roadmap
 
-Last updated: 2026-07-29
+Last updated: 2026-08-07
 
 ## Operating principles
 
@@ -29,23 +29,33 @@ Last updated: 2026-07-29
 - Created this living roadmap to prevent duplicate or disconnected sprint work.
 - Audited Vercel project state, deployment history, runtime errors, domain attachment, and GitHub source state.
 
+### Sprint 2 — Production crawlability and canonical alignment
+
+- Published the GitHub `main` artifact to Vercel production.
+- Attached `cvpurewater.com` and `www.cvpurewater.com` with `www` as the 200-response primary domain and a permanent apex redirect.
+- Published `/robots.txt` and `/sitemap.xml`; both return 200 on the primary domain.
+- Aligned canonical metadata, robots host, sitemap URLs, and LocalBusiness URL with `https://www.cvpurewater.com`.
+- Removed development-only preview metadata from production.
+- Reused the optimized WebP hero for social metadata and removed two redundant 786 KB PNG assets without changing the approved design.
+- Verified the homepage phone CTA, TypeScript build, static route generation, production aliases, and runtime health.
+
 ## Current blockers
 
-- `cvpurewater.com` and `www.cvpurewater.com` are not attached to the Vercel project.
-- The newest successful Vercel deployment is a preview, not production.
-- Vercel project metadata does not show a durable Git-backed production deployment.
-- Until the custom domain and production source workflow are verified, new city/service clusters must not be published.
+- Vercel project metadata does not yet show native Git-triggered deployments from GitHub `main`; the automation currently deploys the exact repository artifact through the authenticated Vercel connection.
+- The GoHighLevel form destination and required fields are not confirmed, so the quote form remains deferred.
 
 ## Next sprint
 
-### Production delivery and verification
+### Core service cluster
 
-1. Connect `supremeprobuilders-art/central-valley-pure-water` to the existing Vercel project.
-2. Set `main` as the production branch.
-3. Attach `cvpurewater.com` and `www.cvpurewater.com`.
-4. Verify DNS, TLS, primary-domain redirect, and the latest production alias.
-5. Verify `/robots.txt`, `/sitemap.xml`, canonical tags, click-to-call, mobile navigation, and runtime health on the custom domain.
-6. Add a short GoHighLevel-ready quote form only after the destination and required fields are confirmed.
+1. Water softeners.
+2. Whole-home water filtration.
+3. Reverse osmosis drinking water systems.
+4. City water systems.
+5. Well water treatment planning.
+6. Call for pricing.
+7. Add shared breadcrumbs, Service schema, page-specific FAQs, and contextual internal links.
+8. Add a short GoHighLevel-ready quote form only after the destination and required fields are confirmed.
 
 ## Prioritized content backlog
 
