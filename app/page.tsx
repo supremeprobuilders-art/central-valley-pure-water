@@ -21,6 +21,7 @@ const systems = [
       "Complete home water package with whole-home treatment equipment and an under-sink reverse osmosis system",
     imageNote: "Whole-home softening + kitchen RO",
     accent: "popular",
+    href: "/services/whole-home-water-filtration",
   },
   {
     number: "02",
@@ -36,6 +37,7 @@ const systems = [
     imageAlt: "Modern whole-home water softener equipment",
     imageNote: "Whole-home water softening",
     accent: "softener",
+    href: "/services/water-softeners",
   },
   {
     number: "03",
@@ -52,6 +54,7 @@ const systems = [
       "Under-sink reverse osmosis drinking water system with storage tank and dedicated faucet",
     imageNote: "Under-sink RO + dedicated faucet",
     accent: "ro",
+    href: "/services/reverse-osmosis",
   },
   {
     number: "04",
@@ -67,6 +70,7 @@ const systems = [
     imageAlt: "Representative multi-stage private well water treatment system",
     imageNote: "Configured after a property assessment",
     accent: "well",
+    href: "/services/well-water-treatment",
   },
 ];
 
@@ -312,6 +316,9 @@ export default function Home() {
               </ul>
               <div className="card-footer">
                 <div><small>Special pricing</small><strong>Call for price</strong></div>
+                <a className="card-detail" href={system.href} aria-label={`Learn more about ${system.title}`}>
+                  Details <span>→</span>
+                </a>
                 <a href={phoneHref} aria-label={`Call for ${system.title} pricing`}>
                   Call now <span>↗</span>
                 </a>
@@ -500,10 +507,10 @@ export default function Home() {
           </div>
           <div>
             <h3>Systems</h3>
-            <a href="#systems">Complete home system</a>
-            <a href="#systems">Water softeners</a>
-            <a href="#systems">Reverse osmosis</a>
-            <a href="#systems">Well water solutions</a>
+            <a href="/services">Compare all services</a>
+            <a href="/services/water-softeners">Water softeners</a>
+            <a href="/services/reverse-osmosis">Reverse osmosis</a>
+            <a href="/services/well-water-treatment">Well water solutions</a>
           </div>
           <div>
             <h3>Company</h3>
@@ -511,6 +518,7 @@ export default function Home() {
             <a href="#how-it-works">How it works</a>
             <a href="#service-area">Service area</a>
             <a href="#faq">FAQ</a>
+            <a href="/call-for-pricing">Call for pricing</a>
           </div>
           <div>
             <h3>Visit</h3>

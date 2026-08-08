@@ -1,6 +1,6 @@
 # Central Valley Pure Water SEO Roadmap
 
-Last updated: 2026-08-07
+Last updated: 2026-08-08
 
 ## Operating principles
 
@@ -14,10 +14,11 @@ Last updated: 2026-08-07
 ## Current production baseline
 
 - Approved mobile-first homepage restored in GitHub.
-- Core offer pathways: complete home system, water softener, reverse osmosis, and property-specific well water systems.
+- Core offer pathways: water softeners, whole-home filtration, reverse osmosis, city-water systems, property-specific well-water treatment, and commercial treatment.
 - Primary conversion: calls to `(510) 725-5120`.
-- LocalBusiness structured data, canonical metadata, Open Graph data, and mobile call actions are present.
-- Runtime error scan was clean on 2026-07-29.
+- LocalBusiness, Service, FAQPage, BreadcrumbList, CollectionPage, and ItemList structured data are present on applicable pages.
+- Canonical metadata, Open Graph data, crawlable service navigation, and mobile call actions are present.
+- The production runtime error scan was clean on 2026-08-07.
 
 ## Completed
 
@@ -39,6 +40,17 @@ Last updated: 2026-08-07
 - Reused the optimized WebP hero for social metadata and removed two redundant 786 KB PNG assets without changing the approved design.
 - Verified the homepage phone CTA, TypeScript build, static route generation, production aliases, and runtime health.
 
+### Sprint 3 — Core service cluster
+
+- Launched a crawlable `/services` hub with six distinct core-service pathways.
+- Published service pages for water softeners, whole-home filtration, reverse osmosis, city-water systems, private-well treatment, and commercial treatment.
+- Published `/call-for-pricing` to explain quote inputs and installation factors without inventing prices or relying on an unconfirmed form destination.
+- Added page-specific titles, descriptions, canonicals, Open Graph metadata, visible breadcrumbs, phone CTAs, FAQs, and contextual related-service links.
+- Added Service, FAQPage, BreadcrumbList, CollectionPage, and ItemList structured data where the visible content supports it.
+- Expanded the XML sitemap from the homepage to nine canonical URLs and connected the homepage cards and footer to the new cluster.
+- Preserved the approved homepage design while extending its navigation and conversion paths.
+- Verified the full artifact with Vercel's production build, TypeScript checks, and static generation for all 13 framework routes.
+
 ## Current blockers
 
 - Vercel project metadata does not yet show native Git-triggered deployments from GitHub `main`; the automation currently deploys the exact repository artifact through the authenticated Vercel connection.
@@ -46,16 +58,13 @@ Last updated: 2026-08-07
 
 ## Next sprint
 
-### Core service cluster
+### Initial city cluster
 
-1. Water softeners.
-2. Whole-home water filtration.
-3. Reverse osmosis drinking water systems.
-4. City water systems.
-5. Well water treatment planning.
-6. Call for pricing.
-7. Add shared breadcrumbs, Service schema, page-specific FAQs, and contextual internal links.
-8. Add a short GoHighLevel-ready quote form only after the destination and required fields are confirmed.
+1. Publish a regional service-area hub that explains coverage without overstating it.
+2. Build substantial first-party city pages for Modesto, Stockton, Tracy, Manteca, and Turlock.
+3. Give each city page a distinct local intent, useful service selection guidance, and links to the relevant core-service pages.
+4. Add Place-aware Service and BreadcrumbList schema without creating unsupported local addresses.
+5. Add a short GoHighLevel-ready quote form only after the destination and required fields are confirmed.
 
 ## Prioritized content backlog
 
@@ -142,3 +151,6 @@ Last updated: 2026-08-07
 - Source recovery alone does not create a durable deployment workflow; Git integration, production branch, custom-domain attachment, and live verification must all be confirmed.
 - Technical crawlability must precede city-page expansion.
 - Current public search visibility is too limited to justify a high-volume local page sprint without first fixing production ownership and measurement.
+- Current service-result pages emphasize installation and product categories; the durable opportunity is clearer decision support that separates hardness, whole-home filtration, drinking water, city water, and private-well needs.
+- Private-well search results frequently make broad treatment claims. Publishing an assessment-first page tied to current property information protects accuracy and creates a stronger trust signal.
+- A phone-first pricing page can improve conversion clarity now, while the unconfirmed GoHighLevel destination remains a legitimate blocker for form submission.
