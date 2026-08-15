@@ -1,6 +1,6 @@
 # Central Valley Pure Water SEO Roadmap
 
-Last updated: 2026-08-08
+Last updated: 2026-08-15
 
 ## Operating principles
 
@@ -18,6 +18,7 @@ Last updated: 2026-08-08
 - Primary conversion: calls to `(510) 725-5120`.
 - LocalBusiness, Service, FAQPage, BreadcrumbList, CollectionPage, and ItemList structured data are present on applicable pages.
 - Canonical metadata, Open Graph data, crawlable service navigation, and mobile call actions are present.
+- A crawlable service-area hub and substantial city pages are present for Modesto, Stockton, Tracy, Manteca, and Turlock.
 - The production runtime error scan was clean on 2026-08-07.
 
 ## Completed
@@ -51,19 +52,30 @@ Last updated: 2026-08-08
 - Preserved the approved homepage design while extending its navigation and conversion paths.
 - Verified the full artifact with Vercel's production build, TypeScript checks, and static generation for all 13 framework routes.
 
+### Sprint 4 — Initial city cluster
+
+- Published a regional `/areas` hub with clear service-coverage language and no unsupported local-office claims.
+- Published substantial, intent-specific pages for Modesto, Stockton, Tracy, Manteca, and Turlock rather than thin city-name swaps.
+- Assigned a distinct primary emphasis to each page: Modesto local softener and RO installation, Stockton whole-home filtration selection, Tracy kitchen RO planning, Manteca complete-home coordination, and Turlock city-versus-well assessment.
+- Added page-specific metadata, canonical URLs, Open Graph data, visible breadcrumbs, phone CTAs, FAQs, and WebPage, Service, Place-aware areaServed, FAQPage, and BreadcrumbList structured data.
+- Connected the homepage service-area grid to the five live city routes and added the service-area hub to shared service navigation.
+- Expanded the XML sitemap from 9 to 15 canonical URLs and added rendered-route tests for the hub and every city page.
+- Preserved the approved homepage design and kept the Modesto office as the only published business address.
+
 ## Current blockers
 
 - Vercel project metadata does not yet show native Git-triggered deployments from GitHub `main`; the automation currently deploys the exact repository artifact through the authenticated Vercel connection.
 - The GoHighLevel form destination and required fields are not confirmed, so the quote form remains deferred.
+- Google Search Console, Google Analytics 4, call tracking, and Google Business Profile insights are not connected, so verified impressions, clicks, sessions, calls, and leads cannot yet be reported.
 
 ## Next sprint
 
-### Initial city cluster
+### Complete the launch-market cluster and strengthen measurement
 
-1. Publish a regional service-area hub that explains coverage without overstating it.
-2. Build substantial first-party city pages for Modesto, Stockton, Tracy, Manteca, and Turlock.
-3. Give each city page a distinct local intent, useful service selection guidance, and links to the relevant core-service pages.
-4. Add Place-aware Service and BreadcrumbList schema without creating unsupported local addresses.
+1. Validate the new city URLs in production, submit the expanded sitemap after Search Console is connected, and record the indexing baseline.
+2. Publish substantial, distinct pages for Sacramento, Elk Grove, and Merced over separate bounded runs, based on current search intent rather than a city-page quota.
+3. Add selective city links from the most relevant core service pages after the remaining launch pages are live.
+4. Publish the first cornerstone resource around hard-water signs and the softener-versus-filtration decision, then link it to Modesto, Stockton, and Manteca.
 5. Add a short GoHighLevel-ready quote form only after the destination and required fields are confirmed.
 
 ## Prioritized content backlog
@@ -80,11 +92,11 @@ Last updated: 2026-08-08
 
 ### Initial city cluster
 
-1. Modesto
-2. Stockton
-3. Tracy
-4. Manteca
-5. Turlock
+1. Modesto — published
+2. Stockton — published
+3. Tracy — published
+4. Manteca — published
+5. Turlock — published
 6. Sacramento
 7. Elk Grove
 8. Merced
@@ -154,3 +166,4 @@ Last updated: 2026-08-08
 - Current service-result pages emphasize installation and product categories; the durable opportunity is clearer decision support that separates hardness, whole-home filtration, drinking water, city water, and private-well needs.
 - Private-well search results frequently make broad treatment claims. Publishing an assessment-first page tied to current property information protects accuracy and creates a stronger trust signal.
 - A phone-first pricing page can improve conversion clarity now, while the unconfirmed GoHighLevel destination remains a legitimate blocker for form submission.
+- A city cluster is more defensible when each page owns a distinct household decision and links to the relevant service path; repeating one generic template across every city would create weak local value and cannibalization risk.
