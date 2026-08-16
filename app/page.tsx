@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { MobileMenu } from "./mobile-menu";
 
@@ -102,14 +103,14 @@ const reviews = [
 ];
 
 const serviceAreas = [
-  "Modesto",
-  "Stockton",
-  "Tracy",
-  "Manteca",
-  "Turlock",
-  "Sacramento",
-  "Elk Grove",
-  "Merced",
+  { name: "Modesto", href: "/areas/modesto" },
+  { name: "Stockton", href: "/areas/stockton" },
+  { name: "Tracy", href: "/areas/tracy" },
+  { name: "Manteca", href: "/areas/manteca" },
+  { name: "Turlock", href: "/areas/turlock" },
+  { name: "Sacramento", href: null },
+  { name: "Elk Grove", href: null },
+  { name: "Merced", href: null },
 ];
 
 function BrandMark({ inverse = false }: { inverse?: boolean }) {
@@ -160,7 +161,7 @@ export default function Home() {
     },
     areaServed: serviceAreas.map((city) => ({
       "@type": "City",
-      name: `${city}, California`,
+      name: `${city.name}, California`,
     })),
     openingHoursSpecification: [
       {
@@ -448,9 +449,13 @@ export default function Home() {
         <div className="areas-card">
           <p>Featured service areas</p>
           <div className="city-grid">
-            {serviceAreas.map((city) => (
-              <a href={phoneHref} key={city} aria-label={`Call about water systems in ${city}`}>
-                {city}<b>→</b>
+            {serviceAreas.map((city) => city.href ? (
+              <Link href={city.href} key={city.name} aria-label={`Explore water systems in ${city.name}`}>
+                {city.name}<b>→</b>
+              </Link>
+            ) : (
+              <a href={phoneHref} key={city.name} aria-label={`Call about water systems in ${city.name}`}>
+                {city.name}<b>→</b>
               </a>
             ))}
           </div>
@@ -507,16 +512,16 @@ export default function Home() {
           </div>
           <div>
             <h3>Systems</h3>
-            <a href="/services">Compare all services</a>
-            <a href="/services/water-softeners">Water softeners</a>
-            <a href="/services/reverse-osmosis">Reverse osmosis</a>
-            <a href="/services/well-water-treatment">Well water solutions</a>
+            <Link href="/services">Compare all services</Link>
+            <Link href="/services/water-softeners">Water softeners</Link>
+            <Link href="/services/reverse-osmosis">Reverse osmosis</Link>
+            <Link href="/services/well-water-treatment">Well water solutions</Link>
           </div>
           <div>
             <h3>Company</h3>
             <a href="#reviews">Customer reviews</a>
             <a href="#how-it-works">How it works</a>
-            <a href="#service-area">Service area</a>
+            <Link href="/areas">Service areas</Link>
             <a href="#faq">FAQ</a>
             <a href="/call-for-pricing">Call for pricing</a>
           </div>
