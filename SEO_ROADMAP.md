@@ -1,6 +1,6 @@
 # Central Valley Pure Water SEO Roadmap
 
-Last updated: 2026-08-15
+Last updated: 2026-08-16
 
 ## Operating principles
 
@@ -19,7 +19,7 @@ Last updated: 2026-08-15
 - LocalBusiness, Service, FAQPage, BreadcrumbList, CollectionPage, and ItemList structured data are present on applicable pages.
 - Canonical metadata, Open Graph data, crawlable service navigation, and mobile call actions are present.
 - A crawlable service-area hub and substantial city pages are present for Modesto, Stockton, Tracy, Manteca, and Turlock.
-- The production runtime error scan was clean on 2026-08-07.
+- The production runtime error scan was clean on 2026-08-16.
 
 ## Completed
 
@@ -61,6 +61,8 @@ Last updated: 2026-08-15
 - Connected the homepage service-area grid to the five live city routes and added the service-area hub to shared service navigation.
 - Expanded the XML sitemap from 9 to 15 canonical URLs and added rendered-route tests for the hub and every city page.
 - Preserved the approved homepage design and kept the Modesto office as the only published business address.
+- Merged the verified city cluster through GitHub PR #1 at commit `fb018c2` and published Vercel production deployment `dpl_374ySvFGHA7FkA5A7prYy2pR6JL6`.
+- Verified the homepage, `/areas`, all five city pages, `/robots.txt`, and the 15-URL sitemap on the public canonical domain; the post-deploy runtime error scan was clean.
 
 ## Current blockers
 
@@ -72,11 +74,12 @@ Last updated: 2026-08-15
 
 ### Complete the launch-market cluster and strengthen measurement
 
-1. Validate the new city URLs in production, submit the expanded sitemap after Search Console is connected, and record the indexing baseline.
-2. Publish substantial, distinct pages for Sacramento, Elk Grove, and Merced over separate bounded runs, based on current search intent rather than a city-page quota.
-3. Add selective city links from the most relevant core service pages after the remaining launch pages are live.
-4. Publish the first cornerstone resource around hard-water signs and the softener-versus-filtration decision, then link it to Modesto, Stockton, and Manteca.
-5. Add a short GoHighLevel-ready quote form only after the destination and required fields are confirmed.
+1. Research and publish a substantial Sacramento page with one distinct primary decision path, then verify it in production.
+2. Publish Elk Grove and Merced over separate bounded runs, based on current search intent rather than a city-page quota.
+3. Submit the expanded sitemap and record the indexing baseline after Search Console is connected.
+4. Add selective city links from the most relevant core service pages after the remaining launch pages are live.
+5. Publish the first cornerstone resource around hard-water signs and the softener-versus-filtration decision, then link it to Modesto, Stockton, and Manteca.
+6. Add a short GoHighLevel-ready quote form only after the destination and required fields are confirmed.
 
 ## Prioritized content backlog
 
