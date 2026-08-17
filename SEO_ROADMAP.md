@@ -1,6 +1,6 @@
 # Central Valley Pure Water SEO Roadmap
 
-Last updated: 2026-08-16
+Last updated: 2026-08-17
 
 ## Operating principles
 
@@ -20,6 +20,7 @@ Last updated: 2026-08-16
 - Canonical metadata, Open Graph data, crawlable service navigation, and mobile call actions are present.
 - A crawlable service-area hub and substantial city pages are present for Modesto, Stockton, Tracy, Manteca, and Turlock.
 - The production runtime error scan was clean on 2026-08-16.
+- A source-backed Sacramento decision page is live, bringing the area cluster to six city pages.
 
 ## Completed
 
@@ -64,6 +65,14 @@ Last updated: 2026-08-16
 - Merged the verified city cluster through GitHub PR #1 at commit `fb018c2` and published Vercel production deployment `dpl_374ySvFGHA7FkA5A7prYy2pR6JL6`.
 - Verified the homepage, `/areas`, all five city pages, `/robots.txt`, and the 15-URL sitemap on the public canonical domain; the post-deploy runtime error scan was clean.
 
+### Sprint 5 — Sacramento decision page
+
+- Researched current Sacramento intent around water softeners, whole-home filtration, and reverse osmosis, plus competing pages that commonly collapse those categories into universal packages.
+- Published a substantial `/areas/sacramento` page centered on provider verification and the softener-versus-filter-versus-kitchen-RO decision.
+- Used the City of Sacramento’s 2025 Consumer Confidence Report, published June 1, 2026, for current local context; linked the official report visibly and stated that City-supplied water meets applicable standards.
+- Added a reusable optional official-sources section to city pages, while keeping unsupported contaminant, health, savings, certification, warranty, and pricing claims out of the page.
+- Linked Sacramento from the homepage, included it in the service-area hub and structured data, expanded the sitemap to 16 canonical URLs, and added rendered-route coverage.
+
 ## Current blockers
 
 - Vercel project metadata does not yet show native Git-triggered deployments from GitHub `main`; the automation currently deploys the exact repository artifact through the authenticated Vercel connection.
@@ -74,8 +83,8 @@ Last updated: 2026-08-16
 
 ### Complete the launch-market cluster and strengthen measurement
 
-1. Research and publish a substantial Sacramento page with one distinct primary decision path, then verify it in production.
-2. Publish Elk Grove and Merced over separate bounded runs, based on current search intent rather than a city-page quota.
+1. Research and publish a substantial Elk Grove page with a distinct household decision path; use the current service provider’s official report for any local water facts.
+2. Publish Merced in a separate bounded run based on current search intent rather than a city-page quota.
 3. Submit the expanded sitemap and record the indexing baseline after Search Console is connected.
 4. Add selective city links from the most relevant core service pages after the remaining launch pages are live.
 5. Publish the first cornerstone resource around hard-water signs and the softener-versus-filtration decision, then link it to Modesto, Stockton, and Manteca.
@@ -100,7 +109,7 @@ Last updated: 2026-08-16
 3. Tracy — published
 4. Manteca — published
 5. Turlock — published
-6. Sacramento
+6. Sacramento — published
 7. Elk Grove
 8. Merced
 

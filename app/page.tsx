@@ -108,7 +108,7 @@ const serviceAreas = [
   { name: "Tracy", href: "/areas/tracy" },
   { name: "Manteca", href: "/areas/manteca" },
   { name: "Turlock", href: "/areas/turlock" },
-  { name: "Sacramento", href: null },
+  { name: "Sacramento", href: "/areas/sacramento" },
   { name: "Elk Grove", href: null },
   { name: "Merced", href: null },
 ];

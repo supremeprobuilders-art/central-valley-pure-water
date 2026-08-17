@@ -124,6 +124,25 @@ export function AreaPageView({ page }: { page: AreaPage }) {
         <div className="service-prose">{page.overview.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
       </section>
 
+      {page.sources?.length ? (
+        <section className="service-related service-content-section" aria-labelledby="local-sources-title">
+          <div className="service-section-heading">
+            <p className="eyebrow"><span /> Verify the local context</p>
+            <h2 id="local-sources-title">Official water information for {page.city}</h2>
+          </div>
+          <div className="service-related-grid">
+            {page.sources.map((source) => (
+              <a href={source.href} key={source.href} target="_blank" rel="noreferrer">
+                <span>Official source</span>
+                <h3>{source.label}</h3>
+                <p>{source.note}</p>
+                <b>Read the source ↗</b>
+              </a>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       <section className="service-fit service-content-section">
         <div className="service-section-heading">
           <p className="eyebrow eyebrow-centered"><span /> A useful place to begin</p>
