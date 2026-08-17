@@ -19,6 +19,7 @@ export type AreaPage = {
   decisions: { title: string; copy: string }[];
   process: { title: string; copy: string }[];
   faqs: AreaFaq[];
+  sources?: { label: string; href: string; note: string }[];
   serviceSlugs: string[];
   relatedAreas: string[];
 };
@@ -448,6 +449,108 @@ export const areaPages: AreaPage[] = [
     ],
     serviceSlugs: ["well-water-treatment", "city-water-systems", "water-softeners"],
     relatedAreas: ["modesto", "manteca"],
+  },
+  {
+    slug: "sacramento",
+    city: "Sacramento",
+    county: "Sacramento County",
+    title: "Water Softener & Filtration Planning in Sacramento",
+    eyebrow: "Sacramento water system installation",
+    metaTitle: "Water Softener Sacramento CA | Central Valley Pure Water",
+    metaDescription:
+      "Compare water softeners, whole-home filtration, and reverse osmosis for a Sacramento home using current utility information and property goals.",
+    hero:
+      "Start with your Sacramento address, water provider, and household goal—then choose softening, whole-home filtration, kitchen reverse osmosis, or a coordinated plan.",
+    overviewTitle: "Use the water report as context, not a one-size-fits-all prescription",
+    overview: [
+      "The City of Sacramento’s current Consumer Confidence Report covers water quality results from 2025 and was published June 1, 2026. It states that City-supplied water meets or exceeds federal and state drinking water standards. The report also explains that about 80 percent of the City’s supply comes from the American and Sacramento rivers and about 20 percent comes from groundwater wells, while the mix reaching an individual customer can change with supply, demand, and season.",
+      "That system-wide report is a useful first reference, but it does not select equipment for an individual home. Confirm the provider shown on the property’s water bill, review the current report for that provider, and define the result the household wants. Mineral scale and spotting point to a softening conversation; a defined taste, odor, or whole-home filtration goal follows a filtration path; drinking and cooking water at one sink may call for a point-of-use reverse osmosis discussion. Some homes may compare more than one path, while others may decide no in-home treatment is needed.",
+    ],
+    highlights: [
+      "Current utility report reviewed first",
+      "Softening and filtration kept distinct",
+      "Whole-home and kitchen options",
+      "Address-specific installation planning",
+    ],
+    helpfulFor: [
+      "You want to understand whether a softener or filter matches the result you actually want.",
+      "You notice spotting or scale and want to discuss a whole-home hardness solution.",
+      "You want a dedicated reverse osmosis faucet for drinking and cooking water.",
+      "You want the provider, plumbing layout, household demand, and maintenance access reviewed before choosing equipment.",
+    ],
+    decisions: [
+      {
+        title: "Confirm the provider",
+        copy: "Use the water bill and service address to identify the utility. Read that provider’s current water-quality report instead of applying a citywide assumption to every property.",
+      },
+      {
+        title: "Name the treatment goal",
+        copy: "Hardness reduction, a defined whole-home filtration objective, and dedicated drinking water are separate jobs. A clear proposal connects each component to one of those jobs.",
+      },
+      {
+        title: "Check the installation path",
+        copy: "Main-line access, pipe size, drainage, power, equipment clearance, kitchen cabinet space, and future service access influence what can be installed and quoted.",
+      },
+    ],
+    process: [
+      {
+        title: "Bring the address and goal",
+        copy: "Share the Sacramento property address, water provider, household size, and whether the priority is scale, a defined filtration concern, drinking water, or a combination.",
+      },
+      {
+        title: "Review current information",
+        copy: "Use the provider’s latest public report for system-wide context. If the decision depends on conditions inside the home, discuss whether more property-specific information is appropriate.",
+      },
+      {
+        title: "Map the equipment location",
+        copy: "Review the incoming water line and, when reverse osmosis is considered, the kitchen cabinet, faucet placement, feed, drain, and filter-service clearance.",
+      },
+      {
+        title: "Compare scope and pricing",
+        copy: "Ask what each component is intended to do, what installation includes, which conditions could change the scope, and the current price before scheduling.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Does every Sacramento home need a water softener?",
+        answer:
+          "No. Start with the household’s goal, the property’s water provider, and the conditions you are trying to address. A softener is a hardness-focused option, not a universal requirement.",
+      },
+      {
+        question: "Is a whole-home filter the same as a water softener?",
+        answer:
+          "No. A softener is selected primarily to reduce hardness minerals. Whole-home filtration is selected around a defined filtration objective. A proposal should explain the purpose of each component rather than treating the terms as interchangeable.",
+      },
+      {
+        question: "What does Sacramento’s current city water report say?",
+        answer:
+          "The City’s report published June 1, 2026 covers 2025 results, says City-supplied water meets or exceeds federal and state drinking water standards, and describes a supply drawn mainly from the American and Sacramento rivers with a smaller groundwater share. Check the official report for full results and updates.",
+      },
+      {
+        question: "Can I install reverse osmosis without a whole-home system?",
+        answer:
+          "Yes. Under-sink reverse osmosis can be considered as a dedicated drinking-and-cooking-water option. Cabinet space, feed and drain access, faucet placement, and future filter access should be reviewed first.",
+      },
+      {
+        question: "How do I get current Sacramento installation pricing?",
+        answer:
+          "Call (510) 725-5120 with the address, water provider, household goals, and photos of the likely main-line or under-sink installation locations. Pricing depends on equipment, capacity, access, and project scope.",
+      },
+    ],
+    sources: [
+      {
+        label: "City of Sacramento 2025 Consumer Confidence Report",
+        href: "https://www.cityofsacramento.gov/utilities/water-quality/consumer-confidence-report",
+        note: "Published June 1, 2026; includes the City’s current annual water-quality results, source summary, and service-area information.",
+      },
+      {
+        label: "City of Sacramento drinking water quality information",
+        href: "https://www.cityofsacramento.gov/utilities/water-quality",
+        note: "Official updates, contacts, and current drinking-water resources from the City Department of Utilities.",
+      },
+    ],
+    serviceSlugs: ["water-softeners", "whole-home-water-filtration", "reverse-osmosis"],
+    relatedAreas: ["stockton", "tracy", "manteca"],
   },
 ];
 
