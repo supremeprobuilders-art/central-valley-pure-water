@@ -550,7 +550,109 @@ export const areaPages: AreaPage[] = [
       },
     ],
     serviceSlugs: ["water-softeners", "whole-home-water-filtration", "reverse-osmosis"],
-    relatedAreas: ["stockton", "tracy", "manteca"],
+    relatedAreas: ["elk-grove", "stockton", "tracy", "manteca"],
+  },
+  {
+    slug: "elk-grove",
+    city: "Elk Grove",
+    county: "Sacramento County",
+    title: "Water Softener Installation & Replacement in Elk Grove",
+    eyebrow: "Elk Grove installation and replacement planning",
+    metaTitle: "Water Softener Elk Grove CA | Central Valley Pure Water",
+    metaDescription:
+      "Plan a water softener installation or replacement in Elk Grove, with whole-home filtration and kitchen RO options reviewed separately. Call for pricing.",
+    hero:
+      "Compare a first-time installation with replacement of existing equipment, then keep softening, whole-home filtration, and kitchen drinking water tied to clear household goals.",
+    overviewTitle: "A replacement is not automatically a like-for-like installation",
+    overview: [
+      "An Elk Grove home with an existing softener, filter, bypass, or plumbing loop may look ready for a straightforward equipment swap. Before anything is reused, the proposal should identify what is present, whether it is part of the active plumbing path, where it drains, whether power is available, and whether the location leaves practical room for operation and future service. A first-time installation follows the same review without assuming that a loop or drain already exists.",
+      "Water information also needs to match the service address. Elk Grove Water District and Sacramento County Water Agency publish separate annual water-quality resources for customers in their systems. Confirm the provider shown on the property’s bill and read that provider’s current report; if the bill names a different supplier, use that supplier’s report instead. A utility report gives system-wide context, while the home’s goals, plumbing, existing equipment, household demand, and installation conditions determine whether an in-home project makes sense.",
+    ],
+    highlights: [
+      "First-time and replacement paths",
+      "Existing equipment reviewed before reuse",
+      "Provider-specific report links",
+      "Service access planned up front",
+    ],
+    helpfulFor: [
+      "You are replacing an older softener or filter and want the existing plumbing reviewed before assuming it can be reused.",
+      "You are planning a first whole-home system and need to identify the incoming line, drainage, power, and equipment space.",
+      "You want to compare hardness treatment with a defined whole-home filtration objective.",
+      "You want kitchen reverse osmosis considered separately from the main-line project.",
+    ],
+    decisions: [
+      {
+        title: "Install or replace",
+        copy: "Document the current equipment, bypass, plumbing connections, drain route, shutoffs, power, and clearance. Replacement scope should not be based on the old tank footprint alone.",
+      },
+      {
+        title: "Reuse or rebuild",
+        copy: "Existing loops and connections may be useful, but their condition, size, routing, and suitability should be reviewed before they are included in a proposal.",
+      },
+      {
+        title: "One job or several",
+        copy: "Softening, whole-home filtration, and under-sink reverse osmosis serve different locations and goals. Compare each component’s role, installation needs, and price separately.",
+      },
+    ],
+    process: [
+      {
+        title: "Confirm the Elk Grove address",
+        copy: "Share the service address, provider shown on the water bill, household size, and whether this is a first installation, replacement, or addition to an existing system.",
+      },
+      {
+        title: "Photograph the current layout",
+        copy: "Capture the equipment, nearby piping, bypass and shutoffs, drain path, outlet, incoming water line, and surrounding clearance without moving or disconnecting anything.",
+      },
+      {
+        title: "Define each treatment goal",
+        copy: "Separate whole-home hardness, a specific filtration objective, and kitchen drinking water so every proposed component has a clear job.",
+      },
+      {
+        title: "Review the written scope",
+        copy: "Confirm removal, reuse, new plumbing, drainage, power assumptions, equipment placement, service access, exclusions, and current pricing before scheduling.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Can an existing Elk Grove water softener loop be reused?",
+        answer:
+          "Possibly, but reuse should be confirmed after the loop’s condition, pipe size, routing, shutoffs, bypass arrangement, drain access, and equipment clearance are reviewed.",
+      },
+      {
+        question: "Do I need to replace a softener with the same type or size?",
+        answer:
+          "Not automatically. The current household, water source, desired result, flow needs, installation conditions, and service access should be reviewed before new equipment is selected.",
+      },
+      {
+        question: "Which water-quality report applies to an Elk Grove address?",
+        answer:
+          "Start with the provider named on the property’s current water bill. Elk Grove Water District and Sacramento County Water Agency publish separate reports, and another provider’s report should be used if that provider appears on the bill.",
+      },
+      {
+        question: "Can kitchen reverse osmosis be added during a softener replacement?",
+        answer:
+          "It can be considered in the same project, but it remains a separate under-sink installation with its own cabinet space, feed, drain, faucet, filter access, and pricing requirements.",
+      },
+      {
+        question: "How do I get current Elk Grove installation pricing?",
+        answer:
+          "Call (510) 725-5120 with the address, provider, household goals, and photos of existing equipment or the proposed installation areas. Final pricing depends on equipment and project scope.",
+      },
+    ],
+    sources: [
+      {
+        label: "Elk Grove Water District publications and water-quality reports",
+        href: "https://www.egwd.org/publications/",
+        note: "Official district page for current Consumer Confidence Reports, public-health-goal reporting, and water-planning documents.",
+      },
+      {
+        label: "Sacramento County Water Agency Consumer Confidence Reports",
+        href: "https://waterresources.saccounty.gov/us/en/water-agency/consumer-confidence-report.html",
+        note: "Official 2025 reporting page with separate resources for Sacramento County Water Agency service systems, including areas associated with Elk Grove addresses.",
+      },
+    ],
+    serviceSlugs: ["water-softeners", "whole-home-water-filtration", "reverse-osmosis"],
+    relatedAreas: ["sacramento", "stockton", "manteca"],
   },
 ];
 
