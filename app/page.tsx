@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { AffiliatePartners } from "./affiliate-partners";
 import { MobileMenu } from "./mobile-menu";
 
 const phoneDisplay = "(510) 725-5120";
@@ -302,6 +303,7 @@ export default function Home() {
                   height="825"
                   sizes="(max-width: 860px) calc(100vw - 90px), (max-width: 1280px) 44vw, 550px"
                   loading="lazy"
+                  unoptimized
                 />
                 <figcaption>
                   <span aria-hidden="true" />
@@ -503,6 +505,8 @@ export default function Home() {
         </div>
       </section>
 
+      <AffiliatePartners />
+
       <footer>
         <div className="footer-main">
           <div className="footer-brand">
@@ -522,6 +526,7 @@ export default function Home() {
             <a href="#reviews">Customer reviews</a>
             <a href="#how-it-works">How it works</a>
             <Link href="/areas">Service areas</Link>
+            <a href="#affiliates">Affiliate partners</a>
             <a href="#faq">FAQ</a>
             <a href="/call-for-pricing">Call for pricing</a>
           </div>

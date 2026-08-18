@@ -54,7 +54,7 @@ export function ServiceFooter() {
         <div className="footer-main">
           <div className="footer-brand"><BrandMark inverse /><p>Water softening, reverse osmosis, and whole-home water solutions for California&apos;s Central Valley.</p><a href={phoneHref}>{phoneDisplay}</a></div>
           <div><h3>Services</h3>{servicePages.slice(0, 4).map((item) => <Link href={pageHref(item.slug)} key={item.slug}>{item.shortTitle}</Link>)}</div>
-          <div><h3>More</h3><Link href="/areas">Service areas</Link><Link href="/services/well-water-treatment">Well water treatment</Link><Link href="/services/commercial-water-treatment">Commercial treatment</Link><Link href="/call-for-pricing">Call for pricing</Link></div>
+          <div><h3>More</h3><Link href="/areas">Service areas</Link><Link href="/services/well-water-treatment">Well water treatment</Link><Link href="/services/commercial-water-treatment">Commercial treatment</Link><Link href="/#affiliates">Affiliate partners</Link><Link href="/call-for-pricing">Call for pricing</Link></div>
           <div><h3>Visit</h3><p>1620 N Carpenter Rd<br />Suite A5<br />Modesto, CA 95351</p><small>Office &amp; warehouse<br />Appointment only</small><p className="footer-hours">Mon–Fri · 8 AM–6 PM</p></div>
         </div>
         <div className="footer-bottom"><p>© 2026 Central Valley Pure Water LLC. All rights reserved.</p><p>Special pricing subject to system selection and installation conditions.</p></div>

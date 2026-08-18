@@ -34,6 +34,10 @@ test("renders production homepage metadata", async () => {
   assert.match(html, /<link[^>]+rel=["']canonical["'][^>]+href=["']https:\/\/www\.cvpurewater\.com\/?["']/i);
   assert.match(html, /Water Softeners &amp; Reverse Osmosis \| Central Valley Pure Water/i);
   assert.match(html, /"@type":"LocalBusiness"/i);
+  assert.match(html, /href=["']https:\/\/www\.formadesignconsultants\.com\/["']/i);
+  assert.match(html, /href=["']https:\/\/supremeprobuilders\.com\/["']/i);
+  assert.match(html, /\/partners\/forma-design-consultants\.webp/i);
+  assert.match(html, /\/partners\/supreme-pro-builders\.webp/i);
 });
 
 test("renders the service-area hub and static city pages with SEO signals", async () => {
