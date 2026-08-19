@@ -448,7 +448,7 @@ export const areaPages: AreaPage[] = [
       },
     ],
     serviceSlugs: ["well-water-treatment", "city-water-systems", "water-softeners"],
-    relatedAreas: ["modesto", "manteca"],
+    relatedAreas: ["modesto", "manteca", "merced"],
   },
   {
     slug: "sacramento",
@@ -653,6 +653,108 @@ export const areaPages: AreaPage[] = [
     ],
     serviceSlugs: ["water-softeners", "whole-home-water-filtration", "reverse-osmosis"],
     relatedAreas: ["sacramento", "stockton", "manteca"],
+  },
+  {
+    slug: "merced",
+    city: "Merced",
+    county: "Merced County",
+    title: "Water Softener Sizing & Installation in Merced",
+    eyebrow: "Merced household sizing and installation planning",
+    metaTitle: "Water Softener Merced CA | Central Valley Pure Water",
+    metaDescription:
+      "Plan water softener sizing and installation for a Merced home, with filtration and kitchen RO considered separately. Call for current pricing.",
+    hero:
+      "Size a Merced water softener around the household and installation—not a generic package label—then compare filtration and kitchen reverse osmosis as separate decisions.",
+    overviewTitle: "The right starting point is household demand and a serviceable layout",
+    overview: [
+      "A whole-home water softener needs to support the household without becoming difficult to place, operate, or maintain. The planning inputs include occupancy, bathrooms and water-using fixtures, periods of simultaneous use, the incoming line, available drainage and power, equipment clearance, and access for routine service. Those details should be reviewed together before capacity or installation scope is finalized.",
+      "For a property served by the City of Merced, the City publishes an annual Water Quality Report with system-wide test results and makes the current reporting-year documents available in English, Spanish, and Hmong. Use that official report as local context, then keep the in-home decisions distinct: softening is a whole-home hardness conversation, whole-home filtration needs a defined filtration objective, and reverse osmosis is commonly planned as dedicated drinking-water treatment at the kitchen sink. A private-well property follows a property-specific information and assessment path instead of relying on the City report.",
+    ],
+    highlights: [
+      "Household-specific sizing inputs",
+      "Peak-use and plumbing review",
+      "Current City report linked",
+      "Service access planned before installation",
+    ],
+    helpfulFor: [
+      "You want a Merced water softener sized around household demand rather than a generic package name.",
+      "You need to confirm whether the incoming line, drainage, power, and equipment area support a practical installation.",
+      "You are deciding whether softening, a defined whole-home filtration goal, or both belong in the proposal.",
+      "You want kitchen reverse osmosis evaluated separately, with cabinet and future filter access considered before installation.",
+    ],
+    decisions: [
+      {
+        title: "Household demand",
+        copy: "Occupancy, bathrooms, fixture use, and times when water runs in several places at once help frame the required whole-home capacity and flow path.",
+      },
+      {
+        title: "Water and treatment goal",
+        copy: "Confirm the property source and describe the result you want. Keep hardness reduction, a defined filtration objective, and kitchen drinking water as separate jobs.",
+      },
+      {
+        title: "Placement and service access",
+        copy: "Incoming-line access, pipe size, shutoffs, bypass, drainage, power, protection, equipment clearance, and room for future service shape the final layout and scope.",
+      },
+    ],
+    process: [
+      {
+        title: "Confirm the Merced property",
+        copy: "Share the address, water source, household size, bathrooms, major fixtures, and the water concerns or practical goals behind the call.",
+      },
+      {
+        title: "Review current information",
+        copy: "For City service, consult the current City of Merced report. For a private well, gather appropriate current property-specific information before chemistry-dependent claims are made.",
+      },
+      {
+        title: "Map demand and installation",
+        copy: "Review simultaneous-use needs, incoming plumbing, drainage, power, equipment footprint, weather protection, kitchen conditions when RO is considered, and future service access.",
+      },
+      {
+        title: "Compare the written scope",
+        copy: "Confirm the purpose of each component, capacity assumptions, installation work, exclusions, current pricing, and the service path before scheduling.",
+      },
+    ],
+    faqs: [
+      {
+        question: "How is a water softener sized for a Merced home?",
+        answer:
+          "Sizing should consider the water source and hardness information, household occupancy, usage patterns, simultaneous fixture demand, plumbing conditions, and the service requirements of the proposed equipment.",
+      },
+      {
+        question: "Does a larger Merced home automatically need the largest softener?",
+        answer:
+          "No. Square footage alone does not establish capacity. Household use, bathrooms and fixtures, peak-flow needs, water information, plumbing, and equipment specifications should be reviewed together.",
+      },
+      {
+        question: "Where can I find the current City of Merced water report?",
+        answer:
+          "The City publishes its annual Water Quality Report online by July 1 and currently lists reporting-year 2025 documents in English, Spanish, and Hmong. Use the official City page linked here for the latest versions.",
+      },
+      {
+        question: "Is whole-home filtration the same as water softening?",
+        answer:
+          "No. A softener is selected primarily around hardness. Whole-home filtration should be tied to a defined filtration objective, and the proposal should state what each component is intended to do.",
+      },
+      {
+        question: "How do I get current Merced installation pricing?",
+        answer:
+          "Call (510) 725-5120 with the address, water source, household and fixture details, goals, and photos of the incoming line and proposed equipment area. Pricing depends on equipment and project scope.",
+      },
+    ],
+    sources: [
+      {
+        label: "City of Merced Water Quality Reports",
+        href: "https://www.cityofmerced.gov/utilities-services/water/water-quality-control/ccr-water-quality-report",
+        note: "Official City page for the current annual report and reporting-year 2025 documents in English, Spanish, and Hmong.",
+      },
+      {
+        label: "City of Merced Consumer Confidence Report resources",
+        href: "https://www.cityofmerced.gov/government/about-merced/news/media-inquiries/water-consumer-confidence-report",
+        note: "Official City page linking the current drinking-water Consumer Confidence Report and source-water assessment information.",
+      },
+    ],
+    serviceSlugs: ["water-softeners", "whole-home-water-filtration", "reverse-osmosis"],
+    relatedAreas: ["turlock", "modesto", "manteca"],
   },
 ];
 
