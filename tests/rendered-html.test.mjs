@@ -44,7 +44,7 @@ test("renders the service-area hub and static city pages with SEO signals", asyn
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("area-test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
-  const routes = ["/areas", "/areas/modesto", "/areas/stockton", "/areas/tracy", "/areas/manteca", "/areas/turlock", "/areas/sacramento", "/areas/elk-grove"];
+  const routes = ["/areas", "/areas/modesto", "/areas/stockton", "/areas/tracy", "/areas/manteca", "/areas/turlock", "/areas/sacramento", "/areas/elk-grove", "/areas/merced"];
 
   for (const route of routes) {
     const response = await worker.fetch(

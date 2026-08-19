@@ -1,6 +1,6 @@
 # Central Valley Pure Water SEO Roadmap
 
-Last updated: 2026-08-18
+Last updated: 2026-08-19
 
 ## Operating principles
 
@@ -22,6 +22,7 @@ Last updated: 2026-08-18
 - The production runtime error scan was clean on 2026-08-16.
 - A source-backed Sacramento decision page is live, bringing the area cluster to six city pages.
 - An installation-and-replacement-focused Elk Grove page is live, bringing the area cluster to seven city pages.
+- A household-sizing-focused Merced page is live, completing the eight-market launch cluster.
 
 ## Completed
 
@@ -83,6 +84,14 @@ Last updated: 2026-08-18
 - Added page-specific metadata, canonical, visible breadcrumbs, phone CTAs, FAQs, supported structured data, service links, reciprocal Sacramento linking, homepage access, sitemap coverage, and rendered-route tests.
 - Expanded the XML sitemap from 16 to 17 canonical URLs without adding unsupported provider, contaminant, health, savings, warranty, certification, review, or pricing claims.
 
+### Sprint 7 — Merced household sizing and installation page
+
+- Researched current Merced demand around water softener installation, whole-home filtration, and reverse osmosis, plus result pages that commonly use universal packages, exact removal percentages, price ranges, and broad health claims.
+- Published `/areas/merced` around a distinct household-sizing and serviceable-installation path: occupancy, fixtures, simultaneous use, incoming plumbing, drainage, power, clearance, and future service access.
+- Linked the City of Merced’s current Water Quality Report resources, including the reporting-year 2025 documents provided in English, Spanish, and Hmong, without converting system-wide reporting into a property-specific treatment claim.
+- Added page-specific metadata, canonical, visible breadcrumbs, phone CTAs, FAQs, supported structured data, service links, reciprocal Turlock linking, homepage access, sitemap coverage, and rendered-route tests.
+- Updated the service-area hub language for the completed eight-market launch cluster and expanded the XML sitemap from 17 to 18 canonical URLs.
+
 ## Current blockers
 
 - Vercel project metadata does not yet show native Git-triggered deployments from GitHub `main`; the automation currently deploys the exact repository artifact through the authenticated Vercel connection.
@@ -93,12 +102,10 @@ Last updated: 2026-08-18
 
 ### Complete the launch-market cluster and strengthen measurement
 
-1. Research and publish a substantial Merced page with one distinct primary decision path and current official-source support.
-2. Review selective city links from the most relevant core service pages after Merced completes the approved launch-market cluster.
+1. Add selective city links from the most relevant core service pages now that the approved launch-market cluster is complete.
+2. Publish the first cornerstone resource around hard-water signs and the softener-versus-filtration decision, then link it to Modesto, Stockton, Manteca, and Merced.
 3. Submit the expanded sitemap and record the indexing baseline after Search Console is connected.
-4. Add selective city links from the most relevant core service pages after the remaining launch page is live.
-5. Publish the first cornerstone resource around hard-water signs and the softener-versus-filtration decision, then link it to Modesto, Stockton, and Manteca.
-6. Add a short GoHighLevel-ready quote form only after the destination and required fields are confirmed.
+4. Add a short GoHighLevel-ready quote form only after the destination and required fields are confirmed.
 
 ## Prioritized content backlog
 
@@ -121,7 +128,7 @@ Last updated: 2026-08-18
 5. Turlock — published
 6. Sacramento — published
 7. Elk Grove — published
-8. Merced
+8. Merced — published
 
 ### Supporting local expansion
 

@@ -111,7 +111,7 @@ const serviceAreas = [
   { name: "Turlock", href: "/areas/turlock" },
   { name: "Sacramento", href: "/areas/sacramento" },
   { name: "Elk Grove", href: "/areas/elk-grove" },
-  { name: "Merced", href: null },
+  { name: "Merced", href: "/areas/merced" },
 ];
 
 function BrandMark({ inverse = false }: { inverse?: boolean }) {

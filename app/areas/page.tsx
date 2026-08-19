@@ -7,12 +7,12 @@ import { areaPages } from "./area-data";
 export const metadata: Metadata = {
   title: "Central Valley Water System Service Areas | Central Valley Pure Water",
   description:
-    "Explore water softener, filtration, reverse osmosis, city-water, and private-well service pages for Modesto, Stockton, Tracy, Manteca, and Turlock.",
+    "Explore water softener, filtration, reverse osmosis, city-water, and private-well service pages for eight Central Valley and Sacramento-area markets.",
   alternates: { canonical: "/areas" },
   openGraph: {
     title: "Central Valley Water System Service Areas",
     description:
-      "Find source-aware water system guidance for Modesto, Stockton, Tracy, Manteca, and Turlock properties.",
+      "Find source-aware water system guidance for eight Central Valley and Sacramento-area markets.",
     type: "website",
     url: "/areas",
     images: [{ url: "/cvpurewater-hero.webp", width: 1586, height: 992, alt: "Central Valley Pure Water treatment systems" }],
@@ -60,7 +60,7 @@ export default function AreasPage() {
       <section className="service-index-hero">
         <p className="eyebrow light-eyebrow"><span /> Central Valley service coverage</p>
         <h1>Local water system guidance starts with the property.</h1>
-        <p>Explore the first five city pages below. Each one connects a distinct local search need to the right service pathway without pretending every address has the same water source or installation conditions.</p>
+        <p>Explore all eight approved launch-market pages below. Each one connects a distinct local search need to the right service pathway without pretending every address has the same water source or installation conditions.</p>
         <div className="service-hero-actions">
           <a className="button button-call" href="tel:+15107255120"><span className="call-icon" aria-hidden="true">☎</span><span>Call (510) 725-5120</span></a>
           <Link className="button button-ghost" href="/services">Compare water services <span aria-hidden="true">→</span></Link>
