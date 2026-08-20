@@ -1,0 +1,90 @@
+name: Apply and validate free California water check
+
+on:
+  push:
+    branches:
+      - feature/free-california-water-check
+    paths:
+      - .github/workflows/apply-free-california-water-check.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: free-california-water-check-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  apply-validate-commit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Check out feature branch
+        uses: actions/checkout@v4
+        with:
+          ref: feature/free-california-water-check
+          fetch-depth: 0
+
+      - name: Reassemble and verify implementation patch
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .water-check-patch/part00 \
+              .water-check-patch/part01 \
+              .water-check-patch/part02 \
+              .water-check-patch/part03 \
+              .water-check-patch/part04 > /tmp/water-check.patch.gz.b64
+          echo "4c14b86254317a7d8ee5f999354cb488951c09cde8bc682d3d47381ebbca91e5  /tmp/water-check.patch.gz.b64" | sha256sum -c -
+          base64 --decode /tmp/water-check.patch.gz.b64 > /tmp/water-check.patch.gz
+          echo "94ee154f11a516c9a11e3d70896148a5b04db6627083068e189b303539cb5bf7  /tmp/water-check.patch.gz" | sha256sum -c -
+          gzip -dc /tmp/water-check.patch.gz > /tmp/water-check.patch
+          echo "5d484333563db2bd3db8eb03fa1be922d4ade135f42f9ac80e8e1aae353f4950  /tmp/water-check.patch" | sha256sum -c -
+
+      - name: Apply source changes and check the diff
+        shell: bash
+        run: |
+          set -euo pipefail
+          git apply --check /tmp/water-check.patch
+          git apply /tmp/water-check.patch
+          git diff --check
+          git status --short
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Run repository test suite
+        run: npm test
+
+      - name: Run the production Next.js build
+        run: npx next build
+
+      - name: Commit the verified implementation
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- \
+            SEO_ROADMAP.md \
+            SEO_TASK_ADDENDUM.md \
+            app/api/water-check/route.ts \
+            app/mobile-menu.tsx \
+            app/page.tsx \
+            app/sitemap.ts \
+            app/water-check/page.tsx \
+            app/water-check/water-check-data.ts \
+            app/water-check/water-check-experience.tsx \
+            app/water-check/water-check-launcher.module.css \
+            app/water-check/water-check-launcher.tsx \
+            app/water-check/water-check.module.css \
+            tests/rendered-html.test.mjs
+          git diff --cached --check
+          git diff --cached --stat
+          git commit -m "Launch free California water check"
+          git push origin HEAD:feature/free-california-water-check
