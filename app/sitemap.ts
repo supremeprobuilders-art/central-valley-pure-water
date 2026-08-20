@@ -6,12 +6,19 @@ import { servicePages } from "./services/service-data";
 export default function sitemap(): MetadataRoute.Sitemap {
   const coreUpdated = new Date("2026-08-08");
   const areaUpdated = new Date("2026-08-18");
+  const waterCheckUpdated = new Date("2026-08-20");
   return [
     {
       url: "https://www.cvpurewater.com",
       lastModified: areaUpdated,
       changeFrequency: "weekly",
       priority: 1,
+    },
+    {
+      url: "https://www.cvpurewater.com/water-check",
+      lastModified: waterCheckUpdated,
+      changeFrequency: "weekly",
+      priority: 0.95,
     },
     {
       url: "https://www.cvpurewater.com/services",

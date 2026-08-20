@@ -1,6 +1,6 @@
 # Central Valley Pure Water SEO Roadmap
 
-Last updated: 2026-08-18
+Last updated: 2026-08-20
 
 ## Operating principles
 
@@ -83,13 +83,38 @@ Last updated: 2026-08-18
 - Added page-specific metadata, canonical, visible breadcrumbs, phone CTAs, FAQs, supported structured data, service links, reciprocal Sacramento linking, homepage access, sitemap coverage, and rendered-route tests.
 - Expanded the XML sitemap from 16 to 17 canonical URLs without adding unsupported provider, contaminant, health, savings, warranty, certification, review, or pricing claims.
 
+### Sprint 7 — Free California Water Check (source implementation ready)
+
+- Built an original, no-signup `/water-check` experience for California ZIP codes while preserving the phone-first homepage as the primary sales page.
+- Added a homepage hero pathway, substantial homepage ZIP launcher, desktop navigation, mobile navigation, footer link, canonical metadata, sitemap coverage, and rendered-route tests.
+- Matched Census ZIP Code Tabulation Area geometry to California State Water Board public water-system service boundaries and prioritized systems containing the ZIP representative center.
+- Added postal-point fallback for ZIPs without a Census boundary and a separate private-well path that remains available even when public systems overlap the ZIP.
+- Added a selected-system report with official system facts and a ten-year EPA violation-record summary. Multiple enforcement rows for one violation and compliance period are grouped to avoid inflating the count.
+- Required users to confirm the provider and PWSID on the current water bill because ZIP boundaries and water-service boundaries do not align exactly.
+- Kept recommendations goal-based—hard-water concerns, kitchen drinking water, both, or private well—rather than claiming that a product treats every item in a public record.
+- Added the confirmed `$3,495` complete-home offer, Hearth financing qualification, standard-installation scope, and all required exclusions.
+- Added privacy-minimized funnel events for starts, successful lookups, errors, system selection, recommendation views, and calls. Analytics receives only the first three ZIP digits.
+- Kept query-string lookups canonical to `/water-check`; no thin indexable ZIP pages are created.
+- Documented the separate ETL/cache required for a trustworthy analyte-by-analyte report from California's very large official laboratory-result files. EWG data is not scraped or reused.
+- Production merge, deployment, live official-source verification, and analytics wiring remain required before this sprint is marked live.
+
 ## Current blockers
 
 - Vercel project metadata does not yet show native Git-triggered deployments from GitHub `main`; the automation currently deploys the exact repository artifact through the authenticated Vercel connection.
 - The GoHighLevel form destination and required fields are not confirmed, so the quote form remains deferred.
 - Google Search Console, Google Analytics 4, call tracking, and Google Business Profile insights are not connected, so verified impressions, clicks, sessions, calls, and leads cannot yet be reported.
+- A complete detected-analyte report requires a first-party ingestion, normalization, and cache layer over official California laboratory-result data; direct request-time parsing would be too slow and could misrepresent raw-source detections.
 
 ## Next sprint
+
+### Free Water Check launch and growth
+
+1. Merge the verified source package, create a Vercel preview, and test public-system, private-well, invalid-ZIP, source-failure, mobile, keyboard, and call-conversion paths.
+2. Promote only after the production page, API, canonical, sitemap, structured data, internal links, and runtime logs pass verification.
+3. Add the checker funnel events to GA4/GTM and establish lookup-success, source-error, recommendation-view, and call-conversion baselines.
+4. Add contextual checker links to relevant service, city, area-hub, educational, and call-for-pricing pages without weakening the primary phone CTA.
+5. Publish original supporting resources on ZIP-versus-service-boundary matching, PWSIDs, Consumer Confidence Reports, EPA records, and city-water-versus-private-well decisions.
+6. Do not mass-publish ZIP pages. Create only substantial pages with distinct intent, current official local sources, and a useful homeowner decision path.
 
 ### Complete the launch-market cluster and strengthen measurement
 
@@ -148,6 +173,10 @@ Last updated: 2026-08-18
 
 ### Educational and problem clusters
 
+- Free California water check by ZIP
+- How ZIP codes and public water-system boundaries differ
+- How to find a PWSID and read a Consumer Confidence Report
+- What EPA violation records do and do not establish
 - Hard water signs and scale buildup
 - Water softener sizing and ownership guidance
 - Reverse osmosis maintenance
@@ -179,6 +208,12 @@ Last updated: 2026-08-18
 - Connect Google Business Profile insights.
 - Confirm GoHighLevel form destination and conversion events.
 - Establish qualified-call and qualified-form-lead reporting before A/B testing.
+- Track `water_check_start`, `water_check_success`, and `water_check_error`.
+- Track `water_system_select`, private-well selections, and `water_recommendation_view`.
+- Track `water_check_call` and the checker-assisted qualified-call rate.
+- Monitor API latency, source-unavailable rate, and successful-lookup rate.
+- Report only aggregate ZIP-prefix data; do not store unnecessary full-ZIP analytics.
+- Add a permanent Free Water Check QA and performance section to the daily SEO report.
 
 ## Lessons learned
 
@@ -189,3 +224,5 @@ Last updated: 2026-08-18
 - Private-well search results frequently make broad treatment claims. Publishing an assessment-first page tied to current property information protects accuracy and creates a stronger trust signal.
 - A phone-first pricing page can improve conversion clarity now, while the unconfirmed GoHighLevel destination remains a legitimate blocker for form submission.
 - A city cluster is more defensible when each page owns a distinct household decision and links to the relevant service path; repeating one generic template across every city would create weak local value and cannibalization risk.
+- ZIP codes are a useful entry point but are not authoritative utility boundaries; asking the homeowner to confirm the provider and PWSID is a trust and data-quality requirement.
+- Public monitoring data needs sampling-point, treatment, blending, unit, qualifier, and date context before it can support analyte-level conclusions or product-specific claims.

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const navItems = [
+  { href: "/water-check", label: "Free water check" },
   { href: "#systems", label: "Systems" },
   { href: "#reviews", label: "Reviews" },
   { href: "#how-it-works", label: "How it works" },
