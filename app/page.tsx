@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { AffiliatePartners } from "./affiliate-partners";
 import { MobileMenu } from "./mobile-menu";
+import { WaterCheckLauncher } from "./water-check/water-check-launcher";
 
 const phoneDisplay = "(510) 725-5120";
 const phoneHref = "tel:+15107255120";
@@ -200,6 +201,7 @@ export default function Home() {
           <BrandMark />
         </a>
         <nav className="desktop-nav" aria-label="Primary navigation">
+          <Link href="/water-check">Free water check</Link>
           <a href="#systems">Systems</a>
           <a href="#reviews">Reviews</a>
           <a href="#how-it-works">How it works</a>
@@ -239,9 +241,9 @@ export default function Home() {
           </p>
           <div className="hero-actions">
             <PhoneButton>Call now for pricing</PhoneButton>
-            <a className="button button-ghost" href="#systems">
-              See our systems <span aria-hidden="true">↓</span>
-            </a>
+            <Link className="button button-ghost" href="/water-check">
+              Free water check <span aria-hidden="true">→</span>
+            </Link>
           </div>
           <ul className="hero-notes" aria-label="Service highlights">
             <li><span>✓</span> Special pricing available</li>
@@ -277,6 +279,8 @@ export default function Home() {
         </div>
         <PhoneButton className="button-dark">Talk to a water specialist</PhoneButton>
       </section>
+
+      <WaterCheckLauncher />
 
       <section className="section systems-section" id="systems">
         <div className="section-heading centered">
@@ -523,6 +527,7 @@ export default function Home() {
           </div>
           <div>
             <h3>Company</h3>
+            <Link href="/water-check">Free California water check</Link>
             <a href="#reviews">Customer reviews</a>
             <a href="#how-it-works">How it works</a>
             <Link href="/areas">Service areas</Link>
