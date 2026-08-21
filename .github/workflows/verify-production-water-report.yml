@@ -1,0 +1,130 @@
+name: Verify production water quality report
+
+on:
+  push:
+    branches:
+      - verify/production-water-report-20260821
+    paths:
+      - .github/workflows/verify-production-water-report.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-production:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Verify production routes and official monitoring report
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from __future__ import annotations
+
+          import json
+          import time
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+
+          BASE = "https://www.cvpurewater.com"
+          USER_AGENT = "Central Valley Pure Water production verification/1.0"
+
+          def request(path: str, timeout: int = 60):
+              req = urllib.request.Request(
+                  BASE + path,
+                  headers={
+                      "User-Agent": USER_AGENT,
+                      "Accept": "application/json,text/html,application/xml",
+                      "Cache-Control": "no-cache",
+                  },
+              )
+              return urllib.request.urlopen(req, timeout=timeout)
+
+          def get_text(path: str, timeout: int = 60) -> str:
+              with request(path, timeout=timeout) as response:
+                  assert response.status == 200, (path, response.status)
+                  return response.read().decode("utf-8")
+
+          def get_json(path: str, timeout: int = 180):
+              return json.loads(get_text(path, timeout=timeout))
+
+          page = None
+          last_error = None
+          for attempt in range(18):
+              try:
+                  page = get_text("/water-check?production_verify=1", timeout=45)
+                  break
+              except Exception as exc:
+                  last_error = repr(exc)
+                  time.sleep(10)
+          assert page is not None, f"Production page did not become available: {last_error}"
+
+          required_page_text = [
+              "actual public water tests",
+              "actual water-test results",
+              "best-fit system recommendation",
+              "No email",
+              "No signup",
+              "(510) 725-5120",
+          ]
+          lowered_page = page.lower()
+          for expected in required_page_text:
+              assert expected.lower() in lowered_page, expected
+          assert 'rel="canonical" href="https://www.cvpurewater.com/water-check"' in page
+
+          homepage = get_text("/?production_verify=1")
+          assert 'href="/water-check"' in homepage
+          assert "Free water check" in homepage
+
+          sitemap = get_text("/sitemap.xml?production_verify=1")
+          assert "https://www.cvpurewater.com/water-check" in sitemap
+
+          lookup = get_json("/api/water-check?zip=95351&production_verify=1")
+          systems = lookup.get("systems", [])
+          assert any(system.get("pwsId") == "CA5010010" for system in systems), systems
+
+          query = urllib.parse.urlencode({
+              "pws": "CA5010010",
+              "name": "MODESTO, CITY OF",
+              "production_verify": "1",
+          })
+          report = get_json(f"/api/water-report?{query}", timeout=180)
+          assert report["pwsId"] == "CA5010010", report.get("pwsId")
+          assert report["summary"]["recordsReviewed"] > 0, report["summary"]
+          assert report["summary"]["detectedAnalytes"] > 0, report["summary"]
+          assert report["analytes"], report
+          assert report["recommendation"]["key"], report["recommendation"]
+          assert report["recommendation"]["title"], report["recommendation"]
+          assert report["officialLinks"]["systemDetail"], report["officialLinks"]
+          assert report["officialLinks"]["monitoringResults"], report["officialLinks"]
+
+          analyte_names = {item["name"].upper() for item in report["analytes"]}
+          assert "NITRATE" in analyte_names, sorted(analyte_names)
+
+          invalid = urllib.request.Request(
+              BASE + "/api/water-report?pws=bad&production_verify=1",
+              headers={"User-Agent": USER_AGENT, "Accept": "application/json"},
+          )
+          try:
+              urllib.request.urlopen(invalid, timeout=30)
+              raise AssertionError("Invalid PWSID unexpectedly returned 200")
+          except urllib.error.HTTPError as error:
+              assert error.code == 400, error.code
+
+          print(json.dumps({
+              "productionPage": "pass",
+              "homepageLink": "pass",
+              "sitemap": "pass",
+              "zip": lookup["zip"],
+              "matchedSystem": "CA5010010",
+              "recordsReviewed": report["summary"]["recordsReviewed"],
+              "detectedAnalytes": report["summary"]["detectedAnalytes"],
+              "listedMclExceedances": report["summary"]["aboveListedMcl"],
+              "recommendation": report["recommendation"]["key"],
+              "analytesShown": sorted(analyte_names),
+              "invalidInput": "controlled-400",
+          }, indent=2))
+          PY
