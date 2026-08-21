@@ -1,0 +1,180 @@
+name: Build and validate actual water quality report
+
+on:
+  push:
+    branches:
+      - fix/real-water-quality-report
+    paths:
+      - .github/workflows/build-real-water-quality-report.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: real-water-quality-report-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build-validate-commit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out implementation branch
+        uses: actions/checkout@v4
+        with:
+          ref: fix/real-water-quality-report
+          fetch-depth: 0
+
+      - name: Unpack and apply the implementation payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "0bd93c0971c75d191f61308d55b1b80301f10dbdf28a28beeec6cf40de0ea01a  .real-water-report/payload.b64" | sha256sum -c -
+          base64 --decode .real-water-report/payload.b64 > /tmp/real-water-report.tar.gz
+          echo "022c770255dc6d31c962baae456b8d922fdfd739a163e126b2740185f5de09fa  /tmp/real-water-report.tar.gz" | sha256sum -c -
+          mkdir -p /tmp/real-water-report
+          tar -xzf /tmp/real-water-report.tar.gz -C /tmp/real-water-report
+          python /tmp/real-water-report/apply.py
+          git diff --check
+          git status --short
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install locked production and development dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm ci --include=dev
+
+      - name: Run repository tests
+        run: npm test
+
+      - name: Run the production Next.js build
+        run: npx next build
+
+      - name: Start the built application
+        shell: bash
+        run: |
+          set -euo pipefail
+          npx next start -p 3100 > /tmp/real-water-report-next.log 2>&1 &
+          echo $! > /tmp/real-water-report-next.pid
+          for attempt in $(seq 1 60); do
+            if curl --fail --silent --show-error http://127.0.0.1:3100/water-check > /tmp/water-check.html; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/real-water-report-next.log
+          exit 1
+
+      - name: Validate rendered report page and live official-data integration
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from __future__ import annotations
+          import json
+          import urllib.parse
+          import urllib.request
+
+          BASE = "http://127.0.0.1:3100"
+
+          def get_text(path: str, timeout: int = 30) -> str:
+              request = urllib.request.Request(
+                  BASE + path,
+                  headers={"User-Agent": "Central Valley Pure Water build verification/1.0"},
+              )
+              with urllib.request.urlopen(request, timeout=timeout) as response:
+                  assert response.status == 200, (path, response.status)
+                  return response.read().decode("utf-8")
+
+          def get_json(path: str, timeout: int = 150):
+              return json.loads(get_text(path, timeout=timeout))
+
+          page = get_text("/water-check")
+          required_page_text = [
+              "Actual water-test results on file",
+              "actual public water tests",
+              "Best-fit system",
+              "California Drinking Water Watch",
+              "No email",
+              "No signup",
+              "(510) 725-5120",
+          ]
+          for expected in required_page_text:
+              assert expected.lower() in page.lower(), expected
+
+          cases = [
+              ("CA5010010", "MODESTO, CITY OF"),
+              ("CA3410020", "CITY OF SACRAMENTO MAIN"),
+          ]
+          successful = []
+          failures = []
+
+          for pws_id, name in cases:
+              query = urllib.parse.urlencode({"pws": pws_id, "name": name})
+              try:
+                  data = get_json(f"/api/water-report?{query}")
+                  assert data["system"]["pwsId"] == pws_id
+                  assert data["summary"]["recordsReviewed"] > 0
+                  assert data["summary"]["detectedAnalytes"] > 0
+                  assert len(data["analytes"]) > 0
+                  assert data["recommendation"]["key"]
+                  assert data["recommendation"]["title"]
+                  assert data["officialLinks"]["drinkingWaterWatch"]
+                  successful.append((pws_id, data))
+              except Exception as exc:
+                  failures.append((pws_id, repr(exc)))
+
+          assert successful, f"No official monitoring report completed: {failures}"
+
+          modesto = next((data for pws_id, data in successful if pws_id == "CA5010010"), None)
+          if modesto:
+              names = {item["name"].upper() for item in modesto["analytes"]}
+              assert "NITRATE" in names, sorted(names)
+
+          invalid_request = urllib.request.Request(BASE + "/api/water-report?pws=bad")
+          try:
+              urllib.request.urlopen(invalid_request, timeout=20)
+              raise AssertionError("Invalid PWSID should not return 200")
+          except urllib.error.HTTPError as error:
+              assert error.code == 400, error.code
+
+          print(json.dumps({
+              "successfulSystems": [pws_id for pws_id, _ in successful],
+              "failures": failures,
+              "modestoAnalytes": len(modesto["analytes"]) if modesto else None,
+              "modestoRecordsReviewed": modesto["summary"]["recordsReviewed"] if modesto else None,
+              "modestoRecommendation": modesto["recommendation"]["key"] if modesto else None,
+          }, indent=2))
+          PY
+
+      - name: Show server log on failure
+        if: failure()
+        shell: bash
+        run: cat /tmp/real-water-report-next.log 2>/dev/null || true
+
+      - name: Commit verified source changes
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- \
+            SEO_ROADMAP.md \
+            app/api/water-report/route.ts \
+            app/water-check/page.tsx \
+            app/water-check/water-check-experience.tsx \
+            app/water-check/water-check-launcher.tsx \
+            app/water-check/water-report-panel.tsx \
+            app/water-check/water-report-panel.module.css \
+            tests/rendered-html.test.mjs
+          git diff --cached --check
+          git diff --cached --stat
+          git commit -m "Replace provider lookup with actual water quality report"
+          git push origin HEAD:fix/real-water-quality-report
