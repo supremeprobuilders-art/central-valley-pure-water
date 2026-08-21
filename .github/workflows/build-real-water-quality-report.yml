@@ -111,7 +111,7 @@ jobs:
           required_page_text = [
               "actual public water tests",
               "Best-fit system recommendation",
-              "California Drinking Water Watch",
+              "official laboratory monitoring results",
               "No email",
               "No signup",
               "(510) 725-5120",
@@ -175,6 +175,9 @@ jobs:
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm -rf .real-water-report
+          rm -f .github/workflows/build-real-water-quality-report.yml
+          git add -u -- .real-water-report .github/workflows/build-real-water-quality-report.yml
           git add -- \
             SEO_ROADMAP.md \
             app/api/water-report/route.ts \
