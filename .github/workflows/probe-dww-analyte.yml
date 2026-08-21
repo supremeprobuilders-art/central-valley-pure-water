@@ -6,6 +6,10 @@ on:
       - research/dww-analyte-probe
     paths:
       - .github/workflows/probe-dww-analyte.yml
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -99,7 +103,6 @@ jobs:
                   if 'Monitoring' in text or 'Analyte' in text or 'Result' in text or 'Excel' in text:
                       summary['links'].append({'page': name, 'text': text, 'href': href})
 
-          # Download JavaScript that may define autocomplete/result endpoints.
           for i, script_url in enumerate(summary['scripts']):
               try:
                   r = session.get(script_url, timeout=30)
@@ -108,7 +111,6 @@ jobs:
               except Exception as exc:
                   (out / f'script-{i:02d}.error.txt').write_text(repr(exc), encoding='utf-8')
 
-          # Collect URL-like JSP references from downloaded HTML/JS.
           endpoint_hits = set()
           for path in out.iterdir():
               if path.suffix not in {'.html', '.js'}:
@@ -129,5 +131,9 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add -- research/dww-probe
           git diff --cached --check
+          if git diff --cached --quiet; then
+            echo 'No probe output changes.'
+            exit 0
+          fi
           git commit -m 'Record Drinking Water Watch analyte probe'
           git push origin HEAD:research/dww-analyte-probe
