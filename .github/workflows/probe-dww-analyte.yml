@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   probe:
@@ -123,17 +123,19 @@ jobs:
           (out / 'summary.json').write_text(json.dumps(summary, indent=2, sort_keys=True), encoding='utf-8')
           PY
 
-      - name: Commit probe output
+      - name: Print probe summary and key endpoint clues
         shell: bash
         run: |
           set -euo pipefail
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -- research/dww-probe
-          git diff --cached --check
-          if git diff --cached --quiet; then
-            echo 'No probe output changes.'
-            exit 0
-          fi
-          git commit -m 'Record Drinking Water Watch analyte probe'
-          git push origin HEAD:research/dww-analyte-probe
+          echo '--- SUMMARY JSON ---'
+          cat research/dww-probe/summary.json
+          echo '--- FORM ACTIONS / INPUTS ---'
+          grep -RniE '<form|action=|method=|name=|autocomplete|ajax|\.jsp' research/dww-probe --include='*.html' --include='*.js' | head -n 1000 || true
+
+      - name: Upload complete probe output
+        uses: actions/upload-artifact@v4
+        with:
+          name: dww-analyte-probe
+          path: research/dww-probe
+          if-no-files-found: error
+          retention-days: 3
