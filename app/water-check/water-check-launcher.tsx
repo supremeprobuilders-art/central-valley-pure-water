@@ -35,16 +35,17 @@ export function WaterCheckLauncher() {
       <div className={styles.launcherCopy}>
         <p className={styles.kicker}><span /> Free California water check</p>
         <h2 id="free-water-check-heading">
-          See the public water systems that may serve <em>your ZIP.</em>
+          See actual public water-test results for <em>your ZIP.</em>
         </h2>
         <p>
-          Enter any California ZIP code for an area-level public-record lookup,
-          then choose the provider shown on your water bill. No email. No signup.
+          Enter any California ZIP code, confirm the provider shown on your bill,
+          then review recent laboratory records, listed limits, and the best-fit
+          home water system. No email. No signup.
         </p>
         <ul className={styles.launcherBenefits}>
-          <li><span aria-hidden="true">✓</span> Public-system details</li>
-          <li><span aria-hidden="true">✓</span> EPA violation-record summary</li>
-          <li><span aria-hidden="true">✓</span> Practical next-step guidance</li>
+          <li><span aria-hidden="true">✓</span> Actual monitoring results</li>
+          <li><span aria-hidden="true">✓</span> Detected levels and listed limits</li>
+          <li><span aria-hidden="true">✓</span> Best-fit system recommendation</li>
         </ul>
       </div>
 

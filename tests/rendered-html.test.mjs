@@ -95,7 +95,8 @@ test("renders the free California water check with canonical trust signals", asy
   assert.match(html, /Free California Water Check by ZIP/i);
   assert.match(html, /No email/i);
   assert.match(html, /No signup/i);
-  assert.match(html, /area-level public-record lookup/i);
+  assert.match(html, /actual public water tests/i);
+  assert.match(html, /Best-fit system recommendation/i);
   assert.match(html, /"@type":"WebApplication"/i);
   assert.match(html, /"@type":"FAQPage"/i);
   assert.match(html, /tel:\+15107255120/i);
