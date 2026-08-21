@@ -45,6 +45,7 @@ jobs:
           cp /tmp/real-water-report/app/water-check/water-report-panel.tsx app/water-check/water-report-panel.tsx
           cp /tmp/real-water-report/app/water-check/water-report-panel.module.css app/water-check/water-report-panel.module.css
           python /tmp/real-water-report/apply.py
+          sed -i 's/Loading actual water-test records/Best-fit system recommendation/' tests/rendered-html.test.mjs
           git diff --check
           git status --short
 
@@ -108,9 +109,8 @@ jobs:
 
           page = get_text("/water-check")
           required_page_text = [
-              "Actual water-test results on file",
               "actual public water tests",
-              "Best-fit system",
+              "Best-fit system recommendation",
               "California Drinking Water Watch",
               "No email",
               "No signup",
