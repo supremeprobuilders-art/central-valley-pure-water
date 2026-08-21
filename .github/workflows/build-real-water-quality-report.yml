@@ -28,7 +28,15 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          base64 --decode .real-water-report/payload.b64 > /tmp/real-water-report.tar.gz
+          cat \
+            .real-water-report/parts/part00 \
+            .real-water-report/parts/part01 \
+            .real-water-report/parts/part02 \
+            .real-water-report/parts/part03 \
+            .real-water-report/parts/part04 \
+            .real-water-report/parts/part05 > /tmp/real-water-report.b64
+          echo "0bd93c0971c75d191f61308d55b1b80301f10dbdf28a28beeec6cf40de0ea01a  /tmp/real-water-report.b64" | sha256sum -c -
+          base64 --decode /tmp/real-water-report.b64 > /tmp/real-water-report.tar.gz
           echo "022c770255dc6d31c962baae456b8d922fdfd739a163e126b2740185f5de09fa  /tmp/real-water-report.tar.gz" | sha256sum -c -
           mkdir -p /tmp/real-water-report
           tar -xzf /tmp/real-water-report.tar.gz -C /tmp/real-water-report
