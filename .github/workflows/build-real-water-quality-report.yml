@@ -128,18 +128,19 @@ jobs:
 
           for pws_id, name in cases:
               query = urllib.parse.urlencode({"pws": pws_id, "name": name})
+              data = None
               try:
                   data = get_json(f"/api/water-report?{query}")
-                  assert data["system"]["pwsId"] == pws_id
+                  assert data["pwsId"] == pws_id
                   assert data["summary"]["recordsReviewed"] > 0
                   assert data["summary"]["detectedAnalytes"] > 0
                   assert len(data["analytes"]) > 0
                   assert data["recommendation"]["key"]
                   assert data["recommendation"]["title"]
-                  assert data["officialLinks"]["drinkingWaterWatch"]
+                  assert data["officialLinks"]["monitoringResults"]
                   successful.append((pws_id, data))
               except Exception as exc:
-                  failures.append((pws_id, repr(exc)))
+                  failures.append((pws_id, repr(exc), data))
 
           assert successful, f"No official monitoring report completed: {failures}"
 
@@ -167,7 +168,9 @@ jobs:
       - name: Show server log on failure
         if: failure()
         shell: bash
-        run: cat /tmp/real-water-report-next.log 2>/dev/null || true
+        run: |
+          sleep 1
+          cat /tmp/real-water-report-next.log 2>/dev/null || true
 
       - name: Commit verified source changes
         shell: bash
