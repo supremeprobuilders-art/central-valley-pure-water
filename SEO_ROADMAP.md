@@ -83,20 +83,20 @@ Last updated: 2026-08-20
 - Added page-specific metadata, canonical, visible breadcrumbs, phone CTAs, FAQs, supported structured data, service links, reciprocal Sacramento linking, homepage access, sitemap coverage, and rendered-route tests.
 - Expanded the XML sitemap from 16 to 17 canonical URLs without adding unsupported provider, contaminant, health, savings, warranty, certification, review, or pricing claims.
 
-### Sprint 7 — Free California Water Check (source implementation ready)
+### Sprint 7 — Free California Water Report (actual monitoring implementation ready)
 
 - Built an original, no-signup `/water-check` experience for California ZIP codes while preserving the phone-first homepage as the primary sales page.
 - Added a homepage hero pathway, substantial homepage ZIP launcher, desktop navigation, mobile navigation, footer link, canonical metadata, sitemap coverage, and rendered-route tests.
 - Matched Census ZIP Code Tabulation Area geometry to California State Water Board public water-system service boundaries and prioritized systems containing the ZIP representative center.
 - Added postal-point fallback for ZIPs without a Census boundary and a separate private-well path that remains available even when public systems overlap the ZIP.
-- Added a selected-system report with official system facts and a ten-year EPA violation-record summary. Multiple enforcement rows for one violation and compliance period are grouped to avoid inflating the count.
+- Added a selected-system water quality report that resolves the official California Drinking Water Watch record, reviews representative treated, distribution, blend, or source sampling points, summarizes recent laboratory results, displays listed MCL comparisons, and labels source-water context separately.
 - Required users to confirm the provider and PWSID on the current water bill because ZIP boundaries and water-service boundaries do not align exactly.
-- Kept recommendations goal-based—hard-water concerns, kitchen drinking water, both, or private well—rather than claiming that a product treats every item in a public record.
+- Added an evidence-based best-fit system path from detected analytes and hard-water indicators while requiring provider confirmation, current utility review, model-specific certified performance, and property installation verification.
 - Added the confirmed `$3,495` complete-home offer, Hearth financing qualification, standard-installation scope, and all required exclusions.
 - Added privacy-minimized funnel events for starts, successful lookups, errors, system selection, recommendation views, and calls. Analytics receives only the first three ZIP digits.
 - Kept query-string lookups canonical to `/water-check`; no thin indexable ZIP pages are created.
 - Documented the separate ETL/cache required for a trustworthy analyte-by-analyte report from California's very large official laboratory-result files. EWG data is not scraped or reused.
-- Production merge, deployment, live official-source verification, and analytics wiring remain required before this sprint is marked live.
+- Production merge, multi-system live-source verification, mobile QA, deployment, and analytics wiring remain required before this upgraded report is marked live.
 
 ## Current blockers
 

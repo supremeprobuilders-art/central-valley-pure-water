@@ -17,6 +17,7 @@ import {
   type WaterSystem,
   type ZipLookupResponse,
 } from "./water-check-data";
+import { WaterReportPanel } from "./water-report-panel";
 import styles from "./water-check.module.css";
 
 type Concern = "hard-water" | "drinking-water" | "both" | "private-well";
@@ -408,7 +409,7 @@ export function WaterCheckExperience() {
       {detailLoading ? (
         <div className={styles.loadingCard} role="status">
           <span className={styles.spinner} aria-hidden="true" />
-          Loading the selected system and EPA record…
+          Loading the selected public water system…
         </div>
       ) : null}
 
@@ -446,6 +447,8 @@ export function WaterCheckExperience() {
             </div>
             <div><span>Boundary verified</span><strong>{formatDate(detail.system.verifiedDate)}</strong></div>
           </div>
+
+          <WaterReportPanel system={detail.system} />
 
           <section className={styles.violationSection} aria-labelledby="epa-record-heading">
             <div className={styles.violationHeading}>
@@ -503,7 +506,7 @@ export function WaterCheckExperience() {
         </div>
       ) : null}
 
-      {(detail || (waterSource === "public" && selectedPwsId && !detailLoading) || waterSource === "private-well") ? (
+      {waterSource === "private-well" ? (
         <section className={styles.recommendationSection} aria-labelledby="recommendation-heading">
           <div className={styles.recommendationPrompt}>
             <span className={styles.stepLabel}>Step 3 of 3</span>

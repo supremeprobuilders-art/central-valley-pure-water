@@ -8,14 +8,14 @@ import styles from "./water-check.module.css";
 export const metadata: Metadata = {
   title: "Free California Water Check by ZIP | Central Valley Pure Water",
   description:
-    "Enter a California ZIP code to find possible public water systems, review official system details and EPA violation records, and see practical water-treatment next steps. No signup.",
+    "Enter a California ZIP code to find the likely public water system, review recent official laboratory monitoring results and listed limits, and see the best-fit system path. No signup.",
   alternates: {
     canonical: "/water-check",
   },
   openGraph: {
     title: "Free California Water Check by ZIP",
     description:
-      "A no-signup public-record lookup for California water systems, EPA violation records, and practical next steps for your home.",
+      "A no-signup California water report with recent public laboratory monitoring results, listed limits, and a best-fit home water system path.",
     url: "/water-check",
     type: "website",
     siteName: "Central Valley Pure Water",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Free California Water Check by ZIP",
     description:
-      "Find possible public water systems and review official records with no signup.",
+      "Review recent public water-test records and a best-fit system path with no signup.",
     images: ["/cvpurewater-hero.webp"],
   },
 };
@@ -55,9 +55,9 @@ function BrandMark() {
 
 const faqs = [
   {
-    question: "Is this an actual water test?",
+    question: "Are these actual water-test results?",
     answer:
-      "No. It is an area-level lookup of public records. It does not sample water at your tap, identify conditions inside your plumbing, or replace current testing and the utility's Consumer Confidence Report.",
+      "The report displays actual public laboratory monitoring results filed for selected water-system sampling points. It is not a new sample collected from your faucet, and it does not replace current property testing or the utility's Consumer Confidence Report.",
   },
   {
     question: "Why can one ZIP code show more than one water system?",
@@ -70,9 +70,9 @@ const faqs = [
       "Public-system records do not describe an individual private well. Private-well recommendations begin with property-specific information and appropriate water testing before equipment is selected.",
   },
   {
-    question: "Does a listed violation mean I need a particular home system?",
+    question: "How does the checker recommend a system?",
     answer:
-      "Not by itself. Review current information with the utility. Home equipment should be selected for the current water source, the condition you want to improve, your plumbing, and the installation requirements—not from one historical record alone.",
+      "The report evaluates detected analytes, hard-water indicators, the sampling-point context, and the limits printed in the selected state records. It then identifies the strongest system conversation while requiring model-specific performance and installation confirmation.",
   },
 ];
 
@@ -88,7 +88,7 @@ export default function WaterCheckPage() {
         operatingSystem: "Any",
         isAccessibleForFree: true,
         description:
-          "A no-signup California ZIP-code lookup for possible public water systems, official system facts, EPA violation records, and practical water-treatment next steps.",
+          "A no-signup California ZIP-code water report with likely public systems, recent official laboratory monitoring results, listed limits, and a best-fit home water system path.",
         provider: {
           "@type": "LocalBusiness",
           name: "Central Valley Pure Water LLC",
@@ -143,17 +143,17 @@ export default function WaterCheckPage() {
 
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <p className={styles.heroEyebrow}><span /> Free public-record lookup</p>
-          <h1>What does public data say about <em>your area&apos;s water?</em></h1>
+          <p className={styles.heroEyebrow}><span /> Free California water report</p>
+          <h1>What do actual public water tests show for <em>your area?</em></h1>
           <p className={styles.heroLead}>
-            Enter any California ZIP code to find public water systems that may
-            serve the area, review official system details and EPA violation
-            records, then see a practical next step for your home.
+            Enter any California ZIP code, confirm the provider shown on your
+            bill, review recent public laboratory results and listed limits, then
+            see the strongest water-system fit for your home.
           </p>
           <ul className={styles.heroNotes} aria-label="Water check highlights">
-            <li><span>✓</span> California-only at launch</li>
+            <li><span>✓</span> Actual public monitoring results</li>
             <li><span>✓</span> No contact form required</li>
-            <li><span>✓</span> Private-well path included</li>
+            <li><span>✓</span> Best-fit system recommendation</li>
           </ul>
         </div>
       </section>
@@ -163,7 +163,7 @@ export default function WaterCheckPage() {
       <section className={styles.sourceStrip} aria-label="Official public data sources">
         <div>
           <strong>California State Water Board</strong>
-          <span>Public water-system service-area boundaries and system facts</span>
+          <span>Service-area boundaries, system facts, and laboratory monitoring results</span>
         </div>
         <div>
           <strong>U.S. Census Bureau</strong>
@@ -171,7 +171,7 @@ export default function WaterCheckPage() {
         </div>
         <div>
           <strong>U.S. EPA SDWIS</strong>
-          <span>Public water-system violation and enforcement records</span>
+          <span>Public water-system compliance, violation, and enforcement records</span>
         </div>
       </section>
 
@@ -205,10 +205,11 @@ export default function WaterCheckPage() {
           </article>
           <article>
             <span>03</span>
-            <h3>Choose the household goal</h3>
+            <h3>Review results and system fit</h3>
             <p>
-              Recommendations are based on whether the homeowner wants help with
-              hard-water symptoms, kitchen drinking water, both, or a private well.
+              The report summarizes detected analytes, listed limits, and sampling
+              context, then recommends the strongest softener, RO, filtration, or
+              complete-home conversation.
             </p>
           </article>
         </div>
