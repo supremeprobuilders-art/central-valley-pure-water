@@ -1,0 +1,180 @@
+name: Probe California DWW monitoring result tables
+
+on:
+  push:
+    branches:
+      - research/dww-analyte-probe
+    paths:
+      - .github/workflows/probe-dww-results.yml
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe-results:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: research/dww-analyte-probe
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: python -m pip install --quiet requests beautifulsoup4
+
+      - name: Fetch and parse official result tables
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p research/dww-results
+          python - <<'PY'
+          from __future__ import annotations
+          import json
+          import pathlib
+          import re
+          import requests
+          from bs4 import BeautifulSoup
+
+          out = pathlib.Path('research/dww-results')
+          session = requests.Session()
+          session.headers.update({
+              'User-Agent': 'Central Valley Pure Water data integration research/1.0 (+https://www.cvpurewater.com)'
+          })
+          endpoint = 'https://sdwis.waterboards.ca.gov/PDWW/JSP/WSamplingResultsByStoret.jsp'
+
+          base = {
+              'SystemName': 'MODESTO, CITY OF',
+              'SystemNumber': '5010010',
+              'tinwsys_is_number': '5556',
+              'begin_date': '01/01/2023',
+              'end_date': '08/21/2026',
+              'mDWW': '',
+          }
+
+          cases = [
+              {
+                  'name': 'raw-003-form-style-all',
+                  'params': {'SamplingPointID': '003-003-13935', 'SamplingPointName': 'WELL 001 - RAW TO GAC', 'Analyte': '', 'ChemicalName': ''},
+              },
+              {
+                  'name': 'raw-003-link-style-all',
+                  'params': {'FacilityID': '003', 'SamplingPointID': '003', 'WSFNumber': '13935', 'SamplingPointName': 'WELL 001 - RAW TO GAC', 'Analyte': '', 'ChemicalName': ''},
+              },
+              {
+                  'name': 'treated-099-all',
+                  'params': {'FacilityID': '099', 'SamplingPointID': '099', 'WSFNumber': '2376', 'SamplingPointName': 'WELL 001 - TREATED - GAC', 'Analyte': '', 'ChemicalName': ''},
+              },
+              {
+                  'name': 'treated-179-all',
+                  'params': {'FacilityID': '179', 'SamplingPointID': '179', 'WSFNumber': '2120', 'SamplingPointName': 'WELL 291 - TREATED - GAC', 'Analyte': '', 'ChemicalName': ''},
+              },
+              {
+                  'name': 'purchased-225-all',
+                  'params': {'FacilityID': '225', 'SamplingPointID': '225', 'WSFNumber': '33386', 'SamplingPointName': 'MODESTO IRR DISTRICT - PURCHASED-TREATED', 'Analyte': '', 'ChemicalName': ''},
+              },
+              {
+                  'name': 'tank-238-all',
+                  'params': {'FacilityID': 'DST', 'SamplingPointID': '238', 'WSFNumber': '33385', 'SamplingPointName': 'TANK NO. 10', 'Analyte': '', 'ChemicalName': ''},
+              },
+              {
+                  'name': 'treated-099-arsenic',
+                  'params': {'FacilityID': '099', 'SamplingPointID': '099', 'WSFNumber': '2376', 'SamplingPointName': 'WELL 001 - TREATED - GAC', 'Analyte': '1005', 'ChemicalName': 'ARSENIC'},
+              },
+              {
+                  'name': 'treated-099-nitrate',
+                  'params': {'FacilityID': '099', 'SamplingPointID': '099', 'WSFNumber': '2376', 'SamplingPointName': 'WELL 001 - TREATED - GAC', 'Analyte': '1040', 'ChemicalName': 'NITRATE'},
+              },
+              {
+                  'name': 'treated-099-hardness',
+                  'params': {'FacilityID': '099', 'SamplingPointID': '099', 'WSFNumber': '2376', 'SamplingPointName': 'WELL 001 - TREATED - GAC', 'Analyte': '1915', 'ChemicalName': 'HARDNESS, TOTAL (AS CACO3)'},
+              },
+              {
+                  'name': 'purchased-225-tds',
+                  'params': {'FacilityID': '225', 'SamplingPointID': '225', 'WSFNumber': '33386', 'SamplingPointName': 'MODESTO IRR DISTRICT - PURCHASED-TREATED', 'Analyte': '1930', 'ChemicalName': 'TDS'},
+              },
+          ]
+
+          summary = {'endpoint': endpoint, 'cases': []}
+
+          for case in cases:
+              params = {**base, **case['params']}
+              response = session.get(endpoint, params=params, timeout=90)
+              response.raise_for_status()
+              html_path = out / f"{case['name']}.html"
+              html_path.write_text(response.text, encoding='utf-8')
+              soup = BeautifulSoup(response.text, 'html.parser')
+              tables = []
+              for table_index, table in enumerate(soup.find_all('table')):
+                  rows = []
+                  for row in table.find_all('tr'):
+                      cells = [cell.get_text(' ', strip=True) for cell in row.find_all(['th', 'td'])]
+                      if cells:
+                          rows.append(cells)
+                  if rows:
+                      tables.append({
+                          'index': table_index,
+                          'row_count': len(rows),
+                          'max_columns': max(len(row) for row in rows),
+                          'rows': rows[:30],
+                      })
+
+              page_text = soup.get_text(' ', strip=True)
+              anchors = [
+                  {'text': a.get_text(' ', strip=True), 'href': a.get('href')}
+                  for a in soup.find_all('a', href=True)
+                  if a.get_text(' ', strip=True)
+              ]
+              case_summary = {
+                  'name': case['name'],
+                  'url': response.url,
+                  'status': response.status_code,
+                  'length': len(response.text),
+                  'title': soup.title.get_text(' ', strip=True) if soup.title else None,
+                  'table_count': len(tables),
+                  'tables': tables,
+                  'text_start': page_text[:3000],
+                  'contains_no_records': bool(re.search(r'no\s+(sampling\s+)?results|no\s+records|0\s+records', page_text, re.I)),
+                  'anchors': anchors[:100],
+              }
+              summary['cases'].append(case_summary)
+              (out / f"{case['name']}.json").write_text(
+                  json.dumps(case_summary, indent=2, ensure_ascii=False), encoding='utf-8'
+              )
+
+          (out / 'summary.json').write_text(
+              json.dumps(summary, indent=2, ensure_ascii=False), encoding='utf-8'
+          )
+          PY
+
+      - name: Print compact result summary
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          data = json.load(open('research/dww-results/summary.json'))
+          for case in data['cases']:
+              print('\n===', case['name'], '===')
+              print('status', case['status'], 'length', case['length'], 'tables', case['table_count'], 'no_records', case['contains_no_records'])
+              print('text:', case['text_start'][:700])
+              for table in case['tables']:
+                  print('table', table['index'], 'rows', table['row_count'], 'cols', table['max_columns'])
+                  for row in table['rows'][:8]:
+                      print('  ', row)
+          PY
+
+      - name: Upload complete result probe
+        uses: actions/upload-artifact@v4
+        with:
+          name: dww-result-probe
+          path: research/dww-results
+          if-no-files-found: error
+          retention-days: 3
