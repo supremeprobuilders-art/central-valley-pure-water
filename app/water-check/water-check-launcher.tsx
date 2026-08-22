@@ -35,17 +35,17 @@ export function WaterCheckLauncher() {
       <div className={styles.launcherCopy}>
         <p className={styles.kicker}><span /> Free California water check</p>
         <h2 id="free-water-check-heading">
-          See actual public water-test results for <em>your ZIP.</em>
+          Your supplier. Your water snapshot. <em>Your system match.</em>
         </h2>
         <p>
-          Enter any California ZIP code, confirm the provider shown on your bill,
-          then review recent laboratory records, listed limits, and the best-fit
-          home water system. No email. No signup.
+          Enter a California ZIP code. We find the likely water supplier automatically,
+          simplify selected recent public monitoring records, then show the treatment
+          path and current package pricing. See the report before giving us any contact info.
         </p>
         <ul className={styles.launcherBenefits}>
-          <li><span aria-hidden="true">✓</span> Actual monitoring results</li>
-          <li><span aria-hidden="true">✓</span> Detected levels and listed limits</li>
-          <li><span aria-hidden="true">✓</span> Best-fit system recommendation</li>
+          <li><span aria-hidden="true">✓</span> Supplier found automatically</li>
+          <li><span aria-hidden="true">✓</span> Simple listed-limit comparisons</li>
+          <li><span aria-hidden="true">✓</span> System match + price path</li>
         </ul>
       </div>
 
@@ -71,11 +71,11 @@ export function WaterCheckLauncher() {
               aria-describedby={error ? "home-water-check-error home-water-check-note" : "home-water-check-note"}
               aria-invalid={Boolean(error)}
             />
-            <button type="submit">Check my water <span aria-hidden="true">→</span></button>
+            <button type="submit">See my water report <span aria-hidden="true">→</span></button>
           </div>
           {error ? <p className={styles.formError} id="home-water-check-error">{error}</p> : null}
           <p className={styles.formNote} id="home-water-check-note">
-            Area records are informational and do not replace testing at your tap.
+            Free public-record lookup. No signup required to see the report.
           </p>
         </form>
       </div>
