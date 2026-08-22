@@ -1,21 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { WaterCheckExperience } from "./water-check-experience";
+import { SalesWaterCheck } from "./sales-water-check";
 import { PHONE_DISPLAY, PHONE_HREF } from "./water-check-data";
 import styles from "./water-check.module.css";
 
 export const metadata: Metadata = {
   title: "Free California Water Check by ZIP | Central Valley Pure Water",
   description:
-    "Enter a California ZIP code to find the likely public water system, review recent official laboratory monitoring results and listed limits, and see the best-fit system path. No signup.",
+    "Enter a California ZIP code to identify the likely water supplier, see a simple summary of selected recent public monitoring records, review the best-fit treatment path, and see current package pricing.",
   alternates: {
     canonical: "/water-check",
   },
   openGraph: {
     title: "Free California Water Check by ZIP",
     description:
-      "A no-signup California water report with recent public laboratory monitoring results, listed limits, and a best-fit home water system path.",
+      "Find the likely water supplier automatically, see a simple public-record water snapshot, then review the best-fit treatment path and current package pricing.",
     url: "/water-check",
     type: "website",
     siteName: "Central Valley Pure Water",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Free California Water Check by ZIP",
     description:
-      "Review recent public water-test records and a best-fit system path with no signup.",
+      "See your likely supplier, a simple water snapshot, the best-fit treatment path, and current package pricing.",
     images: ["/cvpurewater-hero.webp"],
   },
 };
@@ -57,22 +57,27 @@ const faqs = [
   {
     question: "Are these actual water-test results?",
     answer:
-      "The report displays actual public laboratory monitoring results filed for selected water-system sampling points. It is not a new sample collected from your faucet, and it does not replace current property testing or the utility's Consumer Confidence Report.",
+      "The report summarizes actual public laboratory monitoring records filed for selected water-system sampling points. It is not a new sample collected from your faucet, and it does not replace current property testing or the utility's Consumer Confidence Report.",
   },
   {
-    question: "Why can one ZIP code show more than one water system?",
+    question: "How do you know which water supplier serves my ZIP?",
     answer:
-      "ZIP codes are postal areas, while water systems use separate service boundaries. The two can overlap in several ways. Confirm the provider and public water system ID shown on your current bill.",
+      "The checker compares the ZIP area with California public-water-system service boundaries and automatically starts with the strongest ZIP match. Because postal and utility boundaries are different, you can change the supplier if the one shown is not on your current bill.",
+  },
+  {
+    question: "Why do some results show a percentage or an X multiplier?",
+    answer:
+      "When the selected state result includes an MCL, the checker compares the highest selected result with that listed limit. A result above a listed limit is not, by itself, the utility's formal compliance determination. The tool does not copy EWG's proprietary health-guideline scores.",
+  },
+  {
+    question: "How does the checker recommend a system?",
+    answer:
+      "The report uses detected analytes, hard-water indicators, sampling context, and listed limits to identify a practical treatment starting point. Home sizing and installation details still determine whether the Standard, Plus, or Dual Tank configuration should be quoted.",
   },
   {
     question: "Does the checker cover private wells?",
     answer:
       "Public-system records do not describe an individual private well. Private-well recommendations begin with property-specific information and appropriate water testing before equipment is selected.",
-  },
-  {
-    question: "How does the checker recommend a system?",
-    answer:
-      "The report evaluates detected analytes, hard-water indicators, the sampling-point context, and the limits printed in the selected state records. It then identifies the strongest system conversation while requiring model-specific performance and installation confirmation.",
   },
 ];
 
@@ -88,7 +93,7 @@ export default function WaterCheckPage() {
         operatingSystem: "Any",
         isAccessibleForFree: true,
         description:
-          "A no-signup California ZIP-code water report with likely public systems, recent official laboratory monitoring results, listed limits, and a best-fit home water system path.",
+          "A no-signup California ZIP-code water report that identifies the likely public water supplier, summarizes selected recent official monitoring records, and shows a practical treatment and pricing path.",
         provider: {
           "@type": "LocalBusiness",
           name: "Central Valley Pure Water LLC",
@@ -127,7 +132,7 @@ export default function WaterCheckPage() {
 
       <div className={styles.topBar}>
         <strong>Free California water check</strong>
-        <span>No email · No signup · Public records</span>
+        <span>See the report first · No signup required</span>
         <a href={PHONE_HREF}>Call {PHONE_DISPLAY}</a>
       </div>
 
@@ -144,21 +149,21 @@ export default function WaterCheckPage() {
       <section className={styles.hero}>
         <div className={styles.heroInner}>
           <p className={styles.heroEyebrow}><span /> Free California water report</p>
-          <h1>What do actual public water tests show for <em>your area?</em></h1>
+          <h1>Check your water. See what fits. <em>Get your price.</em></h1>
           <p className={styles.heroLead}>
-            Enter any California ZIP code, confirm the provider shown on your
-            bill, review recent public laboratory results and listed limits, then
-            see the strongest water-system fit for your home.
+            Enter your ZIP. We identify the likely water supplier automatically,
+            turn selected recent public monitoring records into a simple snapshot,
+            then show the best-fit treatment path and current package pricing.
           </p>
           <ul className={styles.heroNotes} aria-label="Water check highlights">
-            <li><span>✓</span> Actual public monitoring results</li>
-            <li><span>✓</span> No contact form required</li>
-            <li><span>✓</span> Best-fit system recommendation</li>
+            <li><span>✓</span> Supplier found automatically</li>
+            <li><span>✓</span> Simple report before any contact form</li>
+            <li><span>✓</span> $3,495 Standard package + upgrade quote path</li>
           </ul>
         </div>
       </section>
 
-      <WaterCheckExperience />
+      <SalesWaterCheck />
 
       <section className={styles.sourceStrip} aria-label="Official public data sources">
         <div>
@@ -177,39 +182,37 @@ export default function WaterCheckPage() {
 
       <section className={styles.infoSection}>
         <div className={styles.infoHeading}>
-          <p className={styles.kicker}><span /> Honest by design</p>
-          <h2>A useful starting point—not a fear-based score.</h2>
+          <p className={styles.kicker}><span /> Simple by design</p>
+          <h2>Useful enough to act on. Simple enough to understand.</h2>
           <p>
-            The tool separates what public records can show from what still has
-            to be confirmed at the property. That makes the recommendation more
-            useful and keeps the sales conversation grounded in the homeowner&apos;s
-            actual goals.
+            The homeowner gets the useful part first: likely supplier, a few clear
+            water-report numbers, the treatment path, and the price. Detailed source
+            information stays available without taking over the sales flow.
           </p>
         </div>
         <div className={styles.explainerGrid}>
           <article>
             <span>01</span>
-            <h3>Find possible providers</h3>
+            <h3>We find the supplier</h3>
             <p>
-              The checker overlays the ZIP area with California public-water-system
-              boundaries and prioritizes systems that contain the ZIP&apos;s representative center.
+              The strongest ZIP-area match appears automatically. If the bill shows
+              another provider, one tap opens the alternate supplier list.
             </p>
           </article>
           <article>
             <span>02</span>
-            <h3>Confirm the current bill</h3>
+            <h3>We simplify the report</h3>
             <p>
-              ZIP boundaries and service areas are different. The provider and
-              PWSID on the current bill are the strongest confirmation before using a report.
+              Detected items, listed-limit comparisons, and the closest selected
+              result are shown in plain English before the detailed records.
             </p>
           </article>
           <article>
             <span>03</span>
-            <h3>Review results and system fit</h3>
+            <h3>We show the next step</h3>
             <p>
-              The report summarizes detected analytes, listed limits, and sampling
-              context, then recommends the strongest softener, RO, filtration, or
-              complete-home conversation.
+              The report identifies a treatment starting point. The homeowner can
+              then price Standard, request Plus, or request Dual Tank sizing.
             </p>
           </article>
         </div>
