@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { ReferralValuePanel } from "./referral-value-panel";
 import { SalesWaterCheckV3 } from "./sales-water-check-v3";
 import { PHONE_DISPLAY, PHONE_HREF } from "./water-check-data";
 import styles from "./water-check.module.css";
@@ -56,6 +57,11 @@ const faqs = [
     question: "How does the checker recommend a system?",
     answer:
       "The report uses detected analytes, hard-water indicators, sampling context, and listed limits to identify a practical treatment starting point. Final equipment sizing and any contaminant-reduction claims still depend on the exact model, home demand, current water conditions, and installation details.",
+  },
+  {
+    question: "Can I check financing without hurting my credit score?",
+    answer:
+      "Hearth states that its prequalification process uses a soft credit inquiry that does not affect your credit score. If you choose to move forward with a lender offer, additional lender steps may include a hard credit inquiry. Approval, rates, terms, fees, and monthly payments depend on the lender and applicant.",
   },
   {
     question: "Does the checker cover private wells?",
@@ -117,6 +123,7 @@ export default function WaterCheckPage() {
         <Link href="/" aria-label="Central Valley Pure Water home"><BrandMark /></Link>
         <div className={styles.headerActions}>
           <Link href="/#systems">Explore water systems</Link>
+          <Link href="/financing">Financing</Link>
           <a className={styles.headerCall} href={PHONE_HREF}>Call {PHONE_DISPLAY}</a>
         </div>
       </header>
@@ -130,13 +137,15 @@ export default function WaterCheckPage() {
           </p>
           <ul className={styles.heroNotes} aria-label="Water check highlights">
             <li><span>✓</span> Supplier found automatically</li>
-            <li><span>✓</span> Real X-times calculations when a CA health goal is available</li>
             <li><span>✓</span> $3,495 Standard package + upgrade quote path</li>
+            <li><span>✓</span> Qualified lifetime warranty · written terms apply</li>
           </ul>
         </div>
       </section>
 
+      <ReferralValuePanel variant="banner" />
       <SalesWaterCheckV3 />
+      <ReferralValuePanel variant="value" />
 
       <section className={styles.sourceStrip} aria-label="Official public data sources">
         <div><strong>California State Water Board</strong><span>Service-area boundaries, system facts, and laboratory monitoring results</span></div>
