@@ -38,10 +38,8 @@ export default function PartnersPage() {
           quote, financing options, and installation.
         </p>
         <div className={styles.actions}>
-          <a href="mailto:info@cvpurewater.com?subject=CV%20Pure%20Water%20Partner%20Link" className={styles.primary}>
-            Get my referral link
-          </a>
-          <a href={phoneHref} className={styles.secondary}>Call us</a>
+          <a href={phoneHref} className={styles.primary}>Get my referral link</a>
+          <Link href="/water-check" className={styles.secondary}>See what clients see</Link>
         </div>
         <p className={styles.finePrint}>
           $100 reward applies to eligible referrals after a completed, paid installation.
@@ -84,10 +82,8 @@ export default function PartnersPage() {
 
       <section className={styles.cta}>
         <h2>Want your link + QR kit?</h2>
-        <p>We’ll set up your referral code and give you a one-tap link to send clients.</p>
-        <a href="mailto:info@cvpurewater.com?subject=Set%20Up%20My%20CVPW%20Referral%20Code" className={styles.primary}>
-          Set me up
-        </a>
+        <p>Call us and we’ll assign your referral code and one-tap client link.</p>
+        <a href={phoneHref} className={styles.primary}>Call {phoneDisplay}</a>
       </section>
 
       <footer className={styles.footer}>
