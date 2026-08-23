@@ -1,0 +1,265 @@
+.hero {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(250px, .55fr);
+  gap: 12px;
+}
+
+.heroMain {
+  min-height: 330px;
+  padding: clamp(26px, 5vw, 48px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: 24px;
+  background: linear-gradient(140deg, #021a31, #062d55 58%, #075c91);
+  color: #fff;
+  box-shadow: 0 24px 58px rgba(2, 26, 49, .18);
+}
+
+.eyebrow {
+  margin-bottom: auto;
+  color: #75d8ee;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.heroMain > strong {
+  margin-top: 28px;
+  font-size: clamp(72px, 11vw, 132px);
+  line-height: .76;
+  letter-spacing: -.075em;
+}
+
+.heroMain h3 {
+  margin: 22px 0 0;
+  font-size: clamp(24px, 3.4vw, 40px);
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+
+.heroMain p {
+  margin: 15px 0 0;
+  color: #d7e9f3;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.heroMain p b {
+  color: #fff;
+}
+
+.heroMain small {
+  margin-top: 9px;
+  color: #9fc5d8;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.stats {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.stats article {
+  padding: 21px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: 1px solid #d8e8ef;
+  border-radius: 19px;
+  background: #fff;
+}
+
+.stats strong,
+.stats span {
+  display: block;
+}
+
+.stats strong {
+  color: #062d55;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1;
+  letter-spacing: -.045em;
+}
+
+.stats span {
+  margin-top: 8px;
+  color: #5c7283;
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.disclosure {
+  margin-top: 12px;
+  padding: 16px 19px;
+  border: 1px solid #cde4ed;
+  border-radius: 15px;
+  background: #f5fbfd;
+}
+
+.disclosure strong {
+  display: block;
+  color: #062d55;
+  font-size: 13px;
+}
+
+.disclosure p {
+  margin: 6px 0 0;
+  color: #5c7283;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.disclosure a {
+  margin-top: 8px;
+  display: inline-block;
+  color: #0560a9;
+  font-size: 11px;
+  font-weight: 850;
+}
+
+.rows {
+  margin-top: 18px;
+  border-top: 1px solid #d8e8ef;
+}
+
+.rows article {
+  padding: 17px 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(190px, .55fr) minmax(165px, .5fr);
+  gap: 20px;
+  align-items: center;
+  border-bottom: 1px solid #d8e8ef;
+}
+
+.name strong,
+.name span,
+.name small,
+.metric strong,
+.metric b,
+.metric small,
+.legal span,
+.legal strong {
+  display: block;
+}
+
+.name strong {
+  color: #062d55;
+  font-size: 15px;
+}
+
+.name span {
+  margin-top: 4px;
+  color: #092740;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.name small {
+  margin-top: 3px;
+  color: #6d8290;
+  font-size: 10px;
+}
+
+.metric {
+  text-align: right;
+}
+
+.metric > strong {
+  color: #0878cd;
+  font-size: 34px;
+  line-height: 1;
+  letter-spacing: -.045em;
+}
+
+.metric b {
+  margin-top: 4px;
+  color: #062d55;
+  font-size: 11px;
+}
+
+.metric small {
+  margin-top: 4px;
+  color: #6d8290;
+  font-size: 9px;
+  line-height: 1.45;
+}
+
+.legal {
+  padding-left: 18px;
+  border-left: 1px solid #d8e8ef;
+}
+
+.legal span {
+  color: #6d8290;
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.legal strong {
+  margin-top: 5px;
+  color: #092740;
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+@media (max-width: 820px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .stats {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: none;
+  }
+
+  .rows article {
+    grid-template-columns: minmax(0, 1fr) minmax(160px, .7fr);
+  }
+
+  .legal {
+    grid-column: 1 / -1;
+    padding: 0;
+    border-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .heroMain {
+    min-height: 300px;
+    border-radius: 18px;
+  }
+
+  .heroMain > strong {
+    font-size: 76px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .stats article {
+    min-height: 96px;
+  }
+
+  .rows article {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .metric {
+    text-align: left;
+  }
+
+  .legal {
+    grid-column: auto;
+    padding-top: 9px;
+    border-top: 1px dashed #d8e8ef;
+  }
+}
