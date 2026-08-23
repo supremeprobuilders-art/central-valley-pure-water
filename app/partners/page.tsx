@@ -9,7 +9,7 @@ const phoneHref = "tel:+15107255120";
 export const metadata: Metadata = {
   title: "Referral Partner Program | Central Valley Pure Water",
   description:
-    "Refer Central Valley homeowners to Central Valley Pure Water with a trackable partner link. Eligible completed installations can earn a $100 referral reward.",
+    "Give Central Valley homeowners a trackable Water Check link and QR code. Eligible completed and paid installations can earn the referring partner a $100 digital gift card.",
   alternates: { canonical: "/partners" },
 };
 
@@ -31,32 +31,34 @@ export default function PartnersPage() {
       </header>
 
       <section className={styles.hero}>
-        <p className={styles.kicker}>CV PURE WATER PARTNERS</p>
-        <h1>Send a homeowner.<br /><em>Get $100 when they install.</em></h1>
+        <p className={styles.kicker}>CV PURE WATER PARTNER NETWORK</p>
+        <h1>Give clients a useful water check.<br /><em>Get $100 when a referral installs.</em></h1>
         <p className={styles.lede}>
-          We give you a trackable referral link. You send it. We handle the water check,
-          quote, financing options, and installation.
+          Your unique link and QR code send the homeowner straight to their free California Water Check.
+          They see the likely supplier, public monitoring snapshot, treatment starting point, our $3,495 Standard package,
+          qualified lifetime-warranty language, and the financing path. We handle everything after the click.
         </p>
         <div className={styles.actions}>
-          <a href={phoneHref} className={styles.primary}>Get my referral link</a>
-          <Link href="/water-check" className={styles.secondary}>See what clients see</Link>
+          <Link href="/water-check" className={styles.primary}>See the client Water Check</Link>
+          <Link href="/financing" className={styles.secondary}>See the financing page</Link>
         </div>
         <p className={styles.finePrint}>
-          $100 reward applies to eligible referrals after a completed, paid installation.
+          $100 digital gift-card reward applies only to eligible referrals after a completed and paid installation.
+          The homeowner should be told that the referring partner may receive a referral reward if the homeowner purchases.
           Program terms and applicable employer, brokerage, licensing, tax, and disclosure rules apply.
         </p>
       </section>
 
       <section className={styles.how}>
-        <div><strong>01</strong><h2>You get a link</h2><p>Example: cvpurewater.com/r/yourcode</p></div>
-        <div><strong>02</strong><h2>They check their water</h2><p>Your code stays attached for 30 days.</p></div>
-        <div><strong>03</strong><h2>We do the rest</h2><p>Quote, financing options, installation, follow-up.</p></div>
-        <div><strong>04</strong><h2>You get rewarded</h2><p>After an eligible completed installation.</p></div>
+        <div><strong>01</strong><h2>Share your exact link or QR</h2><p>Example: cvpurewater.com/r/yourcode. The referral code is attached for 30 days.</p></div>
+        <div><strong>02</strong><h2>Client checks their water</h2><p>No signup is required to see the public-record Water Check and treatment path.</p></div>
+        <div><strong>03</strong><h2>Client sees price + financing</h2><p>$3,495 Standard offer, qualified lifetime-warranty language, and Hearth financing information are visible online.</p></div>
+        <div><strong>04</strong><h2>You get the reward</h2><p>After an eligible referred installation is completed and paid, the $100 digital gift card becomes due.</p></div>
       </section>
 
       <section className={styles.audience}>
         <p className={styles.kicker}>BUILT FOR PEOPLE WHO ALREADY KNOW HOMEOWNERS</p>
-        <h2>Easy to share. Zero water sales pitch required.</h2>
+        <h2>Useful for the client. Almost no work for the partner.</h2>
         <div className={styles.chips}>
           {partnerTypes.map((type) => <span key={type}>{type}</span>)}
         </div>
@@ -65,25 +67,41 @@ export default function PartnersPage() {
       <section className={styles.offer}>
         <div>
           <p className={styles.kicker}>WHAT YOUR CLIENT SEES</p>
-          <h2>Clear price. No 90-minute kitchen-table pitch.</h2>
+          <h2>Water report first. System match second. Price before the sales call.</h2>
           <p>
-            Current promotional package: whole-home water softener + kitchen reverse osmosis
-            + RO faucet + standard installation for <strong>$3,495</strong>.
+            Current Standard Complete Home promotional package: whole-home water softener + kitchen reverse osmosis
+            + RO faucet + standard installation for <strong>$3,495</strong>. Qualified lifetime warranty; written terms,
+            eligibility requirements, exclusions, and covered components control.
           </p>
-          <Link href="/water-check" className={styles.primary}>Try the free water check</Link>
+          <p>
+            Costco&apos;s current EcoWater whole-home program directs shoppers to an in-home consultation for system pricing.
+            We publish our Standard package price up front so homeowners can compare current written scopes and quotes.
+          </p>
+          <Link href="/water-check" className={styles.primary}>Open the Water Check</Link>
         </div>
         <aside>
-          <span>Financing available</span>
-          <strong>Let the homeowner review payment options.</strong>
-          <p>Financing through Hearth is subject to approval and lender terms.</p>
-          <Link href="/financing">See financing</Link>
+          <span>Hearth financing</span>
+          <strong>Clients can check personalized payment options with a soft pull.</strong>
+          <p>
+            Hearth states that prequalification uses a soft credit inquiry with no impact to the credit score.
+            If the homeowner chooses to move forward with a lender offer, additional lender steps may include a hard inquiry.
+            Approval, rates, terms, fees, and monthly payments vary by lender and applicant.
+          </p>
+          <Link href="/financing">Open CV Pure Water financing</Link>
         </aside>
       </section>
 
       <section className={styles.cta}>
-        <h2>Want your link + QR kit?</h2>
-        <p>Call us and we’ll assign your referral code and one-tap client link.</p>
-        <a href={phoneHref} className={styles.primary}>Call {phoneDisplay}</a>
+        <h2>Your partner link should be sent, not requested.</h2>
+        <p>
+          Approved partners receive the exact Water Check link and QR code assigned to their referral code.
+          Put it in buyer packets, inspection follow-ups, email signatures, texts, and post-closing messages.
+          If you are not assigned yet, call us once and we will activate the code.
+        </p>
+        <div className={styles.actions}>
+          <a href={phoneHref} className={styles.primary}>Activate a partner code</a>
+          <Link href="/water-check" className={styles.secondary}>Preview the client experience</Link>
+        </div>
       </section>
 
       <footer className={styles.footer}>
