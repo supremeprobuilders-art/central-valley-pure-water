@@ -5,6 +5,8 @@ import styles from "./financing.module.css";
 
 const phoneDisplay = "(510) 725-5120";
 const phoneHref = "tel:+15107255120";
+const verifiedHearthApplicationUrl =
+  "https://app.gethearth.com/partners/supreme-pro-builders/motuma/apply";
 
 export const metadata: Metadata = {
   title: "Water System Financing | Central Valley Pure Water",
@@ -14,7 +16,9 @@ export const metadata: Metadata = {
 };
 
 export default function FinancingPage() {
-  const financingUrl = process.env.NEXT_PUBLIC_HEARTH_FINANCING_URL?.trim();
+  const financingUrl =
+    process.env.NEXT_PUBLIC_HEARTH_FINANCING_URL?.trim() ||
+    verifiedHearthApplicationUrl;
   const calculatorEmbedUrl = process.env.NEXT_PUBLIC_HEARTH_CALCULATOR_EMBED_URL?.trim();
 
   return (
@@ -33,13 +37,9 @@ export default function FinancingPage() {
           Financing is subject to lender approval and terms.
         </p>
         <div className={styles.actions}>
-          {financingUrl ? (
-            <a className={styles.primary} href={financingUrl} target="_blank" rel="noopener noreferrer">
-              Check my Hearth options — soft pull
-            </a>
-          ) : (
-            <a className={styles.primary} href={phoneHref}>Get the secure Hearth link</a>
-          )}
+          <a className={styles.primary} href={financingUrl} target="_blank" rel="noopener noreferrer">
+            Check monthly payment options
+          </a>
           <Link className={styles.secondary} href="/water-check">Check my water first</Link>
         </div>
       </section>
@@ -98,11 +98,9 @@ export default function FinancingPage() {
             We use Hearth&apos;s branded prequalification experience instead of estimating a payment ourselves.
             That keeps the payment options personalized and avoids advertising a rate or payment you may not actually qualify for.
           </p>
-          {financingUrl ? (
-            <a className={styles.primary} href={financingUrl} target="_blank" rel="noopener noreferrer">Open Hearth prequalification</a>
-          ) : (
-            <a className={styles.primary} href={phoneHref}>Call {phoneDisplay} for the secure link</a>
-          )}
+          <a className={styles.primary} href={financingUrl} target="_blank" rel="noopener noreferrer">
+            Open Hearth prequalification
+          </a>
         </section>
       )}
 
