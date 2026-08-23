@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState, type FormEvent } from "react";
 
 import styles from "./water-check-launcher.module.css";
@@ -44,8 +45,8 @@ export function WaterCheckLauncher() {
         </p>
         <ul className={styles.launcherBenefits}>
           <li><span aria-hidden="true">✓</span> Supplier found automatically</li>
-          <li><span aria-hidden="true">✓</span> Simple listed-limit comparisons</li>
-          <li><span aria-hidden="true">✓</span> System match + price path</li>
+          <li><span aria-hidden="true">✓</span> $3,495 Standard Complete Home offer</li>
+          <li><span aria-hidden="true">✓</span> Qualified lifetime warranty · written terms apply</li>
         </ul>
       </div>
 
@@ -78,6 +79,22 @@ export function WaterCheckLauncher() {
             Free public-record lookup. No signup required to see the report.
           </p>
         </form>
+
+        <div className={styles.quickOffer}>
+          <div>
+            <span>COMPLETE HOME PROMO</span>
+            <strong>$3,495</strong>
+            <small>Whole-home softener + kitchen RO + RO faucet + standard installation.</small>
+          </div>
+          <div>
+            <span>FINANCING</span>
+            <strong>See personalized options</strong>
+            <small>Hearth prequalification uses a soft credit inquiry with no score impact.</small>
+            <Link href="/financing" onClick={() => track("financing_click", { placement: "homepage_water_check" })}>
+              Check financing options →
+            </Link>
+          </div>
+        </div>
       </div>
     </section>
   );
