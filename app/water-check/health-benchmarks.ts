@@ -38,7 +38,7 @@ const phg = (valueMgL: number, note?: string): HealthBenchmark => ({
 // Keep this table conservative: if a name/measurement basis is ambiguous, do not
 // calculate a health multiple and fall back to the state row's listed MCL instead.
 const BENCHMARKS: Array<{ match: RegExp; benchmark: HealthBenchmark }> = [
-  { match: /\bPFOA\b|PERFLUOROOCTANOIC\s+ACID/i, benchmark: phg(0.000000007, "7 ng/L (0.007 ppt) California PHG.") },
+  { match: /\bPFOA\b|PERFLUOROOCTANOIC\s+ACID/i, benchmark: phg(0.000000007, "0.007 ng/L (0.007 ppt) California PHG.") },
   { match: /\bPFOS\b|PERFLUOROOCTANE\s+SULFON/i, benchmark: phg(0.000001, "1 ng/L (1 ppt) California PHG.") },
   { match: /^ARSENIC$/i, benchmark: phg(0.000004) },
   { match: /CHROMIUM\s*(VI|6|HEXAVALENT)|HEXAVALENT\s+CHROMIUM/i, benchmark: phg(0.00002) },
