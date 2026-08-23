@@ -41,7 +41,7 @@ const BENCHMARKS: Array<{ match: RegExp; benchmark: HealthBenchmark }> = [
   { match: /\bPFOA\b|PERFLUOROOCTANOIC\s+ACID/i, benchmark: phg(0.000000007, "0.007 ng/L (0.007 ppt) California PHG.") },
   { match: /\bPFOS\b|PERFLUOROOCTANE\s+SULFON/i, benchmark: phg(0.000001, "1 ng/L (1 ppt) California PHG.") },
   { match: /^ARSENIC$/i, benchmark: phg(0.000004) },
-  { match: /CHROMIUM\s*(VI|6|HEXAVALENT)|HEXAVALENT\s+CHROMIUM/i, benchmark: phg(0.00002) },
+  { match: /CHROMIUM\s*[,\-:]?\s*(VI|6|HEX|HEXAVALENT)|HEXAVALENT\s+CHROMIUM/i, benchmark: phg(0.00002) },
   { match: /BROMODICHLOROMETHANE|DICHLOROBROMOMETHANE/i, benchmark: phg(0.00006) },
   { match: /^BROMOFORM$/i, benchmark: phg(0.0005) },
   { match: /^CHLOROFORM$/i, benchmark: phg(0.0004) },
