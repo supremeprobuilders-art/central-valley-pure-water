@@ -5,7 +5,7 @@ import styles from "./financing.module.css";
 
 const phoneDisplay = "(510) 725-5120";
 const phoneHref = "tel:+15107255120";
-const verifiedHearthApplicationUrl =
+const hearthApplicationUrl =
   "https://app.gethearth.com/partners/supreme-pro-builders/motuma/apply";
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function FinancingPage() {
   const financingUrl =
     process.env.NEXT_PUBLIC_HEARTH_FINANCING_URL?.trim() ||
-    verifiedHearthApplicationUrl;
+    hearthApplicationUrl;
   const calculatorEmbedUrl = process.env.NEXT_PUBLIC_HEARTH_CALCULATOR_EMBED_URL?.trim();
 
   return (
