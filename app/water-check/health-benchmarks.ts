@@ -62,8 +62,9 @@ const BENCHMARKS: Array<{ match: RegExp; benchmark: HealthBenchmark }> = [
   { match: /BENZO\s*\(?A\)?\s*PYRENE/i, benchmark: phg(0.000007) },
   { match: /^PERCHLORATE$/i, benchmark: phg(0.001) },
   { match: /^FLUORIDE$/i, benchmark: phg(1) },
+  { match: /^LEAD$|LEAD\s+AND\s+LEAD\s+COMPOUNDS/i, benchmark: phg(0.0002) },
   { match: /1,?2,?3[-\s]*TRICHLOROPROPANE|123[-\s]*TCP/i, benchmark: phg(0.0000007) },
-  { match: /1,?2[-\s]*DIBROMO[-\s]*3[-\s]*CHLOROPROPANE|\bDBCP\b/i, benchmark: phg(0.0000017) },
+  { match: /1,?2[-\s]*DIBROMO[-\s]*3[-\s]*CHLOROPROPANE|\bDBCP\b/i, benchmark: phg(0.000003) },
   { match: /1,?2[-\s]*DICHLOROETHANE/i, benchmark: phg(0.0004) },
   { match: /1,?2[-\s]*DICHLOROPROPANE/i, benchmark: phg(0.0005) },
   { match: /1,?1,?2[-\s]*TRICHLOROETHANE/i, benchmark: phg(0.0003) },
@@ -118,10 +119,10 @@ function nitrateBenchmark(input: BenchmarkInput, benchmark: HealthBenchmark): He
   if (input.listedMcl !== null) {
     const unit = normalizedUnit(input.unit);
     if ((unit === "MG/L" || unit === "PPM") && input.listedMcl >= 40) {
-      return phg(45, "45 mg/L as nitrate (equivalent to 10 mg/L as nitrogen).") ;
+      return phg(45, "45 mg/L as nitrate (equivalent to 10 mg/L as nitrogen).");
     }
     if ((unit === "UG/L" || unit === "PPB") && input.listedMcl >= 40_000) {
-      return phg(45, "45 mg/L as nitrate (equivalent to 10 mg/L as nitrogen).") ;
+      return phg(45, "45 mg/L as nitrate (equivalent to 10 mg/L as nitrogen).");
     }
   }
   return benchmark;
