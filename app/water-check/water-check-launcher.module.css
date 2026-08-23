@@ -189,7 +189,8 @@
 }
 
 .zipRow button:focus-visible,
-.zipRow input:focus-visible {
+.zipRow input:focus-visible,
+.quickOffer a:focus-visible {
   outline: 3px solid var(--aqua);
   outline-offset: 3px;
 }
@@ -206,6 +207,55 @@
   color: var(--muted);
   font-size: 12px;
   line-height: 1.5;
+}
+
+.quickOffer {
+  margin-top: 22px;
+  padding-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  border-top: 1px solid #dce8ee;
+}
+
+.quickOffer > div {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid #dce8ee;
+  border-radius: 14px;
+  background: #f7fbfd;
+}
+
+.quickOffer span {
+  color: var(--blue-dark);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+
+.quickOffer strong {
+  margin-top: 6px;
+  color: var(--navy);
+  font-size: 20px;
+  line-height: 1.05;
+  letter-spacing: -.03em;
+}
+
+.quickOffer small {
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.quickOffer a {
+  margin-top: 10px;
+  color: var(--blue-dark);
+  font-size: 12px;
+  font-weight: 850;
+  text-decoration: none;
 }
 
 @media (max-width: 900px) {
@@ -230,7 +280,8 @@
     padding: 22px 16px;
   }
 
-  .zipRow {
+  .zipRow,
+  .quickOffer {
     grid-template-columns: 1fr;
   }
 }
