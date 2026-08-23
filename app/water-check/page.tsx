@@ -1,38 +1,28 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-import { SalesWaterCheck } from "./sales-water-check";
+import { SalesWaterCheckV3 } from "./sales-water-check-v3";
 import { PHONE_DISPLAY, PHONE_HREF } from "./water-check-data";
 import styles from "./water-check.module.css";
 
 export const metadata: Metadata = {
   title: "Free California Water Check by ZIP | Central Valley Pure Water",
   description:
-    "Enter a California ZIP code to identify the likely water supplier, see a simple summary of selected recent public monitoring records, review the best-fit treatment path, and see current package pricing.",
-  alternates: {
-    canonical: "/water-check",
-  },
+    "Enter a California ZIP code to identify the likely water supplier, compare selected recent public monitoring results with California health-based goals and legal limits, then see the treatment and price path.",
+  alternates: { canonical: "/water-check" },
   openGraph: {
     title: "Free California Water Check by ZIP",
     description:
-      "Find the likely water supplier automatically, see a simple public-record water snapshot, then review the best-fit treatment path and current package pricing.",
+      "Find the likely supplier automatically, see calculated California health-goal comparisons, then review the treatment path and current package pricing.",
     url: "/water-check",
     type: "website",
     siteName: "Central Valley Pure Water",
-    images: [
-      {
-        url: "/cvpurewater-hero.webp",
-        width: 1586,
-        height: 992,
-        alt: "Central Valley Pure Water home water systems",
-      },
-    ],
+    images: [{ url: "/cvpurewater-hero.webp", width: 1586, height: 992, alt: "Central Valley Pure Water home water systems" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Free California Water Check by ZIP",
-    description:
-      "See your likely supplier, a simple water snapshot, the best-fit treatment path, and current package pricing.",
+    description: "See your likely supplier, calculated health-goal comparisons, treatment path, and current package pricing.",
     images: ["/cvpurewater-hero.webp"],
   },
 };
@@ -40,15 +30,8 @@ export const metadata: Metadata = {
 function BrandMark() {
   return (
     <span className={styles.brand} aria-label="Central Valley Pure Water">
-      <span className={styles.brandWaves} aria-hidden="true">
-        <i />
-        <i />
-        <i />
-      </span>
-      <span className={styles.brandType}>
-        <strong>Central Valley</strong>
-        <span>Pure Water</span>
-      </span>
+      <span className={styles.brandWaves} aria-hidden="true"><i /><i /><i /></span>
+      <span className={styles.brandType}><strong>Central Valley</strong><span>Pure Water</span></span>
     </span>
   );
 }
@@ -65,14 +48,14 @@ const faqs = [
       "The checker compares the ZIP area with California public-water-system service boundaries and automatically starts with the strongest ZIP match. Because postal and utility boundaries are different, you can change the supplier if the one shown is not on your current bill.",
   },
   {
-    question: "Why do some results show a percentage or an X multiplier?",
+    question: "How is the X-times number calculated?",
     answer:
-      "When the selected state result includes an MCL, the checker compares the highest selected result with that listed limit. A result above a listed limit is not, by itself, the utility's formal compliance determination. The tool does not copy EWG's proprietary health-guideline scores.",
+      "When a compatible California Public Health Goal is available, the checker divides the highest selected monitoring result by that OEHHA health-based goal. The arithmetic is specific to the selected supplier and records. The PHG is not a legal limit or a line between safe and dangerous; the report shows the separate listed MCL when available.",
   },
   {
     question: "How does the checker recommend a system?",
     answer:
-      "The report uses detected analytes, hard-water indicators, sampling context, and listed limits to identify a practical treatment starting point. Home sizing and installation details still determine whether the Standard, Plus, or Dual Tank configuration should be quoted.",
+      "The report uses detected analytes, hard-water indicators, sampling context, and listed limits to identify a practical treatment starting point. Final equipment sizing and any contaminant-reduction claims still depend on the exact model, home demand, current water conditions, and installation details.",
   },
   {
     question: "Does the checker cover private wells?",
@@ -93,7 +76,7 @@ export default function WaterCheckPage() {
         operatingSystem: "Any",
         isAccessibleForFree: true,
         description:
-          "A no-signup California ZIP-code water report that identifies the likely public water supplier, summarizes selected recent official monitoring records, and shows a practical treatment and pricing path.",
+          "A no-signup California ZIP-code water report that identifies the likely public water supplier, summarizes selected recent official monitoring records, calculates available California health-goal comparisons, and shows a practical treatment and pricing path.",
         provider: {
           "@type": "LocalBusiness",
           name: "Central Valley Pure Water LLC",
@@ -114,10 +97,7 @@ export default function WaterCheckPage() {
         mainEntity: faqs.map((faq) => ({
           "@type": "Question",
           name: faq.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: faq.answer,
-          },
+          acceptedAnswer: { "@type": "Answer", text: faq.answer },
         })),
       },
     ],
@@ -125,10 +105,7 @@ export default function WaterCheckPage() {
 
   return (
     <main className={styles.page}>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
 
       <div className={styles.topBar}>
         <strong>Free California water check</strong>
@@ -137,9 +114,7 @@ export default function WaterCheckPage() {
       </div>
 
       <header className={styles.header}>
-        <Link href="/" aria-label="Central Valley Pure Water home">
-          <BrandMark />
-        </Link>
+        <Link href="/" aria-label="Central Valley Pure Water home"><BrandMark /></Link>
         <div className={styles.headerActions}>
           <Link href="/#systems">Explore water systems</Link>
           <a className={styles.headerCall} href={PHONE_HREF}>Call {PHONE_DISPLAY}</a>
@@ -149,111 +124,53 @@ export default function WaterCheckPage() {
       <section className={styles.hero}>
         <div className={styles.heroInner}>
           <p className={styles.heroEyebrow}><span /> Free California water report</p>
-          <h1>Check your water. See what fits. <em>Get your price.</em></h1>
+          <h1>Check your water. See the math. <em>Get your price.</em></h1>
           <p className={styles.heroLead}>
-            Enter your ZIP. We identify the likely water supplier automatically,
-            turn selected recent public monitoring records into a simple snapshot,
-            then show the best-fit treatment path and current package pricing.
+            Enter your ZIP. We identify the likely water supplier automatically, turn selected recent public monitoring records into a simple report, calculate available California health-goal comparisons, then show the treatment and price path.
           </p>
           <ul className={styles.heroNotes} aria-label="Water check highlights">
             <li><span>✓</span> Supplier found automatically</li>
-            <li><span>✓</span> Simple report before any contact form</li>
+            <li><span>✓</span> Real X-times calculations when a CA health goal is available</li>
             <li><span>✓</span> $3,495 Standard package + upgrade quote path</li>
           </ul>
         </div>
       </section>
 
-      <SalesWaterCheck />
+      <SalesWaterCheckV3 />
 
       <section className={styles.sourceStrip} aria-label="Official public data sources">
-        <div>
-          <strong>California State Water Board</strong>
-          <span>Service-area boundaries, system facts, and laboratory monitoring results</span>
-        </div>
-        <div>
-          <strong>U.S. Census Bureau</strong>
-          <span>ZIP Code Tabulation Area boundaries used for area matching</span>
-        </div>
-        <div>
-          <strong>U.S. EPA SDWIS</strong>
-          <span>Public water-system compliance, violation, and enforcement records</span>
-        </div>
+        <div><strong>California State Water Board</strong><span>Service-area boundaries, system facts, and laboratory monitoring results</span></div>
+        <div><strong>California OEHHA</strong><span>Public Health Goals used for compatible health-based comparisons</span></div>
+        <div><strong>U.S. Census Bureau</strong><span>ZIP Code Tabulation Area boundaries used for area matching</span></div>
       </section>
 
       <section className={styles.infoSection}>
         <div className={styles.infoHeading}>
           <p className={styles.kicker}><span /> Simple by design</p>
           <h2>Useful enough to act on. Simple enough to understand.</h2>
-          <p>
-            The homeowner gets the useful part first: likely supplier, a few clear
-            water-report numbers, the treatment path, and the price. Detailed source
-            information stays available without taking over the sales flow.
-          </p>
+          <p>The useful part comes first: likely supplier, the calculated comparison, detected items, legal-limit context, the treatment path, and the price. Detailed records stay one tap away.</p>
         </div>
         <div className={styles.explainerGrid}>
-          <article>
-            <span>01</span>
-            <h3>We find the supplier</h3>
-            <p>
-              The strongest ZIP-area match appears automatically. If the bill shows
-              another provider, one tap opens the alternate supplier list.
-            </p>
-          </article>
-          <article>
-            <span>02</span>
-            <h3>We simplify the report</h3>
-            <p>
-              Detected items, listed-limit comparisons, and the closest selected
-              result are shown in plain English before the detailed records.
-            </p>
-          </article>
-          <article>
-            <span>03</span>
-            <h3>We show the next step</h3>
-            <p>
-              The report identifies a treatment starting point. The homeowner can
-              then price Standard, request Plus, or request Dual Tank sizing.
-            </p>
-          </article>
+          <article><span>01</span><h3>We find the supplier</h3><p>The strongest ZIP-area match appears automatically. If the bill shows another provider, one tap opens the alternate supplier list.</p></article>
+          <article><span>02</span><h3>We do the math</h3><p>For compatible chemicals, the highest selected result is divided by the California OEHHA Public Health Goal. The listed legal MCL remains separate.</p></article>
+          <article><span>03</span><h3>We show the next step</h3><p>The report identifies a treatment starting point. The homeowner can price Standard, request Plus, or request Dual Tank sizing.</p></article>
         </div>
       </section>
 
       <section className={styles.infoSection}>
-        <div className={styles.infoHeading}>
-          <p className={styles.kicker}><span /> Straight answers</p>
-          <h2>Questions about the free water check.</h2>
-        </div>
-        <div className={styles.faq}>
-          {faqs.map((faq) => (
-            <details key={faq.question}>
-              <summary>{faq.question}<span aria-hidden="true">+</span></summary>
-              <p>{faq.answer}</p>
-            </details>
-          ))}
-        </div>
+        <div className={styles.infoHeading}><p className={styles.kicker}><span /> Straight answers</p><h2>Questions about the free water check.</h2></div>
+        <div className={styles.faq}>{faqs.map((faq) => <details key={faq.question}><summary>{faq.question}<span aria-hidden="true">+</span></summary><p>{faq.answer}</p></details>)}</div>
       </section>
 
       <footer className={styles.footer}>
         <div className={styles.footerInner}>
-          <div className={styles.footerCopy}>
-            <h2>Ready to talk through your water and your home?</h2>
-            <p>
-              Central Valley Pure Water installs whole-home water softeners,
-              reverse-osmosis drinking-water systems, complete-home packages,
-              and property-specific well-water solutions across California&apos;s Central Valley.
-            </p>
-          </div>
+          <div className={styles.footerCopy}><h2>Ready to talk through your water and your home?</h2><p>Central Valley Pure Water installs whole-home water softeners, reverse-osmosis drinking-water systems, complete-home packages, and property-specific well-water solutions across California&apos;s Central Valley.</p></div>
           <a className={styles.footerCall} href={PHONE_HREF}>Call {PHONE_DISPLAY}</a>
         </div>
-        <div className={styles.footerBottom}>
-          <span>© 2026 Central Valley Pure Water LLC</span>
-          <span>1620 N Carpenter Rd, Suite A5, Modesto, CA 95351 · Appointment only</span>
-        </div>
+        <div className={styles.footerBottom}><span>© 2026 Central Valley Pure Water LLC</span><span>1620 N Carpenter Rd, Suite A5, Modesto, CA 95351 · Appointment only</span></div>
       </footer>
 
-      <a className={styles.mobileCall} href={PHONE_HREF}>
-        <span aria-hidden="true">☎</span> Call {PHONE_DISPLAY}
-      </a>
+      <a className={styles.mobileCall} href={PHONE_HREF}><span aria-hidden="true">☎</span> Call {PHONE_DISPLAY}</a>
     </main>
   );
 }
