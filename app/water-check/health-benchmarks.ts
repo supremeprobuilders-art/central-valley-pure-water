@@ -38,6 +38,8 @@ const phg = (valueMgL: number, note?: string): HealthBenchmark => ({
 // Keep this table conservative: if a name/measurement basis is ambiguous, do not
 // calculate a health multiple and fall back to the state row's listed MCL instead.
 const BENCHMARKS: Array<{ match: RegExp; benchmark: HealthBenchmark }> = [
+  { match: /\bPFOA\b|PERFLUOROOCTANOIC\s+ACID/i, benchmark: phg(0.000000007, "7 ng/L (0.007 ppt) California PHG.") },
+  { match: /\bPFOS\b|PERFLUOROOCTANE\s+SULFON/i, benchmark: phg(0.000001, "1 ng/L (1 ppt) California PHG.") },
   { match: /^ARSENIC$/i, benchmark: phg(0.000004) },
   { match: /CHROMIUM\s*(VI|6|HEXAVALENT)|HEXAVALENT\s+CHROMIUM/i, benchmark: phg(0.00002) },
   { match: /BROMODICHLOROMETHANE|DICHLOROBROMOMETHANE/i, benchmark: phg(0.00006) },
@@ -63,6 +65,8 @@ const BENCHMARKS: Array<{ match: RegExp; benchmark: HealthBenchmark }> = [
   { match: /^PERCHLORATE$/i, benchmark: phg(0.001) },
   { match: /^FLUORIDE$/i, benchmark: phg(1) },
   { match: /^LEAD$|LEAD\s+AND\s+LEAD\s+COMPOUNDS/i, benchmark: phg(0.0002) },
+  { match: /^MERCURY$|INORGANIC\s+MERCURY/i, benchmark: phg(0.0012) },
+  { match: /^THALLIUM$/i, benchmark: phg(0.0001) },
   { match: /1,?2,?3[-\s]*TRICHLOROPROPANE|123[-\s]*TCP/i, benchmark: phg(0.0000007) },
   { match: /1,?2[-\s]*DIBROMO[-\s]*3[-\s]*CHLOROPROPANE|\bDBCP\b/i, benchmark: phg(0.000003) },
   { match: /1,?2[-\s]*DICHLOROETHANE/i, benchmark: phg(0.0004) },
