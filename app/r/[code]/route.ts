@@ -15,6 +15,10 @@ export async function GET(
   }
 
   destination.searchParams.set("ref", code);
+  destination.searchParams.set("utm_source", "partner");
+  destination.searchParams.set("utm_medium", "referral");
+  destination.searchParams.set("utm_campaign", "cvpw_partner_network");
+
   const response = NextResponse.redirect(destination, 302);
 
   response.cookies.set("cvpw_ref", code, {
