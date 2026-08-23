@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import styles from "./referral-value-panel.module.css";
@@ -10,6 +9,8 @@ type ReferralValuePanelProps = {
 };
 
 const CODE_PATTERN = /^[a-z0-9][a-z0-9-]{1,39}$/i;
+const HEARTH_APPLICATION_URL =
+  "https://app.gethearth.com/partners/supreme-pro-builders/motuma/apply";
 
 export function ReferralValuePanel({ variant }: ReferralValuePanelProps) {
   const [referralCode, setReferralCode] = useState("");
@@ -96,7 +97,9 @@ export function ReferralValuePanel({ variant }: ReferralValuePanelProps) {
             If you choose to move forward with a lender offer, additional lender steps may include a hard credit inquiry.
             Approval, rates, terms, fees, and payments depend on the lender and applicant.
           </p>
-          <Link href="/financing">Check financing options →</Link>
+          <a href={HEARTH_APPLICATION_URL} target="_blank" rel="noopener noreferrer">
+            Check Hearth financing options →
+          </a>
         </aside>
       </div>
 
