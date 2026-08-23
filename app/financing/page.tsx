@@ -9,7 +9,7 @@ const phoneHref = "tel:+15107255120";
 export const metadata: Metadata = {
   title: "Water System Financing | Central Valley Pure Water",
   description:
-    "Explore financing for an eligible Central Valley Pure Water project. Financing through Hearth is subject to approval and lender terms.",
+    "See the $3,495 Central Valley Pure Water package price first, then review Hearth financing options. Hearth prequalification uses a soft credit inquiry with no score impact.",
   alternates: { canonical: "/financing" },
 };
 
@@ -26,18 +26,19 @@ export default function FinancingPage() {
 
       <section className={styles.hero}>
         <p className={styles.kicker}>FINANCING</p>
-        <h1>Know the full price.<br /><em>Then see your options.</em></h1>
+        <h1>See the $3,495 price.<br /><em>Then check your payment options.</em></h1>
         <p>
-          Our current complete-home promotional package is <strong>$3,495</strong> with standard installation.
-          Financing is available through Hearth for qualified applicants, subject to lender approval and terms.
+          Our current Complete Home promotional package is <strong>$3,495</strong> with standard installation.
+          Hearth says its prequalification process uses a soft credit inquiry that does not affect your credit score.
+          Financing is subject to lender approval and terms.
         </p>
         <div className={styles.actions}>
           {financingUrl ? (
             <a className={styles.primary} href={financingUrl} target="_blank" rel="noopener noreferrer">
-              Check financing options
+              Check my Hearth options — soft pull
             </a>
           ) : (
-            <a className={styles.primary} href={phoneHref}>Ask about financing</a>
+            <a className={styles.primary} href={phoneHref}>Get the secure Hearth link</a>
           )}
           <Link className={styles.secondary} href="/water-check">Check my water first</Link>
         </div>
@@ -45,12 +46,16 @@ export default function FinancingPage() {
 
       <section className={styles.split}>
         <div>
-          <p className={styles.kicker}>SIMPLE BY DESIGN</p>
-          <h2>No fake “$49/mo” headline.</h2>
+          <p className={styles.kicker}>NO GUESSING</p>
+          <h2>Personalized options instead of a made-up monthly payment.</h2>
           <p>
-            Your actual payment, APR, term, fees, and approval are determined by the financing offers available to you.
-            We show the project price first and let the financing process show the real options.
+            Hearth prequalification can show personalized payment options without affecting your credit score.
+            A hard credit inquiry may occur only if you decide to move forward with a lender offer.
+            Your actual approval, APR, term, fees, and monthly payment depend on the lender and your application.
           </p>
+          <a href="https://gethearth.com/product-features-financing/" target="_blank" rel="noopener noreferrer nofollow">
+            How Hearth financing works ↗
+          </a>
         </div>
         <aside>
           <strong>$3,495</strong>
@@ -60,6 +65,7 @@ export default function FinancingPage() {
             <li>Kitchen reverse osmosis system</li>
             <li>Kitchen RO faucet</li>
             <li>Standard installation</li>
+            <li>Qualified lifetime warranty · written terms apply</li>
           </ul>
           <small>
             Tax, permits, electrical work, trenching, code upgrades, existing-equipment removal,
@@ -71,7 +77,7 @@ export default function FinancingPage() {
       {calculatorEmbedUrl ? (
         <section className={styles.calculator} aria-labelledby="financing-calculator-title">
           <p className={styles.kicker}>PAYMENT OPTIONS</p>
-          <h2 id="financing-calculator-title">Explore financing in Hearth’s secure experience.</h2>
+          <h2 id="financing-calculator-title">See financing inside Hearth&apos;s secure experience.</h2>
           <iframe
             title="Hearth financing calculator"
             src={calculatorEmbedUrl}
@@ -79,31 +85,36 @@ export default function FinancingPage() {
             referrerPolicy="strict-origin-when-cross-origin"
           />
           <p className={styles.disclosure}>
-            Financing is offered through Hearth’s network for qualified applicants. Central Valley Pure Water does not
-            guarantee approval, a specific rate, term, fee, or monthly payment. Review the lender’s disclosures before accepting an offer.
+            Hearth prequalification uses a soft credit inquiry with no score impact. If you accept or finalize a lender offer,
+            the lender may perform a hard credit inquiry. Central Valley Pure Water does not guarantee approval, a specific rate,
+            term, fee, or monthly payment. Review all lender disclosures before accepting an offer.
           </p>
         </section>
       ) : (
         <section className={styles.calculator} aria-labelledby="financing-calculator-title">
-          <p className={styles.kicker}>PAYMENT OPTIONS</p>
-          <h2 id="financing-calculator-title">Want to see what financing could look like?</h2>
+          <p className={styles.kicker}>SECURE HEARTH LINK</p>
+          <h2 id="financing-calculator-title">Check the real options tied to your credit profile.</h2>
           <p>
-            Call us and we’ll send the current Central Valley Pure Water financing link. We don’t publish sample payments
-            that may not match the offer available to you.
+            We use Hearth&apos;s branded prequalification experience instead of estimating a payment ourselves.
+            That keeps the payment options personalized and avoids advertising a rate or payment you may not actually qualify for.
           </p>
-          <a className={styles.primary} href={phoneHref}>Call {phoneDisplay}</a>
+          {financingUrl ? (
+            <a className={styles.primary} href={financingUrl} target="_blank" rel="noopener noreferrer">Open Hearth prequalification</a>
+          ) : (
+            <a className={styles.primary} href={phoneHref}>Call {phoneDisplay} for the secure link</a>
+          )}
         </section>
       )}
 
       <section className={styles.steps}>
-        <article><span>1</span><h3>See your system price</h3><p>Know the project price and scope first.</p></article>
-        <article><span>2</span><h3>Review financing</h3><p>Use the current Hearth experience to view available options.</p></article>
-        <article><span>3</span><h3>Choose what works</h3><p>Financing is optional. You decide whether to accept an offer.</p></article>
+        <article><span>1</span><h3>Check your water</h3><p>See the likely supplier, public monitoring snapshot, and treatment starting point.</p></article>
+        <article><span>2</span><h3>See the $3,495 scope</h3><p>Know what the Standard Complete Home package includes before financing.</p></article>
+        <article><span>3</span><h3>Prequalify with Hearth</h3><p>Review personalized payment options using a soft credit inquiry with no score impact.</p></article>
       </section>
 
       <section className={styles.cta}>
-        <h2>Not sure which system fits?</h2>
-        <p>Start with the free water check, then see the package that fits your home.</p>
+        <h2>Start with your water report.</h2>
+        <p>Then compare the recommended treatment path, package price, warranty terms, and financing options in one place.</p>
         <div className={styles.actions}>
           <Link className={styles.primary} href="/water-check">Free water check</Link>
           <a className={styles.secondary} href={phoneHref}>Call {phoneDisplay}</a>
