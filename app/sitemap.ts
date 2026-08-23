@@ -7,10 +7,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const coreUpdated = new Date("2026-08-08");
   const areaUpdated = new Date("2026-08-18");
   const waterCheckUpdated = new Date("2026-08-20");
+  const growthUpdated = new Date("2026-08-22");
   return [
     {
       url: "https://www.cvpurewater.com",
-      lastModified: areaUpdated,
+      lastModified: growthUpdated,
       changeFrequency: "weekly",
       priority: 1,
     },
@@ -19,6 +20,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: waterCheckUpdated,
       changeFrequency: "weekly",
       priority: 0.95,
+    },
+    {
+      url: "https://www.cvpurewater.com/financing",
+      lastModified: growthUpdated,
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
+      url: "https://www.cvpurewater.com/partners",
+      lastModified: growthUpdated,
+      changeFrequency: "monthly",
+      priority: 0.75,
     },
     {
       url: "https://www.cvpurewater.com/services",
