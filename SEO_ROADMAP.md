@@ -1,12 +1,80 @@
 # Central Valley Pure Water SEO Roadmap
 
-Last updated: 2026-08-20
+Last updated: 2026-08-24
+
+## Strategy pivot — Free Water Report acquisition engine (2026-08-24)
+
+### What the strategy was
+
+- The site was organized primarily around service pages and city pages for water softeners, whole-home filtration, reverse osmosis, city water, well water, and commercial treatment.
+- The Free Water Check was an important feature, but it was one pathway among several.
+- Most local pages were designed to answer product-selection or installation questions and then drive a phone call.
+
+### What the strategy is now
+
+- The Free Water Report is the primary organic-acquisition offer and the front door to the site.
+- The core promise is: **See your local public water report, likely supplier, relevant findings, recommended system path, installed price, and financing option in about two minutes—free, with no signup and no in-home sales appointment required to view the report.**
+- Be precise that this is a plain-language summary of public utility monitoring records, not a laboratory sample from the visitor's tap. Property details and current source verification still control final system fit.
+- Give useful report value before requesting contact information. Lead capture belongs after the visitor sees the supplier, report context, system path, household-sizing questions, and price.
+- Optimize for homeowners with purchase intent: people searching about hard-water signs, scale, spots, taste or odor, local contaminants, system cost, installed pricing, financing, water softeners, whole-home filtration, and reverse osmosis.
+- Use the report to bridge informational search intent into commercial intent without forcing a sales-representative conversation.
+
+### Primary keyword architecture
+
+**Report-discovery intent**
+- free water quality report by ZIP code
+- water quality by ZIP code
+- what is in my tap water
+- tap water report
+- city water quality report
+- contaminants in [city] water
+- water hardness by ZIP code
+- is [city] tap water safe
+- [city] water report
+- Consumer Confidence Report explained
+
+**Buyer intent**
+- water softener price installed
+- water softener installation [city]
+- whole-house water filtration system
+- whole-house water filter price
+- reverse osmosis system installation
+- complete home water system
+- water treatment system financing
+- monthly payments for water filtration
+- best water system for hard water
+- water softener and reverse osmosis package
+
+**Local launch markets**
+- Modesto, Stockton, Tracy, Manteca, Turlock, Sacramento, Elk Grove, and Merced first.
+- Expand outward only after the launch-market pages and measurement prove the report-to-lead path.
+
+### Target buyer
+
+- Owner-occupant homeowners, recent homebuyers, families, and property decision-makers in the approved service area.
+- Visitors already showing a problem or purchase signal: scale, spotted dishes, dry-feeling water, taste/odor concerns, appliance protection, drinking-water concerns, system replacement, installed-price research, or financing research.
+- Prioritize qualified purchase intent over raw traffic, page count, or broad awareness.
+
+### Content and conversion model
+
+1. Searcher lands on a substantial city/report page or directly on /water-check.
+2. ZIP lookup identifies the likely public water supplier while asking the homeowner to confirm the provider.
+3. The report explains selected recent public monitoring results in plain language, with dates, units, comparisons, and official sources.
+4. The system section explains what the proposed components are intended to address and what must still be property-verified; do not claim universal contaminant removal.
+5. Household size and bathroom count determine the starting system tier and installed price:
+   - Standard installed: $3,495.
+   - Standard Plus installed: $3,995.
+   - Dual Tank Full installed: $5,495.
+   - Three or more bathrooms plus four or more people selects Dual Tank.
+6. Show financing availability and the verified financing path after pricing, with lender terms controlling.
+7. Offer call, text, or optional lead capture only after the visitor receives useful report and price information.
 
 ## Operating principles
 
 - GitHub `main` is the source of truth.
 - Vercel project `central-valley-pure-water` is the production host.
 - Preserve the approved homepage design and phone-first conversion flow.
+- Make the Free Water Report the primary organic-acquisition offer and route supporting content into the report-to-system-to-price-to-financing funnel.
 - Publish only original pages with distinct search intent and useful local context.
 - Use confirmed business facts and qualified claims only.
 - Prioritize production reliability and technical SEO before content expansion.
@@ -107,25 +175,102 @@ Last updated: 2026-08-20
 
 ## Next sprint
 
-### Free Water Check launch and growth
+### Make the Free Water Report the primary SEO front door
 
-1. Merge the verified source package, create a Vercel preview, and test public-system, private-well, invalid-ZIP, source-failure, mobile, keyboard, and call-conversion paths.
-2. Promote only after the production page, API, canonical, sitemap, structured data, internal links, and runtime logs pass verification.
-3. Add the checker funnel events to GA4/GTM and establish lookup-success, source-error, recommendation-view, and call-conversion baselines.
-4. Add contextual checker links to relevant service, city, area-hub, educational, and call-for-pricing pages without weakening the primary phone CTA.
-5. Publish original supporting resources on ZIP-versus-service-boundary matching, PWSIDs, Consumer Confidence Reports, EPA records, and city-water-versus-private-well decisions.
-6. Do not mass-publish ZIP pages. Create only substantial pages with distinct intent, current official local sources, and a useful homeowner decision path.
+1. Rework homepage, navigation, title/description opportunities, internal links, and conversion copy so the two-minute, free, no-signup Water Report is the clearest entry point.
+2. Verify the complete flow on mobile and desktop: ZIP → supplier → report → system explanation → household/bathroom sizing → installed price → financing/call/optional lead capture.
+3. State prominently that no in-home sales appointment or lab sample is required to view the public-data report and starting installed price, while clearly distinguishing the report from a tap-specific laboratory test.
+4. Build substantial report-led landing pages for Modesto, Stockton, Tracy, Manteca, Turlock, Sacramento, Elk Grove, and Merced. Each page must use current official sources, distinct local context, and a prominent ZIP lookup—not thin city-name substitutions.
+5. Create high-intent support pages for installed water-softener pricing, whole-house filtration pricing, reverse-osmosis installation, complete-home packages, household sizing, and financing.
+6. Strengthen contextual links from every city, service, pricing, and educational page into /water-check; link report results back to the exact relevant system, installed price, financing, and call path.
+7. Add FAQ and structured data only where supported by visible, useful copy. Do not mass-publish indexable ZIP pages or manufacture contaminant, health, certification, removal, savings, warranty, or financing claims.
+8. Connect Search Console, GA4/GTM, call tracking, and lead attribution. Measure impressions → report starts → successful lookups → recommendation views → price views → financing clicks → calls/forms.
+9. Use verified funnel evidence to decide the next cities and topics. Optimize for qualified leads and sales, not page volume.
 
-### Complete the launch-market cluster and strengthen measurement
+### Daily sprint priority order
 
-1. Research and publish a substantial Merced page with one distinct primary decision path and current official-source support.
-2. Review selective city links from the most relevant core service pages after Merced completes the approved launch-market cluster.
-3. Submit the expanded sitemap and record the indexing baseline after Search Console is connected.
-4. Add selective city links from the most relevant core service pages after the remaining launch page is live.
-5. Publish the first cornerstone resource around hard-water signs and the softener-versus-filtration decision, then link it to Modesto, Stockton, and Manteca.
-6. Add a short GoHighLevel-ready quote form only after the destination and required fields are confirmed.
+1. Repair any production, report-data, indexing, or conversion problem.
+2. Improve the primary Water Report landing and result experience.
+3. Publish or strengthen one high-value launch-market report page.
+4. Publish or strengthen one purchase-intent page tied directly to report results.
+5. Improve internal linking, schema, page titles/descriptions, or measurement.
+6. Update this roadmap with completed work, verified results, blockers, and the next non-duplicate priority.
 
 ## Prioritized content backlog
+
+### Report-led acquisition cluster
+
+1. Free Water Report by ZIP — primary hub
+2. Modesto water report — report-first local landing
+3. Stockton water report
+4. Tracy water report
+5. Manteca water report
+6. Turlock water report
+7. Sacramento water report
+8. Elk Grove water report
+9. Merced water report
+10. How ZIP codes and water-system boundaries differ
+11. How to identify your water supplier and PWSID
+12. How to read a Consumer Confidence Report
+13. Public utility report versus an in-home laboratory test
+
+### Purchase-intent cluster
+
+1. Water softener installed price
+2. Whole-house filtration installed price
+3. Reverse-osmosis system installation
+4. Complete-home water system packages
+5. Standard versus Standard Plus versus Dual Tank
+6. Water-system sizing by household and bathrooms
+7. Water-treatment financing and monthly-payment options
+8. Water-softener replacement and installation planning
+9. City water versus private-well treatment path
+10. Water-treatment buying guide
+
+### Buyer-problem cluster
+
+1. Hard-water signs, scale, and spotted dishes
+2. Chlorine taste and odor questions
+3. Drinking-water and kitchen RO questions
+4. Appliance and fixture protection
+5. Existing-system replacement
+6. New-home water-system planning
+7. System maintenance and filter replacement
+
+### Existing service cluster — conversion support
+
+1. Water softeners
+2. Whole-home water filtration
+3. Reverse osmosis drinking water systems
+4. City water systems
+5. Well water treatment
+6. Commercial water treatment
+7. Call for pricing
+
+### Supporting local expansion
+
+- Riverbank
+- Oakdale
+- Ceres
+- Salida
+- Ripon
+- Lathrop
+- Lodi
+- Atwater
+- Los Banos
+- Patterson
+- Newman
+
+### Future expansion after launch-market evidence
+
+- Fresno
+- Clovis
+- Madera
+- Visalia
+- Hanford
+- Tulare
+
+
 
 ### Core service cluster
 
@@ -187,10 +332,13 @@ Last updated: 2026-08-20
 
 ## Internal-linking plan
 
-- Core service pages link to relevant city pages and buying guides.
-- City pages link to core services, nearby service areas, FAQs, and the call-for-pricing page.
-- Educational resources link to the most relevant service page rather than every commercial page.
-- Breadcrumbs and BreadcrumbList schema will be added when the first multi-level content cluster launches.
+- Make /water-check the primary next step from homepage, city, service, pricing, financing, and educational content.
+- Report-led city pages link directly into the ZIP lookup and explain what the visitor receives before any signup.
+- Report results link to the relevant system explanation, installed-price path, financing page, and call/text action.
+- Core service pages support the report funnel with product-specific answers rather than competing with it as isolated destinations.
+- Educational resources link to the Water Report plus the single most relevant service or pricing page.
+- Use descriptive anchors such as “free Modesto water report,” “check water quality by ZIP,” and “see installed system pricing,” without keyword stuffing.
+- Keep breadcrumbs and BreadcrumbList schema consistent across report, city, service, pricing, and resource clusters.
 
 ## Schema plan
 
@@ -213,7 +361,9 @@ Last updated: 2026-08-20
 - Track `water_check_call` and the checker-assisted qualified-call rate.
 - Monitor API latency, source-unavailable rate, and successful-lookup rate.
 - Report only aggregate ZIP-prefix data; do not store unnecessary full-ZIP analytics.
-- Add a permanent Free Water Check QA and performance section to the daily SEO report.
+- Add a permanent Free Water Report QA and performance section to the daily SEO report.
+- Track water_price_view, financing clicks, optional lead submissions, and report-assisted qualified leads.
+- Segment performance by launch city and aggregate ZIP prefix without storing unnecessary personal data.
 
 ## Lessons learned
 
