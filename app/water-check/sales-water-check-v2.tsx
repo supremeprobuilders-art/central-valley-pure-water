@@ -316,17 +316,20 @@ export function SalesWaterCheckV2() {
   }, [loadReport]);
 
   useEffect(() => {
-    const initialZip = new URLSearchParams(window.location.search).get("zip")?.trim() ?? "";
-    if (/^\d{5}$/.test(initialZip)) {
-      setZip(initialZip);
-      track("water_check_start", {
-        zip_prefix: initialZip.slice(0, 3),
-        placement: "water_check_query",
-      });
-      void runLookup(initialZip, false);
-    }
+    const frame = window.requestAnimationFrame(() => {
+      const initialZip = new URLSearchParams(window.location.search).get("zip")?.trim() ?? "";
+      if (/^\d{5}$/.test(initialZip)) {
+        setZip(initialZip);
+        track("water_check_start", {
+          zip_prefix: initialZip.slice(0, 3),
+          placement: "water_check_query",
+        });
+        void runLookup(initialZip, false);
+      }
+    });
 
     return () => {
+      window.cancelAnimationFrame(frame);
       lookupController.current?.abort();
       reportController.current?.abort();
     };

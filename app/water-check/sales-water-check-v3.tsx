@@ -297,12 +297,15 @@ export function SalesWaterCheckV3() {
   }, [loadReport]);
 
   useEffect(() => {
-    const initialZip = new URLSearchParams(window.location.search).get("zip")?.trim() ?? "";
-    if (/^\d{5}$/.test(initialZip)) {
-      setZip(initialZip);
-      void runLookup(initialZip, false);
-    }
+    const frame = window.requestAnimationFrame(() => {
+      const initialZip = new URLSearchParams(window.location.search).get("zip")?.trim() ?? "";
+      if (/^\d{5}$/.test(initialZip)) {
+        setZip(initialZip);
+        void runLookup(initialZip, false);
+      }
+    });
     return () => {
+      window.cancelAnimationFrame(frame);
       lookupController.current?.abort();
       reportController.current?.abort();
     };

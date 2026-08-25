@@ -14,14 +14,23 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.cvpurewater.com"),
-  title: "Water Softeners & Reverse Osmosis | Central Valley Pure Water",
+  title: "Free Water Report + Installed Prices | Central Valley Pure Water",
   description:
-    "Water softeners, whole-home water systems, and reverse osmosis installation in Modesto and California's Central Valley. Call for special pricing and a quote.",
+    "Get a free California water report by ZIP, see your likely supplier and public monitoring context, then view the system path, installed price, and financing options—no signup required.",
   keywords: [
+    "free water quality report by ZIP code",
+    "water quality by ZIP code California",
+    "what is in my tap water",
+    "city water quality report",
+    "water hardness by ZIP code",
     "water softener Modesto",
     "Central Valley water softener installation",
+    "water softener price installed",
     "reverse osmosis system Modesto",
+    "reverse osmosis system installation",
     "whole home water system",
+    "whole house water filter price",
+    "water treatment system financing",
     "well water system Central Valley",
     "water softener Stockton",
     "water softener Tracy",
@@ -45,9 +54,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Central Valley Pure Water | Better Water for Your Whole Home",
+    title: "Free Water Report + Installed Prices | Central Valley Pure Water",
     description:
-      "Water softeners, reverse osmosis, and whole-home water systems for California's Central Valley. Special pricing available—call for a quote.",
+      "Enter a California ZIP to see the likely supplier, public water-record context, system path, installed price, and financing options without signing up first.",
     type: "website",
     locale: "en_US",
     siteName: "Central Valley Pure Water",
@@ -63,9 +72,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Central Valley Pure Water",
+    title: "Free Water Report + Installed Prices",
     description:
-      "Water softeners and reverse osmosis systems for Central Valley homes. Call for special pricing.",
+      "See your likely supplier, public water-record context, system path, installed price, and financing options by ZIP—no signup required.",
     images: ["/cvpurewater-hero.webp"],
   },
 };

@@ -16,8 +16,11 @@ export function ReferralValuePanel({ variant }: ReferralValuePanelProps) {
   const [referralCode, setReferralCode] = useState("");
 
   useEffect(() => {
-    const value = new URLSearchParams(window.location.search).get("ref")?.trim().toLowerCase() ?? "";
-    setReferralCode(CODE_PATTERN.test(value) ? value : "");
+    const frame = window.requestAnimationFrame(() => {
+      const value = new URLSearchParams(window.location.search).get("ref")?.trim().toLowerCase() ?? "";
+      setReferralCode(CODE_PATTERN.test(value) ? value : "");
+    });
+    return () => window.cancelAnimationFrame(frame);
   }, []);
 
   if (variant === "banner") {

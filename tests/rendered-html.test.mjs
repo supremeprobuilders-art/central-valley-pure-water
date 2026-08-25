@@ -32,7 +32,7 @@ test("renders production homepage metadata", async () => {
   const html = await response.text();
   assert.doesNotMatch(html, developmentPreviewMeta);
   assert.match(html, /<link[^>]+rel=["']canonical["'][^>]+href=["']https:\/\/www\.cvpurewater\.com\/?["']/i);
-  assert.match(html, /Water Softeners &amp; Reverse Osmosis \| Central Valley Pure Water/i);
+  assert.match(html, /Free Water Report \+ Installed Prices \| Central Valley Pure Water/i);
   assert.match(html, /"@type":"LocalBusiness"/i);
   assert.match(html, /href=["']https:\/\/www\.formadesignconsultants\.com\/["']/i);
   assert.match(html, /href=["']https:\/\/supremeprobuilders\.com\/["']/i);
@@ -40,6 +40,10 @@ test("renders production homepage metadata", async () => {
   assert.match(html, /\/partners\/supreme-pro-builders\.webp/i);
   assert.match(html, /href=["']\/water-check["']/i);
   assert.match(html, /Free California water check/i);
+  assert.match(html, /without signing up or speaking to a sales rep first/i);
+  assert.match(html, /One ZIP\. Three/i);
+  assert.match(html, /Standard \$3,495, Standard Plus \$3,995, and Dual Tank Full \$5,495/i);
+  assert.match(html, /href=["']\/areas\/merced["']/i);
 });
 
 test("renders the service-area hub and static city pages with SEO signals", async () => {
@@ -93,10 +97,10 @@ test("renders the free California water check with canonical trust signals", asy
     /<link[^>]+rel=["']canonical["'][^>]+href=["']https:\/\/www\.cvpurewater\.com\/water-check["']/i,
   );
   assert.match(html, /Free California Water Check by ZIP/i);
-  assert.match(html, /No email/i);
+  assert.match(html, /See the report first/i);
   assert.match(html, /No signup/i);
-  assert.match(html, /actual public water tests/i);
-  assert.match(html, /Best-fit system recommendation/i);
+  assert.match(html, /actual public laboratory monitoring records/i);
+  assert.match(html, /treatment and price path/i);
   assert.match(html, /"@type":"WebApplication"/i);
   assert.match(html, /"@type":"FAQPage"/i);
   assert.match(html, /tel:\+15107255120/i);

@@ -1,6 +1,6 @@
 # Central Valley Pure Water SEO Roadmap
 
-Last updated: 2026-08-24
+Last updated: 2026-08-25
 
 ## Strategy pivot — Free Water Report acquisition engine (2026-08-24)
 
@@ -73,7 +73,7 @@ Last updated: 2026-08-24
 
 - GitHub `main` is the source of truth.
 - Vercel project `central-valley-pure-water` is the production host.
-- Preserve the approved homepage design and phone-first conversion flow.
+- Preserve the approved homepage design while making the report-first path the primary conversion flow and the phone path immediately available.
 - Make the Free Water Report the primary organic-acquisition offer and route supporting content into the report-to-system-to-price-to-financing funnel.
 - Publish only original pages with distinct search intent and useful local context.
 - Use confirmed business facts and qualified claims only.
@@ -81,15 +81,15 @@ Last updated: 2026-08-24
 
 ## Current production baseline
 
-- Approved mobile-first homepage restored in GitHub.
+- Approved mobile-first homepage restored in GitHub and refocused on the free Water Report as the primary organic entry point.
 - Core offer pathways: water softeners, whole-home filtration, reverse osmosis, city-water systems, property-specific well-water treatment, and commercial treatment.
-- Primary conversion: calls to `(510) 725-5120`.
+- Primary acquisition path: homepage or city/service content → `/water-check` → supplier confirmation → public-record context → treatment starting point → installed price → financing/call.
+- The direct call path to `(510) 725-5120` remains available throughout the funnel.
 - LocalBusiness, Service, FAQPage, BreadcrumbList, CollectionPage, and ItemList structured data are present on applicable pages.
 - Canonical metadata, Open Graph data, crawlable service navigation, and mobile call actions are present.
 - A crawlable service-area hub and substantial city pages are present for Modesto, Stockton, Tracy, Manteca, and Turlock.
 - The production runtime error scan was clean on 2026-08-16.
-- A source-backed Sacramento decision page is live, bringing the area cluster to six city pages.
-- An installation-and-replacement-focused Elk Grove page is live, bringing the area cluster to seven city pages.
+- Source-backed Sacramento, Elk Grove, and Merced pages are live, bringing the area cluster to eight city pages.
 
 ## Completed
 
@@ -151,9 +151,9 @@ Last updated: 2026-08-24
 - Added page-specific metadata, canonical, visible breadcrumbs, phone CTAs, FAQs, supported structured data, service links, reciprocal Sacramento linking, homepage access, sitemap coverage, and rendered-route tests.
 - Expanded the XML sitemap from 16 to 17 canonical URLs without adding unsupported provider, contaminant, health, savings, warranty, certification, review, or pricing claims.
 
-### Sprint 7 — Free California Water Report (actual monitoring implementation ready)
+### Sprint 7 — Free California Water Report
 
-- Built an original, no-signup `/water-check` experience for California ZIP codes while preserving the phone-first homepage as the primary sales page.
+- Built and published an original, no-signup `/water-check` experience for California ZIP codes.
 - Added a homepage hero pathway, substantial homepage ZIP launcher, desktop navigation, mobile navigation, footer link, canonical metadata, sitemap coverage, and rendered-route tests.
 - Matched Census ZIP Code Tabulation Area geometry to California State Water Board public water-system service boundaries and prioritized systems containing the ZIP representative center.
 - Added postal-point fallback for ZIPs without a Census boundary and a separate private-well path that remains available even when public systems overlap the ZIP.
@@ -164,28 +164,39 @@ Last updated: 2026-08-24
 - Added privacy-minimized funnel events for starts, successful lookups, errors, system selection, recommendation views, and calls. Analytics receives only the first three ZIP digits.
 - Kept query-string lookups canonical to `/water-check`; no thin indexable ZIP pages are created.
 - Documented the separate ETL/cache required for a trustworthy analyte-by-analyte report from California's very large official laboratory-result files. EWG data is not scraped or reused.
-- Production merge, multi-system live-source verification, mobile QA, deployment, and analytics wiring remain required before this upgraded report is marked live.
+- Published the report flow with provider-confirmation, public-record limitations, installed pricing, financing, and direct-call paths. Connected measurement remains outstanding.
+
+### Sprint 8 — Homepage report-first conversion and crawl-path upgrade
+
+- Repositioned the homepage from a call-first product pitch to the free Water Report as the primary organic-acquisition offer without changing the approved visual system.
+- Rewrote the homepage title, description, social metadata, top bar, hero, trust strip, problem bridge, system section, three-step process, quote band, and FAQs around the distinct report-discovery and installed-price intents.
+- Made the visitor promise explicit: enter a California ZIP, see the likely supplier and relevant public-record context, then see the treatment starting point, confirmed installed prices, and financing path—free, with no signup or sales-representative conversation required before receiving value.
+- Preserved the critical limitations: the report is not a tap-specific laboratory test; provider confirmation, current source review, property details, and model-specific performance control the final recommendation.
+- Added visible confirmed package prices—Standard `$3,495`, Standard Plus `$3,995`, and Dual Tank Full `$5,495`—with final-scope language and lender-controlled financing terms.
+- Changed the dominant homepage CTAs to `/water-check` while preserving a prominent click-to-call path to `(510) 725-5120`.
+- Repaired the missing homepage link to the live Merced page, completing the crawl path to all eight approved launch markets.
+- Expanded rendered HTML coverage for the report-first homepage copy, all three confirmed prices, and Merced internal linking.
+- Cleared the existing React hook lint failures in Water Check state hydration and report fetching without changing the visitor-facing logic.
+- Proved the dependency lock with a clean `npm ci --include=dev`, then passed the production build, artifact validation, full lint, and all rendered/API tests.
 
 ## Current blockers
 
 - Vercel project metadata does not yet show native Git-triggered deployments from GitHub `main`; the automation currently deploys the exact repository artifact through the authenticated Vercel connection.
 - The GoHighLevel form destination and required fields are not confirmed, so the quote form remains deferred.
 - Google Search Console, Google Analytics 4, call tracking, and Google Business Profile insights are not connected, so verified impressions, clicks, sessions, calls, and leads cannot yet be reported.
-- A complete detected-analyte report requires a first-party ingestion, normalization, and cache layer over official California laboratory-result data; direct request-time parsing would be too slow and could misrepresent raw-source detections.
+- Broader and faster detected-analyte coverage will require a first-party ingestion, normalization, and cache layer over official California laboratory-result data; direct request-time parsing would be too slow and could misrepresent raw-source detections.
 
 ## Next sprint
 
-### Make the Free Water Report the primary SEO front door
+### Build the first report-led local acquisition page
 
-1. Rework homepage, navigation, title/description opportunities, internal links, and conversion copy so the two-minute, free, no-signup Water Report is the clearest entry point.
-2. Verify the complete flow on mobile and desktop: ZIP → supplier → report → system explanation → household/bathroom sizing → installed price → financing/call/optional lead capture.
-3. State prominently that no in-home sales appointment or lab sample is required to view the public-data report and starting installed price, while clearly distinguishing the report from a tap-specific laboratory test.
-4. Build substantial report-led landing pages for Modesto, Stockton, Tracy, Manteca, Turlock, Sacramento, Elk Grove, and Merced. Each page must use current official sources, distinct local context, and a prominent ZIP lookup—not thin city-name substitutions.
-5. Create high-intent support pages for installed water-softener pricing, whole-house filtration pricing, reverse-osmosis installation, complete-home packages, household sizing, and financing.
-6. Strengthen contextual links from every city, service, pricing, and educational page into /water-check; link report results back to the exact relevant system, installed price, financing, and call path.
-7. Add FAQ and structured data only where supported by visible, useful copy. Do not mass-publish indexable ZIP pages or manufacture contaminant, health, certification, removal, savings, warranty, or financing claims.
-8. Connect Search Console, GA4/GTM, call tracking, and lead attribution. Measure impressions → report starts → successful lookups → recommendation views → price views → financing clicks → calls/forms.
-9. Use verified funnel evidence to decide the next cities and topics. Optimize for qualified leads and sales, not page volume.
+1. Turn `/areas/modesto` into the first substantial report-led local acquisition page while retaining its distinct installation intent.
+2. Use current official City of Modesto and California sources, visible publication dates, provider-confirmation guidance, and a prominent ZIP lookup; do not imply that every Modesto address has the same provider or conditions.
+3. Connect report-discovery searches—Modesto water quality report, what is in Modesto tap water, water hardness, Consumer Confidence Report—with commercial searches for installed water-softener pricing, whole-home treatment, RO installation, and financing.
+4. Verify the complete mobile and desktop path: local landing page → ZIP → supplier → report → treatment explanation → household/bathroom sizing → installed price → financing/call.
+5. Add supported FAQ/schema and contextual links only where they improve the visible page; do not publish indexable ZIP pages or manufacture contaminant, health, certification, removal, savings, warranty, or financing claims.
+6. After Modesto establishes the pattern, adapt the research and intent structure—not duplicated copy—for Stockton, Tracy, Manteca, Turlock, Sacramento, Elk Grove, and Merced.
+7. Connect Search Console, GA4/GTM, call tracking, and lead attribution. Measure impressions → report starts → successful lookups → recommendation views → price views → financing clicks → calls/forms.
 
 ### Daily sprint priority order
 

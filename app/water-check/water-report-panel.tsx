@@ -98,7 +98,10 @@ function track(event: string, details: Record<string, unknown> = {}) {
   browserWindow.dataLayer?.push({ event, ...details });
 }
 
-async function getReport(system: WaterSystem, signal: AbortSignal): Promise<WaterReportResponse> {
+async function getReport(
+  system: Pick<WaterSystem, "pwsId" | "name">,
+  signal: AbortSignal,
+): Promise<WaterReportResponse> {
   const query = new URLSearchParams({
     pws: system.pwsId,
     name: system.name,
@@ -169,14 +172,17 @@ export function WaterReportPanel({ system }: { system: WaterSystem }) {
   const [report, setReport] = useState<WaterReportResponse | null>(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
+  const { name: systemName, pwsId } = system;
 
   useEffect(() => {
     const controller = new AbortController();
-    setReport(null);
-    setError("");
-    setLoading(true);
+    const frame = window.requestAnimationFrame(() => {
+      setReport(null);
+      setError("");
+      setLoading(true);
+    });
 
-    void getReport(system, controller.signal)
+    void getReport({ name: systemName, pwsId }, controller.signal)
       .then((data) => {
         setReport(data);
         track("water_monitoring_report_view", {
@@ -194,14 +200,17 @@ export function WaterReportPanel({ system }: { system: WaterSystem }) {
             ? caught.message
             : "The current monitoring records could not be loaded.",
         );
-        track("water_monitoring_report_error", { pws_id: system.pwsId });
+        track("water_monitoring_report_error", { pws_id: pwsId });
       })
       .finally(() => {
         if (!controller.signal.aborted) setLoading(false);
       });
 
-    return () => controller.abort();
-  }, [system.name, system.pwsId]);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      controller.abort();
+    };
+  }, [pwsId, systemName]);
 
   if (loading) {
     return (

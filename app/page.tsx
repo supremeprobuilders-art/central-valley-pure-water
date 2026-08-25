@@ -112,7 +112,7 @@ const serviceAreas = [
   { name: "Turlock", href: "/areas/turlock" },
   { name: "Sacramento", href: "/areas/sacramento" },
   { name: "Elk Grove", href: "/areas/elk-grove" },
-  { name: "Merced", href: null },
+  { name: "Merced", href: "/areas/merced" },
 ];
 
 function BrandMark({ inverse = false }: { inverse?: boolean }) {
@@ -191,9 +191,9 @@ export default function Home() {
 
       <div className="offer-bar">
         <span className="offer-pulse" aria-hidden="true" />
-        <strong>Special pricing available now</strong>
-        <span>Financing available · Call for your quote</span>
-        <a href={phoneHref}>Call {phoneDisplay}</a>
+        <strong>Free Water Report</strong>
+        <span>No signup · See your system and installed price in about 2 minutes</span>
+        <Link href="/water-check">Check my ZIP</Link>
       </div>
 
       <header className="site-header">
@@ -233,37 +233,38 @@ export default function Home() {
         </div>
         <div className="hero-overlay" aria-hidden="true" />
         <div className="hero-content">
-          <p className="eyebrow light-eyebrow"><span /> Central Valley water experts</p>
-          <h1>Better water for<br /><em>your whole home.</em></h1>
+          <p className="eyebrow light-eyebrow"><span /> Free California water report by ZIP</p>
+          <h1>See what&apos;s in your water.<br /><em>Then get your price.</em></h1>
           <p className="hero-lede">
-            Water softeners, whole-home solutions, and reverse osmosis drinking
-            systems—professionally installed by a local Central Valley team.
+            Enter your ZIP to find the likely water supplier, understand selected
+            public monitoring records, match a practical system, and see installed
+            pricing and financing options—without signing up or speaking to a sales rep first.
           </p>
           <div className="hero-actions">
-            <PhoneButton>Call now for pricing</PhoneButton>
-            <Link className="button button-ghost" href="/water-check">
-              Free water check <span aria-hidden="true">→</span>
+            <Link className="button button-call" href="/water-check">
+              Get my free Water Report <span aria-hidden="true">→</span>
             </Link>
+            <PhoneButton className="button-ghost">Call with questions</PhoneButton>
           </div>
           <ul className="hero-notes" aria-label="Service highlights">
-            <li><span>✓</span> Special pricing available</li>
+            <li><span>✓</span> No signup required</li>
+            <li><span>✓</span> No in-home appointment to view report</li>
             <li><span>✓</span> Financing available</li>
-            <li><span>✓</span> City &amp; well water</li>
           </ul>
         </div>
         <aside className="hero-offer">
-          <span className="hero-offer-label">Current offer</span>
-          <strong>Special system pricing</strong>
-          <p>Call today for current pricing and a quote for your home.</p>
-          <a href={phoneHref}>Get my price <span>→</span></a>
+          <span className="hero-offer-label">About 2 minutes</span>
+          <strong>Your Water Report + price</strong>
+          <p>See public water-record context, a system starting point, installed pricing, and financing options before sharing contact information.</p>
+          <Link href="/water-check">Start free <span>→</span></Link>
         </aside>
       </section>
 
-      <section className="trust-strip" aria-label="Why homeowners call Central Valley Pure Water">
-        <div><strong>Local</strong><span>Modesto-based team</span></div>
-        <div><strong>Professional</strong><span>Clean installation</span></div>
-        <div><strong>Simple</strong><span>Clear system guidance</span></div>
-        <div><strong>Flexible</strong><span>Financing available</span></div>
+      <section className="trust-strip" aria-label="Why homeowners use the free Water Report">
+        <div><strong>Free</strong><span>No signup required</span></div>
+        <div><strong>Local</strong><span>Likely supplier by ZIP</span></div>
+        <div><strong>Clear</strong><span>Public records in plain English</span></div>
+        <div><strong>Complete</strong><span>System, price, and financing</span></div>
       </section>
 
       <section className="problem-strip">
@@ -277,7 +278,7 @@ export default function Home() {
           <span>Odd taste or odor</span>
           <span>Well-water concerns</span>
         </div>
-        <PhoneButton className="button-dark">Talk to a water specialist</PhoneButton>
+        <Link className="button button-call button-dark" href="/water-check">Check my water by ZIP</Link>
       </section>
 
       <WaterCheckLauncher />
@@ -341,9 +342,9 @@ export default function Home() {
         <div className="systems-cta">
           <div>
             <strong>Not sure which system fits your home?</strong>
-            <p>One call can help you understand the options.</p>
+            <p>Start with your free Water Report, then see the system and installed-price path.</p>
           </div>
-          <PhoneButton>Get a quote by phone</PhoneButton>
+          <Link className="button button-call" href="/water-check">See my system match</Link>
         </div>
       </section>
 
@@ -395,42 +396,42 @@ export default function Home() {
 
       <section className="section process-section" id="how-it-works">
         <div className="section-heading centered">
-          <p className="eyebrow eyebrow-centered"><span /> Easy from start to finish</p>
-          <h2>One call. Three <em>simple steps.</em></h2>
+          <p className="eyebrow eyebrow-centered"><span /> Useful information before contact</p>
+          <h2>One ZIP. Three <em>simple steps.</em></h2>
         </div>
         <div className="process-grid">
           <article>
             <span className="process-step">01</span>
-            <div className="process-icon" aria-hidden="true">☎</div>
-            <h3>Tell us what you notice</h3>
-            <p>Call with your water source, household needs, and the concerns you are seeing at home.</p>
+            <div className="process-icon" aria-hidden="true">⌖</div>
+            <h3>Enter your ZIP</h3>
+            <p>We identify the likely public water supplier. Confirm it against the provider shown on your current bill.</p>
           </article>
           <article>
             <span className="process-step">02</span>
-            <div className="process-icon" aria-hidden="true">⌂</div>
-            <h3>Get a clear recommendation</h3>
-            <p>We review your setup and explain practical system options, pricing, and financing availability.</p>
+            <div className="process-icon" aria-hidden="true">≋</div>
+            <h3>Read the public-data report</h3>
+            <p>See selected monitoring context in plain English and a system starting point with clear limitations.</p>
           </article>
           <article>
             <span className="process-step">03</span>
-            <div className="process-icon" aria-hidden="true">✓</div>
-            <h3>Schedule installation</h3>
-            <p>Choose an appointment and our team will complete, test, and explain your new water system.</p>
+            <div className="process-icon" aria-hidden="true">$</div>
+            <h3>See price and financing</h3>
+            <p>Use household and bathroom details to see the installed-price path, then call, finance, or request follow-up.</p>
           </article>
         </div>
       </section>
 
       <section className="quote-band">
         <div>
-          <span>Limited-time special pricing</span>
-          <h2>Get your home&apos;s price today.</h2>
-          <p>Financing is available for qualified customers, subject to lender approval.</p>
+          <span>Free · No signup · About two minutes</span>
+          <h2>See your report, system, and installed price.</h2>
+          <p>No in-home sales appointment or lab sample is required to view the public-data report. Financing is available; lender terms control.</p>
         </div>
-        <a className="quote-band-call" href={phoneHref}>
-          <small>Tap or click to call</small>
-          <strong>{phoneDisplay}</strong>
-          <span>Get a quote now →</span>
-        </a>
+        <Link className="quote-band-call" href="/water-check">
+          <small>Start with your ZIP</small>
+          <strong>Free Water Report</strong>
+          <span>See my report →</span>
+        </Link>
       </section>
 
       <section className="section local-section" id="service-area">
@@ -480,7 +481,7 @@ export default function Home() {
         <div className="faq-list">
           <details>
             <summary>How do I know which water system I need?<span>+</span></summary>
-            <p>Start with a quick call. We will ask about your water source, household, current plumbing, and what you are noticing before discussing options.</p>
+            <p>Start with the <Link href="/water-check">free Water Report</Link>. It identifies the likely supplier, summarizes selected public monitoring context, and shows a practical system starting point. Final fit still depends on the current provider, home demand, plumbing, and exact equipment.</p>
           </details>
           <details>
             <summary>Do you install both water softeners and reverse osmosis systems?<span>+</span></summary>
@@ -492,11 +493,11 @@ export default function Home() {
           </details>
           <details>
             <summary>How do I get the current special price?<span>+</span></summary>
-            <p>Call us at {phoneDisplay}. We will discuss the system you are interested in and provide current pricing based on the equipment and installation conditions.</p>
+            <p>The free Water Report shows the installed-price path after household sizing: Standard $3,495, Standard Plus $3,995, and Dual Tank Full $5,495. Standard-installation scope and exclusions apply; property conditions can change the final written proposal.</p>
           </details>
           <details>
             <summary>Is financing available?<span>+</span></summary>
-            <p>Financing is available for qualified customers and is subject to lender approval. Call us and we will explain the next step.</p>
+            <p>Yes. Review <Link href="/financing">financing options</Link> after pricing. Approval, rates, terms, fees, and monthly payments depend on the lender and applicant.</p>
           </details>
           <details>
             <summary>What can add to installation cost?<span>+</span></summary>
