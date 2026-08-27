@@ -189,6 +189,7 @@ Last updated: 2026-08-27
 - Added a dedicated `water_price_view` measurement event carrying the selected tier, displayed installed price, household size, bathroom count, and privacy-safe provider identifier.
 - Updated the visible Water Check explanation, FAQ, and comparison panel so the three prices and sizing rule are consistent across the page.
 - Validated the dependency lock with `npm ci --include=dev`, then passed lint, production build, artifact validation, all rendered/API tests, and exact-price rendered checks.
+- Added a build-time decoder for connector-safe binary asset uploads so the authenticated Vercel deployment path can reconstruct the exact tracked font and image bytes before compiling, without storing duplicate encoded assets in GitHub.
 - Confirmed the City of Modesto has published its official 2025 Consumer Confidence Report for Modesto System `5010010`; retained that primary source for the next report-led Modesto page sprint rather than publishing unsupported local claims.
 
 ## Current blockers
