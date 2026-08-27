@@ -84,17 +84,17 @@ const tierCopy: Record<Tier, { title: string; price: string; note: string }> = {
   standard: {
     title: "Standard",
     price: "$3,495",
-    note: "Current Complete Home promotional package",
+    note: "Confirmed installed price",
   },
   plus: {
-    title: "Plus",
-    price: "Personalized",
-    note: "Upgrade quote after household-demand sizing",
+    title: "Standard Plus",
+    price: "$3,995",
+    note: "Confirmed installed price",
   },
   dual: {
-    title: "Dual Tank",
-    price: "Personalized",
-    note: "Dual-tank quote after household-demand sizing",
+    title: "Dual Tank Full",
+    price: "$5,495",
+    note: "Confirmed installed price",
   },
 };
 
@@ -374,7 +374,7 @@ export function SalesWaterCheckV3() {
       provider ? `Likely supplier: ${supplierName(provider.name)} (${provider.pwsId})` : "Water source: Private well",
       `Treatment path: ${treatmentPath}`,
       `Requested configuration: ${tierCopy[tier].title}`,
-      tier === "standard" ? "Displayed promotional package: $3,495" : "Personalized upgrade pricing requested",
+      `Displayed installed price: ${tierCopy[tier].price}`,
     ].filter(Boolean);
     return `sms:+15107255120?&body=${encodeURIComponent(lines.join("\n"))}`;
   }, [address, bathrooms, email, householdSize, name, phone, provider, tier, treatmentPath, zip]);
@@ -384,11 +384,16 @@ export function SalesWaterCheckV3() {
     void runLookup(zip);
   }
 
-  function submitQuote(event: FormEvent<HTMLFormElement>) {
+  function submitSizing(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const bathroomCount = Number.parseInt(bathrooms, 10);
+    const householdCount = Number.parseInt(householdSize, 10);
+    const selectedTier = bathroomCount >= 3 && householdCount >= 4 ? "dual" : tier;
+    setTier(selectedTier);
     setQuoteReady(true);
-    track("water_quote_view", {
-      tier,
+    track("water_price_view", {
+      tier: selectedTier,
+      installed_price: tierCopy[selectedTier].price,
       bathrooms,
       household_size: householdSize,
       pws_id: provider?.pwsId ?? null,
@@ -638,12 +643,11 @@ export function SalesWaterCheckV3() {
           <div className={baseStyles.priceHeader}>
             <div>
               <small>See your package price</small>
-              <h2 id="package-price-heading">Choose the configuration you want priced.</h2>
-              <p>The water report identifies the treatment path. Household size, bathrooms, peak demand, incoming water conditions and installation details determine final equipment sizing.</p>
+              <h2 id="package-price-heading">Choose a package, then size it in two taps.</h2>
+              <p>The installed prices appear before any contact form. Three or more bathrooms plus four or more people selects Dual Tank Full.</p>
             </div>
             <div className={baseStyles.offerPrice}>
-              <span>Standard Complete Home offer</span>
-              <del>$4,995</del>
+              <span>Standard installed price</span>
               <strong>$3,495</strong>
             </div>
           </div>
@@ -670,29 +674,29 @@ export function SalesWaterCheckV3() {
           </div>
 
           <div className={baseStyles.includedBox}>
-            <strong>The confirmed $3,495 Standard offer includes:</strong>
+            <strong>The confirmed installed package prices are:</strong>
             <ul>
-              <li>Whole-home water softener</li>
-              <li>Reverse-osmosis drinking-water system</li>
-              <li>Kitchen RO faucet</li>
-              <li>Standard installation</li>
+              <li>Standard $3,495</li>
+              <li>Standard Plus $3,995</li>
+              <li>Dual Tank Full $5,495</li>
+              <li>Standard installation included</li>
             </ul>
-            <p>Financing is available through Hearth, subject to approval and lender terms.</p>
+            <p>Financing is available. Approval, rates, terms, fees, and payments depend on the lender and applicant.</p>
           </div>
 
-          <form className={baseStyles.quoteForm} onSubmit={submitQuote}>
+          <form className={baseStyles.quoteForm} onSubmit={submitSizing}>
             <div className={baseStyles.formHeading}>
               <span>4</span>
               <div>
-                <small>Personalize the quote</small>
-                <h3>Two home details help size the quote path.</h3>
-                <p>Standard, Plus and Dual Tank are not assigned from ZIP alone.</p>
+                <small>No signup required</small>
+                <h3>Two home details select the installed price.</h3>
+                <p>No name, phone number, email, or address is required to see it.</p>
               </div>
             </div>
             <div className={baseStyles.fieldGrid}>
               <label>
                 <span>Bathrooms</span>
-                <select required value={bathrooms} onChange={(event) => setBathrooms(event.target.value)}>
+                <select required value={bathrooms} onChange={(event) => { setBathrooms(event.target.value); setQuoteReady(false); }}>
                   <option value="">Select</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -703,7 +707,7 @@ export function SalesWaterCheckV3() {
               </label>
               <label>
                 <span>People in home</span>
-                <select required value={householdSize} onChange={(event) => setHouseholdSize(event.target.value)}>
+                <select required value={householdSize} onChange={(event) => { setHouseholdSize(event.target.value); setQuoteReady(false); }}>
                   <option value="">Select</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -713,25 +717,9 @@ export function SalesWaterCheckV3() {
                   <option value="6+">6+</option>
                 </select>
               </label>
-              <label>
-                <span>Name</span>
-                <input required autoComplete="name" value={name} onChange={(event) => setName(event.target.value)} />
-              </label>
-              <label>
-                <span>Phone</span>
-                <input required type="tel" autoComplete="tel" value={phone} onChange={(event) => setPhone(event.target.value)} />
-              </label>
-              <label className={baseStyles.fullField}>
-                <span>Installation address</span>
-                <input required autoComplete="street-address" value={address} onChange={(event) => setAddress(event.target.value)} />
-              </label>
-              <label className={baseStyles.fullField}>
-                <span>Email <em>optional</em></span>
-                <input type="email" autoComplete="email" value={email} onChange={(event) => setEmail(event.target.value)} />
-              </label>
             </div>
-            <button className={baseStyles.quoteButton} type="submit">Show my quote path <span aria-hidden="true">→</span></button>
-            <small className={baseStyles.localPrivacy}>Your details stay on this page until you choose to call or send the prefilled quote request by text.</small>
+            <button className={baseStyles.quoteButton} type="submit">Show my installed price <span aria-hidden="true">→</span></button>
+            <small className={baseStyles.localPrivacy}>Property details and final installation conditions still control the written recommendation and scope.</small>
           </form>
 
           {quoteReady ? (
@@ -742,23 +730,11 @@ export function SalesWaterCheckV3() {
                 <p>{treatmentPath}</p>
               </div>
               <div className={baseStyles.quoteAmount}>
-                {tier === "standard" ? (
-                  <>
-                    <del>$4,995</del>
-                    <strong>$3,495</strong>
-                    <small>Standard package · standard installation</small>
-                  </>
-                ) : (
-                  <>
-                    <strong>Personalized</strong>
-                    <small>We confirm the {tierCopy[tier].title} upgrade price after sizing and installation review.</small>
-                  </>
-                )}
+                <strong>{tierCopy[tier].price}</strong>
+                <small>{tierCopy[tier].title} · installed price</small>
               </div>
               <div className={baseStyles.quoteActions}>
-                <a href={smsHref} onClick={() => track("water_quote_text", { tier, pws_id: provider?.pwsId ?? null })}>
-                  Text my quote request
-                </a>
+                <Link href="/financing" onClick={() => track("financing_click", { placement: "water_price", tier })}>Check financing options</Link>
                 <a href={PHONE_HREF} onClick={() => track("water_check_call", { placement: "quote_result", tier })}>
                   Call {PHONE_DISPLAY}
                 </a>
@@ -767,6 +743,20 @@ export function SalesWaterCheckV3() {
                 Standard installation only. Sales tax, permits, electrical work, trenching, code upgrades, removal of existing equipment, major plumbing modifications, difficult or nonstandard installations, and work outside standard installation are additional when required and must be separately quoted.
               </p>
             </div>
+          ) : null}
+
+          {quoteReady ? (
+            <details className={baseStyles.optionalContact}>
+              <summary>Optional: prepare a text quote request <span aria-hidden="true">+</span></summary>
+              <p>You already have the price. Add only the details you want included in a prefilled text to the local team.</p>
+              <div className={baseStyles.fieldGrid}>
+                <label><span>Name <em>optional</em></span><input autoComplete="name" value={name} onChange={(event) => setName(event.target.value)} /></label>
+                <label><span>Phone <em>optional</em></span><input type="tel" autoComplete="tel" value={phone} onChange={(event) => setPhone(event.target.value)} /></label>
+                <label className={baseStyles.fullField}><span>Installation address <em>optional</em></span><input autoComplete="street-address" value={address} onChange={(event) => setAddress(event.target.value)} /></label>
+                <label className={baseStyles.fullField}><span>Email <em>optional</em></span><input type="email" autoComplete="email" value={email} onChange={(event) => setEmail(event.target.value)} /></label>
+              </div>
+              <a className={baseStyles.quoteButton} href={smsHref} onClick={() => track("water_quote_text", { tier, pws_id: provider?.pwsId ?? null })}>Open prefilled text request <span aria-hidden="true">→</span></a>
+            </details>
           ) : null}
         </section>
       ) : null}

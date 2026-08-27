@@ -907,6 +907,59 @@
   line-height: 1.55;
 }
 
+.optionalContact {
+  margin-top: 18px;
+  padding: clamp(20px, 4vw, 30px);
+  border: 1px solid var(--line);
+  border-radius: 19px;
+  background: #fff;
+}
+
+.optionalContact summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  color: var(--navy);
+  cursor: pointer;
+  list-style: none;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.optionalContact summary::-webkit-details-marker {
+  display: none;
+}
+
+.optionalContact summary > span {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--sky);
+  color: var(--blue);
+  font-size: 22px;
+  transition: transform .2s ease;
+}
+
+.optionalContact[open] summary > span {
+  transform: rotate(45deg);
+}
+
+.optionalContact > p {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.optionalContact > .quoteButton {
+  margin-top: 16px;
+  width: 100%;
+}
+
 @media (max-width: 900px) {
   .funnel {
     width: min(100% - 28px, 720px);

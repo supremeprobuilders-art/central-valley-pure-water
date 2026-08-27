@@ -55,9 +55,9 @@ export function ReferralValuePanel({ variant }: ReferralValuePanelProps) {
 
       <div className={styles.valueGrid}>
         <article>
-          <span>UP-FRONT PRICE</span>
-          <strong>$3,495</strong>
-          <p>Current Standard Complete Home promotional package with standard installation.</p>
+          <span>UP-FRONT INSTALLED PRICES</span>
+          <strong>From $3,495</strong>
+          <p>Standard $3,495, Standard Plus $3,995, and Dual Tank Full $5,495 with standard installation.</p>
         </article>
         <article>
           <span>WHAT IS INCLUDED</span>

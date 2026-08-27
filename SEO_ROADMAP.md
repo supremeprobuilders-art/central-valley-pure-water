@@ -1,6 +1,6 @@
 # Central Valley Pure Water SEO Roadmap
 
-Last updated: 2026-08-25
+Last updated: 2026-08-27
 
 ## Strategy pivot — Free Water Report acquisition engine (2026-08-24)
 
@@ -179,6 +179,18 @@ Last updated: 2026-08-25
 - Cleared the existing React hook lint failures in Water Check state hydration and report fetching without changing the visitor-facing logic.
 - Proved the dependency lock with a clean `npm ci --include=dev`, then passed the production build, artifact validation, full lint, and all rendered/API tests.
 
+### Sprint 9 — No-signup installed-price and household-sizing repair
+
+- Repaired the primary `/water-check` conversion path so all three owner-confirmed installed prices are visible before any contact fields: Standard `$3,495`, Standard Plus `$3,995`, and Dual Tank Full `$5,495`.
+- Replaced the hidden “Personalized” Plus and Dual pricing states with the confirmed installed prices and removed the unsupported crossed-out comparison price.
+- Separated the two required sizing inputs—bathrooms and people in the home—from the optional name, phone, address, and email fields, preserving the report-first, no-signup promise.
+- Enforced the confirmed sizing rule in the price reveal: three or more bathrooms plus four or more people selects Dual Tank Full at `$5,495`.
+- Added the financing path directly beside the sized installed price, kept the click-to-call route to `(510) 725-5120`, and moved the prefilled text request into a clearly optional disclosure after price.
+- Added a dedicated `water_price_view` measurement event carrying the selected tier, displayed installed price, household size, bathroom count, and privacy-safe provider identifier.
+- Updated the visible Water Check explanation, FAQ, and comparison panel so the three prices and sizing rule are consistent across the page.
+- Validated the dependency lock with `npm ci --include=dev`, then passed lint, production build, artifact validation, all rendered/API tests, and exact-price rendered checks.
+- Confirmed the City of Modesto has published its official 2025 Consumer Confidence Report for Modesto System `5010010`; retained that primary source for the next report-led Modesto page sprint rather than publishing unsupported local claims.
+
 ## Current blockers
 
 - Vercel project metadata does not yet show native Git-triggered deployments from GitHub `main`; the automation currently deploys the exact repository artifact through the authenticated Vercel connection.
@@ -191,7 +203,7 @@ Last updated: 2026-08-25
 ### Build the first report-led local acquisition page
 
 1. Turn `/areas/modesto` into the first substantial report-led local acquisition page while retaining its distinct installation intent.
-2. Use current official City of Modesto and California sources, visible publication dates, provider-confirmation guidance, and a prominent ZIP lookup; do not imply that every Modesto address has the same provider or conditions.
+2. Use the City of Modesto’s official 2025 Consumer Confidence Report for Modesto System `5010010`, the City’s current Consumer Confidence Report index, and California sources, with visible publication dates, provider-confirmation guidance, and a prominent ZIP lookup; do not imply that every Modesto address has the same provider or conditions.
 3. Connect report-discovery searches—Modesto water quality report, what is in Modesto tap water, water hardness, Consumer Confidence Report—with commercial searches for installed water-softener pricing, whole-home treatment, RO installation, and financing.
 4. Verify the complete mobile and desktop path: local landing page → ZIP → supplier → report → treatment explanation → household/bathroom sizing → installed price → financing/call.
 5. Add supported FAQ/schema and contextual links only where they improve the visible page; do not publish indexable ZIP pages or manufacture contaminant, health, certification, removal, savings, warranty, or financing claims.

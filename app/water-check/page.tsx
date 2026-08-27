@@ -56,7 +56,7 @@ const faqs = [
   {
     question: "How does the checker recommend a system?",
     answer:
-      "The report uses detected analytes, hard-water indicators, sampling context, and listed limits to identify a practical treatment starting point. Final equipment sizing and any contaminant-reduction claims still depend on the exact model, home demand, current water conditions, and installation details.",
+      "The report uses detected analytes, hard-water indicators, sampling context, and listed limits to identify a practical treatment starting point. The price step then uses household size and bathrooms; three or more bathrooms plus four or more people selects Dual Tank Full. Final performance claims still depend on the exact model, current water conditions, and installation details.",
   },
   {
     question: "Can I check financing without hurting my credit score?",
@@ -137,7 +137,7 @@ export default function WaterCheckPage() {
           </p>
           <ul className={styles.heroNotes} aria-label="Water check highlights">
             <li><span>✓</span> Supplier found automatically</li>
-            <li><span>✓</span> $3,495 Standard package + upgrade quote path</li>
+            <li><span>✓</span> $3,495 · $3,995 · $5,495 installed prices</li>
             <li><span>✓</span> Qualified lifetime warranty · written terms apply</li>
           </ul>
         </div>
@@ -162,7 +162,7 @@ export default function WaterCheckPage() {
         <div className={styles.explainerGrid}>
           <article><span>01</span><h3>We find the supplier</h3><p>The strongest ZIP-area match appears automatically. If the bill shows another provider, one tap opens the alternate supplier list.</p></article>
           <article><span>02</span><h3>We do the math</h3><p>For compatible chemicals, the highest selected result is divided by the California OEHHA Public Health Goal. The listed legal MCL remains separate.</p></article>
-          <article><span>03</span><h3>We show the next step</h3><p>The report identifies a treatment starting point. The homeowner can price Standard, request Plus, or request Dual Tank sizing.</p></article>
+          <article><span>03</span><h3>We show the installed price</h3><p>Choose Standard at $3,495, Standard Plus at $3,995, or Dual Tank Full at $5,495. The confirmed household sizing rule selects Dual Tank when required.</p></article>
         </div>
       </section>
 

@@ -101,6 +101,9 @@ test("renders the free California water check with canonical trust signals", asy
   assert.match(html, /No signup/i);
   assert.match(html, /actual public laboratory monitoring records/i);
   assert.match(html, /treatment and price path/i);
+  assert.match(html, /\$3,495 · \$3,995 · \$5,495 installed prices/i);
+  assert.match(html, /three or more bathrooms plus four or more people selects Dual Tank Full/i);
+  assert.match(html, /href=["']\/financing["']/i);
   assert.match(html, /"@type":"WebApplication"/i);
   assert.match(html, /"@type":"FAQPage"/i);
   assert.match(html, /tel:\+15107255120/i);
