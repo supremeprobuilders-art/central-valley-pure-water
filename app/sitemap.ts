@@ -5,7 +5,7 @@ import { servicePages } from "./services/service-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const coreUpdated = new Date("2026-08-08");
-  const areaUpdated = new Date("2026-08-18");
+  const areaUpdated = new Date("2026-08-28");
   const waterCheckUpdated = new Date("2026-08-20");
   const growthUpdated = new Date("2026-08-22");
   return [

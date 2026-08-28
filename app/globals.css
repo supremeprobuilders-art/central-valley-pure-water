@@ -2685,6 +2685,114 @@ footer h3 {
   background: var(--ice);
 }
 
+.area-report {
+  background: linear-gradient(180deg, #f3fbfe, #ffffff);
+}
+
+.area-report .service-section-heading {
+  max-width: 980px;
+  text-align: center;
+}
+
+.area-report-grid {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 18px 50px rgba(9,39,64,.06);
+}
+
+.area-report-grid article {
+  min-height: 255px;
+  padding: 32px;
+  border-right: 1px solid var(--line);
+}
+
+.area-report-grid article:last-child {
+  border-right: 0;
+}
+
+.area-report-grid strong {
+  display: block;
+  color: var(--blue);
+  font-size: clamp(30px, 3.2vw, 44px);
+  line-height: 1;
+  letter-spacing: -.035em;
+}
+
+.area-report-grid h3 {
+  margin: 25px 0 12px;
+  color: var(--navy);
+  font: 400 24px Georgia, serif;
+}
+
+.area-report-grid p,
+.area-report-action p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.area-report-action {
+  max-width: 1240px;
+  margin: 18px auto 0;
+  padding: clamp(28px, 4vw, 45px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 42px;
+  border-radius: 22px;
+  background: var(--navy);
+  color: white;
+}
+
+.area-report-action > div > span {
+  color: var(--aqua);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.area-report-action h3 {
+  margin: 10px 0 12px;
+  color: white;
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.08;
+}
+
+.area-report-action p {
+  max-width: 790px;
+  color: #bdd4df;
+}
+
+.area-report-links {
+  display: grid;
+  gap: 10px;
+}
+
+.area-report-links > a {
+  min-width: 260px;
+  padding: 19px 22px;
+  border-radius: 14px;
+  background: var(--aqua);
+  color: var(--deep);
+  font-size: 12px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.area-report-links > a:last-child {
+  border: 1px solid rgba(255,255,255,.24);
+  background: transparent;
+  color: white;
+}
+
 .service-section-heading {
   max-width: 820px;
   margin: 0 auto 50px;
@@ -3041,8 +3149,28 @@ footer h3 {
   }
 
   .service-related-grid,
-  .service-decision-grid {
+  .service-decision-grid,
+  .area-report-grid {
     grid-template-columns: 1fr;
+  }
+
+  .area-report-grid article {
+    min-height: 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .area-report-grid article:last-child {
+    border-bottom: 0;
+  }
+
+  .area-report-action {
+    grid-template-columns: 1fr;
+  }
+
+  .area-report-links,
+  .area-report-links > a {
+    width: min(100%, 420px);
   }
 
   .service-decision-grid article {

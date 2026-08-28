@@ -5,14 +5,14 @@ import { ServiceFooter, ServiceHeader } from "../services/service-page-view";
 import { areaPages } from "./area-data";
 
 export const metadata: Metadata = {
-  title: "Central Valley Water System Service Areas | Central Valley Pure Water",
+  title: "Free Local Water Reports & Service Areas | Central Valley Pure Water",
   description:
-    "Explore water softener, filtration, reverse osmosis, city-water, and private-well service pages for Modesto, Stockton, Tracy, Manteca, and Turlock.",
+    "Explore free local water-report guidance and installed water-system options for Modesto, Stockton, Tracy, Manteca, Turlock, Sacramento, Elk Grove, and Merced.",
   alternates: { canonical: "/areas" },
   openGraph: {
-    title: "Central Valley Water System Service Areas",
+    title: "Free Local Water Reports and Central Valley Service Areas",
     description:
-      "Find source-aware water system guidance for Modesto, Stockton, Tracy, Manteca, and Turlock properties.",
+      "Start with a free ZIP-based public-water report, then compare source-aware system and installation guidance across eight launch markets.",
     type: "website",
     url: "/areas",
     images: [{ url: "/cvpurewater-hero.webp", width: 1586, height: 992, alt: "Central Valley Pure Water treatment systems" }],
@@ -60,16 +60,16 @@ export default function AreasPage() {
       <section className="service-index-hero">
         <p className="eyebrow light-eyebrow"><span /> Central Valley service coverage</p>
         <h1>Local water system guidance starts with the property.</h1>
-        <p>Explore the first five city pages below. Each one connects a distinct local search need to the right service pathway without pretending every address has the same water source or installation conditions.</p>
+        <p>Explore eight substantial city pages, beginning with the free report-led Modesto guide. Each page connects a distinct local search need to the ZIP lookup and the right service pathway without pretending every address has the same provider, water source, or installation conditions.</p>
         <div className="service-hero-actions">
-          <a className="button button-call" href="tel:+15107255120"><span className="call-icon" aria-hidden="true">☎</span><span>Call (510) 725-5120</span></a>
-          <Link className="button button-ghost" href="/services">Compare water services <span aria-hidden="true">→</span></Link>
+          <Link className="button button-call" href="/water-check"><span>Get my free Water Report</span></Link>
+          <a className="button button-ghost" href="tel:+15107255120">Call (510) 725-5120 <span aria-hidden="true">→</span></a>
         </div>
       </section>
 
       <section className="service-index-grid-section service-content-section">
         <div className="service-section-heading">
-          <p className="eyebrow eyebrow-centered"><span /> Initial city cluster</p>
+          <p className="eyebrow eyebrow-centered"><span /> Report-led local guidance</p>
           <h2>Choose your service area</h2>
           <p>Call to confirm availability at the exact property address. The business office remains in Modesto; these pages describe service coverage and do not claim a separate office in each city.</p>
         </div>

@@ -20,6 +20,14 @@ export type AreaPage = {
   process: { title: string; copy: string }[];
   faqs: AreaFaq[];
   sources?: { label: string; href: string; note: string }[];
+  report?: {
+    zip: string;
+    reviewed: string;
+    title: string;
+    intro: string;
+    facts: { value: string; label: string; copy: string }[];
+    limitation: string;
+  };
   serviceSlugs: string[];
   relatedAreas: string[];
 };
@@ -29,84 +37,138 @@ export const areaPages: AreaPage[] = [
     slug: "modesto",
     city: "Modesto",
     county: "Stanislaus County",
-    title: "Water Softener & Reverse Osmosis Installation in Modesto",
-    eyebrow: "Modesto water system installation",
-    metaTitle: "Water Softener Installation Modesto | Central Valley Pure Water",
+    title: "Free Modesto Water Report & Installed System Prices",
+    eyebrow: "Modesto water quality by ZIP code",
+    metaTitle: "Modesto Water Report & Installed Prices | CV Pure Water",
     metaDescription:
-      "Compare water softeners, whole-home filtration, and reverse osmosis installation in Modesto. Call Central Valley Pure Water for current pricing.",
+      "See Modesto’s 2025 public water report, likely supplier, hardness context, system path, installed prices, and financing by ZIP—free, with no signup.",
     hero:
-      "Work with a Modesto-based team to separate whole-home hardness, filtration, and kitchen drinking-water goals before choosing equipment.",
-    overviewTitle: "A local starting point for better water at home",
+      "Enter a Modesto ZIP to see the likely public-water supplier, a plain-English public-record summary, a suitable system path, and installed pricing before any optional contact.",
+    overviewTitle: "What the 2025 Modesto water report can—and cannot—tell you",
     overview: [
-      "Central Valley Pure Water is based at 1620 N Carpenter Rd, Suite A5 in Modesto. The location is an office and warehouse by appointment, not a retail showroom. Homeowners can begin by phone so the team can understand the property, water source, and installation conditions before recommending a system.",
-      "A water softener, whole-home filter, and under-sink reverse osmosis system serve different purposes. The first useful decision is whether the concern affects water throughout the home, drinking water at the kitchen sink, or both. From there, household demand, main-line access, drainage, power, cabinet space, and service clearance shape the installation plan.",
+      "The City of Modesto’s 2025 Consumer Confidence Report covers Modesto System 5010010, including Empire. The City says the system met applicable federal and state drinking-water standards. It also reports that approximately 40% of the water supplied in 2025 came from groundwater wells and 60% from surface water treated at the Modesto Reservoir plant before mixing in the distribution system.",
+      "The same report lists utility-wide monitoring results, including average hardness of 199 parts per million as calcium carbonate and a reported range of 33–388 ppm. That range matters: a citywide average cannot establish the hardness or other conditions at one house. The free Water Report uses public records to create a practical starting point, then asks you to confirm the provider and PWSID on the current bill.",
+      "This is not a laboratory test of water from your tap. Current provider records, source blending, the home’s plumbing and goals, household and bathroom sizing, installation conditions, and model-specific performance still control the final recommendation.",
     ],
     highlights: [
-      "Modesto-based team",
-      "City and private-well pathways",
-      "Whole-home and kitchen options",
-      "Current pricing by phone",
+      "Free report before signup",
+      "2025 City records explained",
+      "All installed prices visible",
+      "Financing available",
     ],
     helpfulFor: [
-      "You see mineral spotting or scale and want to discuss whole-home softening.",
-      "You want a dedicated reverse osmosis faucet for drinking and cooking water.",
-      "You are comparing a softener, filtration, and a complete-home configuration.",
-      "You want the plumbing layout reviewed before equipment and pricing are finalized.",
+      "You see scale or spotting and want to compare the city’s reported hardness context with whole-home softening.",
+      "You are researching what is in Modesto tap water and want the official public report explained in plain English.",
+      "You want to compare a whole-home path with dedicated reverse osmosis for drinking and cooking water.",
+      "You want installed pricing and financing availability before speaking with a sales representative.",
     ],
     decisions: [
       {
-        title: "Whole home or kitchen",
-        copy: "Hardness treatment starts at the incoming water line, while reverse osmosis is usually planned at the kitchen sink. Define the result you want at each location.",
+        title: "Confirm the provider",
+        copy: "ZIP codes and utility boundaries do not match exactly. Check the supplier and PWSID on the current water bill before relying on a utility report.",
       },
       {
-        title: "City water or private well",
-        copy: "Confirm the property source at the start. Private-well recommendations may require current property-specific water information before equipment is selected.",
+        title: "Separate the goals",
+        copy: "Softening, whole-home filtration, and kitchen reverse osmosis do different jobs. The proposed components should be tied to the stated issue without claiming universal contaminant removal.",
       },
       {
-        title: "Installation access",
-        copy: "Main-line location, drainage, power, equipment space, cabinet conditions, and future maintenance access can change the recommended layout and scope.",
+        title: "Size and verify",
+        copy: "Household size, bathrooms, main-line access, drainage, power, cabinet space, and model-specific performance shape the final equipment and installation scope.",
       },
     ],
     process: [
       {
-        title: "Call the Modesto team",
-        copy: "Share the property address, water source, household size, and what you notice in showers, fixtures, laundry, or drinking water.",
+        title: "Enter a Modesto ZIP",
+        copy: "Start the free Water Report without creating an account. The lookup shows the likely supplier and asks you to confirm it against the current water bill.",
       },
       {
-        title: "Review the installation",
-        copy: "The team considers the incoming water line, equipment location, kitchen cabinet, drainage, power, and any non-standard work.",
+        title: "Read the public-record summary",
+        copy: "Review dated monitoring context and official sources in plain English, including the difference between an enforceable MCL and a non-enforceable public-health goal where relevant.",
       },
       {
-        title: "Compare the recommendation",
-        copy: "Review what each component is intended to do, the installation scope, current pricing, and financing availability.",
+        title: "See the system and installed price",
+        copy: "Choose household size and bathrooms to see the starting configuration: Standard $3,495, Standard Plus $3,995, or Dual Tank Full $5,495 installed.",
       },
       {
-        title: "Schedule and verify",
-        copy: "Choose an installation appointment. The completed system is checked and its basic operation and maintenance access are explained.",
+        title: "Choose the next step",
+        copy: "Review financing availability, call, text, or optionally share contact details after receiving the report and price. Lender terms control financing; property verification controls the final scope.",
       },
     ],
     faqs: [
       {
-        question: "Where is Central Valley Pure Water located in Modesto?",
+        question: "Is the Modesto Water Report free and available without signup?",
         answer:
-          "The office and warehouse is at 1620 N Carpenter Rd, Suite A5, Modesto, CA 95351. It is appointment only and is not a retail showroom.",
+          "Yes. Enter a California city or ZIP to see the likely public-water supplier, public-record context, a suitable system starting point, installed pricing, and financing availability before any optional contact request.",
       },
       {
-        question: "Do you install both water softeners and reverse osmosis systems in Modesto?",
+        question: "What does the City of Modesto’s 2025 water report say?",
         answer:
-          "Yes. Whole-home water softening and under-sink reverse osmosis can be discussed separately or as a coordinated home package, depending on the property and goals.",
+          "The report covers Modesto System 5010010, including Empire. The City says the system met applicable standards and reports a 2025 supply mix of approximately 40% groundwater and 60% surface water. Read the official report for its complete tables and qualifications.",
       },
       {
-        question: "Does a Modesto home need the same system as a nearby private-well property?",
+        question: "How hard is Modesto water?",
         answer:
-          "Not necessarily. City-water and private-well properties follow different planning paths, and private-well treatment should be based on current information for that property.",
+          "The City’s 2025 utility-wide table reports average hardness of 199 ppm as calcium carbonate, with a 33–388 ppm range. That does not predict one address because provider boundaries, wells, surface-water blending, season, and distribution conditions can vary.",
       },
       {
-        question: "How do I get current Modesto installation pricing?",
+        question: "Is this a laboratory test of my Modesto tap water?",
         answer:
-          "Call (510) 725-5120 with the property location, water source, household needs, and any installation photos or water information you already have.",
+          "No. It is a plain-English summary of relevant public utility monitoring records. A tap-specific question may require appropriate property sampling, and any final equipment recommendation still requires provider, source, property, installation, and model-performance confirmation.",
+      },
+      {
+        question: "What are the installed water-system prices in Modesto?",
+        answer:
+          "The confirmed starting installed prices are Standard $3,495, Standard Plus $3,995, and Dual Tank Full $5,495. Three or more bathrooms plus four or more people selects Dual Tank Full. Property conditions and final scope still control the final recommendation.",
+      },
+      {
+        question: "Is financing available for a Modesto water system?",
+        answer:
+          "Yes. Financing is available after you see the installed-price path. Approval, payment, rate, term, and other conditions are determined by the lender.",
       },
     ],
+    sources: [
+      {
+        label: "City of Modesto 2025 Consumer Confidence Report",
+        href: "https://www.modestogov.com/DocumentCenter/View/26815/Modesto-Consumer-Confidence-Report-2025",
+        note: "Official report for Modesto System 5010010, including Empire, with 2025 source, monitoring, hardness, and compliance information.",
+      },
+      {
+        label: "City of Modesto Consumer Confidence Reports",
+        href: "https://www.modestogov.com/856/Consumer-Confidence-Reports",
+        note: "Official City index for current and prior annual drinking-water reports across Modesto-operated systems.",
+      },
+    ],
+    report: {
+      zip: "95351",
+      reviewed: "Official 2025 report reviewed August 28, 2026",
+      title: "A two-minute starting point for a Modesto address",
+      intro:
+        "Use the City’s utility-wide report as context, then run the free ZIP lookup to confirm the likely supplier and continue to household sizing, installed price, financing, and optional contact.",
+      facts: [
+        {
+          value: "5010010",
+          label: "Reported public-water system",
+          copy: "The official 2025 report identifies the Modesto system and notes that it includes Empire. Confirm this PWSID on the current bill.",
+        },
+        {
+          value: "40% / 60%",
+          label: "2025 source mix",
+          copy: "The City reports approximately 40% groundwater and 60% treated surface water, which then mix in the distribution system.",
+        },
+        {
+          value: "199 ppm",
+          label: "Average reported hardness",
+          copy: "The utility-wide range was 33–388 ppm as CaCO3. An address-specific result can differ from the reported average.",
+        },
+        {
+          value: "Standards met",
+          label: "City compliance statement",
+          copy: "The City says its water met applicable federal and state standards; detection does not automatically mean a violation or tap-specific risk.",
+        },
+      ],
+      limitation:
+        "Public monitoring records are not a laboratory sample from your faucet. Provider confirmation, the current official source, property plumbing and goals, household sizing, installation conditions, and model-specific performance still control the final recommendation.",
+    },
     serviceSlugs: ["water-softeners", "reverse-osmosis", "whole-home-water-filtration"],
     relatedAreas: ["turlock", "manteca"],
   },
@@ -653,6 +715,104 @@ export const areaPages: AreaPage[] = [
     ],
     serviceSlugs: ["water-softeners", "whole-home-water-filtration", "reverse-osmosis"],
     relatedAreas: ["sacramento", "stockton", "manteca"],
+  },
+  {
+    slug: "merced",
+    city: "Merced",
+    county: "Merced County",
+    title: "Merced Water Report & Home System Planning",
+    eyebrow: "Merced water quality and buyer guidance",
+    metaTitle: "Merced Water Report & Water Systems | Central Valley Pure Water",
+    metaDescription:
+      "Start with Merced’s official 2025 water report, then compare softening, whole-home filtration, RO, installed prices, and financing by ZIP.",
+    hero:
+      "Use the current provider report as a starting point, then separate whole-home hardness, a defined filtration objective, and dedicated kitchen drinking water before choosing equipment.",
+    overviewTitle: "Start with the provider report, then plan for the property",
+    overview: [
+      "The City of Merced publishes an annual Consumer Confidence Report with water-quality and test-result information for its drinking-water system. Its current official page links the Reporting Year 2025 report in English, Spanish, and Hmong. That City report applies only when the current water bill confirms the City of Merced as the supplier; ZIP codes and city names do not establish the provider for every address.",
+      "A public utility report gives system-wide context rather than a laboratory result from one home’s faucet. For a useful project plan, identify the household’s actual concern, confirm whether it affects the whole home or only drinking and cooking water, and review the incoming line, drainage, power, equipment clearance, kitchen cabinet, and existing equipment. Those property details and model-specific performance still control the final recommendation.",
+      "The free Water Report connects those steps without requiring signup before value: enter a ZIP, confirm the likely supplier, review relevant public records, see a suitable system starting point, add household and bathroom sizing, and view installed pricing and financing availability before optional contact.",
+    ],
+    highlights: [
+      "Current official report link",
+      "Provider confirmation first",
+      "Whole-home and kitchen paths",
+      "Installed prices before contact",
+    ],
+    helpfulFor: [
+      "You recently bought a Merced home and want a clear starting point before comparing equipment.",
+      "You see scale or spotting and want to understand whether whole-home softening fits the stated goal.",
+      "You want dedicated reverse osmosis for drinking and cooking water considered separately from a main-line system.",
+      "You are replacing existing equipment and want the plumbing, drain, bypass, power, and service access reviewed before reuse.",
+    ],
+    decisions: [
+      {
+        title: "Provider and source",
+        copy: "Confirm the supplier and PWSID on the current bill. Use that provider’s current report rather than assuming the City report applies to every Merced ZIP or nearby property.",
+      },
+      {
+        title: "Whole home or kitchen",
+        copy: "Softening and whole-home filtration begin at the incoming line; reverse osmosis is usually a dedicated kitchen drinking-water path. Keep each goal and component explicit.",
+      },
+      {
+        title: "New or replacement",
+        copy: "Existing tanks, loops, bypasses, drains, outlets, and cabinet connections should be documented and checked before assuming they can be reused safely or economically.",
+      },
+    ],
+    process: [
+      {
+        title: "Run the free ZIP lookup",
+        copy: "Enter the property ZIP without signing up, then compare the likely supplier with the name and PWSID on the current water bill.",
+      },
+      {
+        title: "Review official context",
+        copy: "Read the provider’s current public report and its complete tables. Treat utility-wide findings as context, not a tap-specific test or proof that one system is appropriate.",
+      },
+      {
+        title: "Define and size the path",
+        copy: "Separate hardness, whole-home filtration, and kitchen drinking water, then provide household and bathroom counts to see the starting configuration and installed price.",
+      },
+      {
+        title: "Verify before installation",
+        copy: "Review financing if useful, then confirm provider, source information, property conditions, final equipment, model-specific performance, installation scope, and exclusions.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Where can I find the current City of Merced water report?",
+        answer:
+          "The City’s official Consumer Confidence Report page links its Reporting Year 2025 report in English, Spanish, and Hmong. Confirm that the City of Merced is the provider shown on the current bill before applying that report to the address.",
+      },
+      {
+        question: "Does the City report test the water from my Merced faucet?",
+        answer:
+          "No. It reports public-system monitoring information. Plumbing and conditions at one property are not established by a utility-wide report, and a tap-specific question may require appropriate property sampling.",
+      },
+      {
+        question: "Is a water softener the same as a whole-home filter?",
+        answer:
+          "No. A softener is selected around a hardness objective, while whole-home filtration should be selected around a defined filtration objective. Kitchen reverse osmosis is a separate point-of-use drinking-water path.",
+      },
+      {
+        question: "What are the installed water-system prices for Merced homes?",
+        answer:
+          "The confirmed starting installed prices are Standard $3,495, Standard Plus $3,995, and Dual Tank Full $5,495. Three or more bathrooms plus four or more people selects Dual Tank Full. Final property scope still controls the recommendation.",
+      },
+      {
+        question: "Is financing available for a Merced water system?",
+        answer:
+          "Yes. Financing is available, with approval, rate, payment, term, and other conditions controlled by the lender. The free Water Report shows the installed-price path before optional contact.",
+      },
+    ],
+    sources: [
+      {
+        label: "City of Merced Consumer Confidence Report page",
+        href: "https://www.cityofmerced.gov/utilities-services/water/water-quality-control/ccr-water-quality-report",
+        note: "Official City page linking the Reporting Year 2025 Consumer Confidence Report in English, Spanish, and Hmong, plus archived reports.",
+      },
+    ],
+    serviceSlugs: ["water-softeners", "whole-home-water-filtration", "reverse-osmosis"],
+    relatedAreas: ["modesto", "turlock", "manteca"],
   },
 ];
 

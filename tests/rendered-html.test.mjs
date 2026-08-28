@@ -50,7 +50,7 @@ test("renders the service-area hub and static city pages with SEO signals", asyn
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("area-test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
-  const routes = ["/areas", "/areas/modesto", "/areas/stockton", "/areas/tracy", "/areas/manteca", "/areas/turlock", "/areas/sacramento", "/areas/elk-grove"];
+  const routes = ["/areas", "/areas/modesto", "/areas/stockton", "/areas/tracy", "/areas/manteca", "/areas/turlock", "/areas/sacramento", "/areas/elk-grove", "/areas/merced"];
 
   for (const route of routes) {
     const response = await worker.fetch(
@@ -66,6 +66,22 @@ test("renders the service-area hub and static city pages with SEO signals", asyn
     assert.match(html, /tel:\+15107255120/i);
     assert.match(html, /application\/ld\+json/i);
   }
+
+  const modestoResponse = await worker.fetch(
+    new Request("http://localhost/areas/modesto", { headers: { accept: "text/html" } }),
+    { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
+    { waitUntil() {}, passThroughOnException() {} },
+  );
+  const modestoHtml = await modestoResponse.text();
+  assert.match(modestoHtml, /Free Modesto Water Report &amp; Installed System Prices/i);
+  assert.match(modestoHtml, /Modesto System 5010010/i);
+  assert.match(modestoHtml, /40% groundwater and 60% surface water/i);
+  assert.match(modestoHtml, /average hardness of 199 parts per million/i);
+  assert.match(modestoHtml, /not a laboratory test of water from your tap/i);
+  assert.match(modestoHtml, /Standard \$3,495, Standard Plus \$3,995, or Dual Tank Full \$5,495 installed/i);
+  assert.match(modestoHtml, /href=["']\/water-check\?zip=95351["']/i);
+  assert.match(modestoHtml, /href=["']\/financing["']/i);
+  assert.match(modestoHtml, /City of Modesto 2025 Consumer Confidence Report/i);
 });
 
 

@@ -1,6 +1,6 @@
 # Central Valley Pure Water SEO Roadmap
 
-Last updated: 2026-08-27
+Last updated: 2026-08-28
 
 ## Strategy pivot — Free Water Report acquisition engine (2026-08-24)
 
@@ -192,6 +192,17 @@ Last updated: 2026-08-27
 - Added a build-time decoder for connector-safe binary asset uploads so the authenticated Vercel deployment path can reconstruct the exact tracked font and image bytes before compiling, without storing duplicate encoded assets in GitHub.
 - Confirmed the City of Modesto has published its official 2025 Consumer Confidence Report for Modesto System `5010010`; retained that primary source for the next report-led Modesto page sprint rather than publishing unsupported local claims.
 
+### Sprint 10 — Report-led Modesto acquisition page
+
+- Rebuilt `/areas/modesto` around the connected “Modesto water report” and installed-price intent while retaining distinct local installation value.
+- Used the City of Modesto’s official 2025 Consumer Confidence Report for System `5010010`, including its approximately 40% groundwater/60% surface-water supply mix, 199 ppm average hardness and 33–388 ppm utility-wide range, and City compliance statement.
+- Kept every local fact in utility-wide context, asked visitors to confirm the provider and PWSID on the current bill, and stated prominently that public monitoring records are not a laboratory test of the visitor’s tap.
+- Added a dated report snapshot, visible official sources, supported FAQ content and schema, and clear limitations around property conditions, source blending, model-specific performance, and universal removal claims.
+- Routed the hero, report summary, and main conversion band directly into `/water-check?zip=95351`, where the visitor can continue to supplier confirmation, household/bathroom sizing, all three installed prices, financing, call, text, and optional contact.
+- Updated the service-area hub from stale five-city language to the eight approved launch markets and made the free Water Report its primary CTA.
+- Repaired the broken homepage and area-hub route to `/areas/merced` by adding a substantial, distinct Merced page tied to the City’s official Reporting Year 2025 Consumer Confidence Report page, provider confirmation, home-system planning, installed pricing, and financing.
+- Updated area sitemap modification dates and expanded rendered coverage to Merced plus Modesto-specific source, pricing, disclaimer, schema, financing, and internal-link checks.
+
 ## Current blockers
 
 - Vercel project metadata does not yet show native Git-triggered deployments from GitHub `main`; the automation currently deploys the exact repository artifact through the authenticated Vercel connection.
@@ -201,15 +212,12 @@ Last updated: 2026-08-27
 
 ## Next sprint
 
-### Build the first report-led local acquisition page
+### Measure and extend the report-led local cluster
 
-1. Turn `/areas/modesto` into the first substantial report-led local acquisition page while retaining its distinct installation intent.
-2. Use the City of Modesto’s official 2025 Consumer Confidence Report for Modesto System `5010010`, the City’s current Consumer Confidence Report index, and California sources, with visible publication dates, provider-confirmation guidance, and a prominent ZIP lookup; do not imply that every Modesto address has the same provider or conditions.
-3. Connect report-discovery searches—Modesto water quality report, what is in Modesto tap water, water hardness, Consumer Confidence Report—with commercial searches for installed water-softener pricing, whole-home treatment, RO installation, and financing.
-4. Verify the complete mobile and desktop path: local landing page → ZIP → supplier → report → treatment explanation → household/bathroom sizing → installed price → financing/call.
-5. Add supported FAQ/schema and contextual links only where they improve the visible page; do not publish indexable ZIP pages or manufacture contaminant, health, certification, removal, savings, warranty, or financing claims.
-6. After Modesto establishes the pattern, adapt the research and intent structure—not duplicated copy—for Stockton, Tracy, Manteca, Turlock, Sacramento, Elk Grove, and Merced.
-7. Connect Search Console, GA4/GTM, call tracking, and lead attribution. Measure impressions → report starts → successful lookups → recommendation views → price views → financing clicks → calls/forms.
+1. Connect or confirm Google Search Console and GA4/GTM so report impressions, organic clicks, report completions, price views, financing clicks, calls, optional contacts, and qualified leads can be reported rather than inferred.
+2. Review initial Modesto indexation and engagement evidence before repeating the pattern; do not create mass-generated ZIP or city pages.
+3. If official-source and distinct-intent research supports it, rebuild `/areas/stockton` around Stockton water-report discovery plus a differentiated whole-home filtration decision, using the current provider-specific official report and the same provider-confirmation safeguards.
+4. Keep the Water Report as the organic front door and use service pages only as supporting decision content.
 
 ### Daily sprint priority order
 

@@ -32,6 +32,7 @@ function StructuredData({ page }: { page: AreaPage }) {
       description: page.metaDescription,
       url: canonical,
       mainEntity: { "@id": `${canonical}#service` },
+      ...(page.report ? { dateModified: "2026-08-28", citation: page.sources?.map((source) => source.href) } : {}),
     },
     {
       "@type": "Service",
@@ -104,15 +105,23 @@ export function AreaPageView({ page }: { page: AreaPage }) {
           <h1>{page.title}</h1>
           <p>{page.hero}</p>
           <div className="service-hero-actions">
-            <a className="button button-call" href={phoneHref}><span className="call-icon" aria-hidden="true">☎</span><span>Call for current pricing</span></a>
-            <Link className="button button-ghost" href="/areas">Compare service areas <span aria-hidden="true">→</span></Link>
+            {page.report ? (
+              <Link className="button button-call" href={`/water-check?zip=${page.report.zip}`}><span>Get my free water report</span></Link>
+            ) : (
+              <a className="button button-call" href={phoneHref}><span className="call-icon" aria-hidden="true">☎</span><span>Call for current pricing</span></a>
+            )}
+            {page.report ? (
+              <a className="button button-ghost" href={phoneHref}>Call {phoneDisplay} <span aria-hidden="true">→</span></a>
+            ) : (
+              <Link className="button button-ghost" href="/areas">Compare service areas <span aria-hidden="true">→</span></Link>
+            )}
           </div>
-          <small>Call to confirm service at your exact address. Equipment and pricing depend on the water source, property, goals, and installation conditions.</small>
+          <small>{page.report ? "Free, no signup, and no sales-representative conversation required before you see the report and installed-price path." : "Call to confirm service at your exact address. Equipment and pricing depend on the water source, property, goals, and installation conditions."}</small>
         </div>
         <aside className="service-hero-panel" aria-label={`${page.city} service highlights`}>
           <span>{page.county}</span>
           <ul>{page.highlights.map((item) => <li key={item}><b aria-hidden="true">✓</b>{item}</li>)}</ul>
-          <Link href="/call-for-pricing">How pricing works <span aria-hidden="true">↗</span></Link>
+          <Link href={page.report ? `/water-check?zip=${page.report.zip}` : "/call-for-pricing"}>{page.report ? "Start the free ZIP lookup" : "How pricing works"} <span aria-hidden="true">↗</span></Link>
         </aside>
       </section>
 
@@ -123,6 +132,36 @@ export function AreaPageView({ page }: { page: AreaPage }) {
         </div>
         <div className="service-prose">{page.overview.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
       </section>
+
+      {page.report ? (
+        <section className="area-report service-content-section" aria-labelledby="area-report-title">
+          <div className="service-section-heading">
+            <p className="eyebrow"><span /> {page.report.reviewed}</p>
+            <h2 id="area-report-title">{page.report.title}</h2>
+            <p>{page.report.intro}</p>
+          </div>
+          <div className="area-report-grid">
+            {page.report.facts.map((fact) => (
+              <article key={fact.label}>
+                <strong>{fact.value}</strong>
+                <h3>{fact.label}</h3>
+                <p>{fact.copy}</p>
+              </article>
+            ))}
+          </div>
+          <div className="area-report-action">
+            <div>
+              <span>Report first. Price next.</span>
+              <h3>See the likely supplier, system path, and all installed prices.</h3>
+              <p>{page.report.limitation}</p>
+            </div>
+            <div className="area-report-links">
+              <Link href={`/water-check?zip=${page.report.zip}`}>Get my free Modesto Water Report <span aria-hidden="true">→</span></Link>
+              <Link href="/financing">See financing availability <span aria-hidden="true">→</span></Link>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       {page.sources?.length ? (
         <section className="service-related service-content-section" aria-labelledby="local-sources-title">
@@ -185,8 +224,12 @@ export function AreaPageView({ page }: { page: AreaPage }) {
       </section>
 
       <section className="service-cta-band">
-        <div><span>{page.city} service availability</span><h2>Discuss your property with the local team.</h2><p>Call with the address, water source, household needs, and the results you want from the system.</p></div>
-        <a href={phoneHref}><small>Tap or click to call</small><strong>{phoneDisplay}</strong><span>Call for pricing →</span></a>
+        <div><span>{page.report ? "Free Modesto Water Report" : `${page.city} service availability`}</span><h2>{page.report ? "Get the report and installed price before you contact anyone." : "Discuss your property with the local team."}</h2><p>{page.report ? "Enter a ZIP, confirm the likely supplier, review public records, and size the starting system in about two minutes." : "Call with the address, water source, household needs, and the results you want from the system."}</p></div>
+        {page.report ? (
+          <Link href={`/water-check?zip=${page.report.zip}`}><small>No signup required</small><strong>Start free</strong><span>Check Modesto water by ZIP →</span></Link>
+        ) : (
+          <a href={phoneHref}><small>Tap or click to call</small><strong>{phoneDisplay}</strong><span>Call for pricing →</span></a>
+        )}
       </section>
 
       {relatedAreas.length > 0 ? (
