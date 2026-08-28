@@ -85,13 +85,13 @@ test("renders the service-area hub and static city pages with SEO signals", asyn
 });
 
 
-test("renders the free California water check with canonical trust signals", async () => {
+test("renders the protected approved Water Check funnel", async () => {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("water-check-test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
 
   const response = await worker.fetch(
-    new Request("http://localhost/water-check?zip=95351", {
+    new Request("http://localhost/water-check", {
       headers: { accept: "text/html" },
     }),
     {
@@ -112,16 +112,15 @@ test("renders the free California water check with canonical trust signals", asy
     html,
     /<link[^>]+rel=["']canonical["'][^>]+href=["']https:\/\/www\.cvpurewater\.com\/water-check["']/i,
   );
-  assert.match(html, /Free California Water Check by ZIP/i);
-  assert.match(html, /See the report first/i);
-  assert.match(html, /No signup/i);
-  assert.match(html, /actual public laboratory monitoring records/i);
-  assert.match(html, /treatment and price path/i);
-  assert.match(html, /\$3,495 · \$3,995 · \$5,495 installed prices/i);
-  assert.match(html, /three or more bathrooms plus four or more people selects Dual Tank Full/i);
-  assert.match(html, /href=["']\/financing["']/i);
+  assert.match(html, /What(?:'|&#x27;)s in your water\?/i);
+  assert.match(html, /See the full report/i);
+  assert.match(html, /Show my water results/i);
+  assert.match(html, /Free · No signup · Utility data first/i);
+  assert.match(html, /We match the utility/i);
+  assert.match(html, /Every result stays here/i);
+  assert.match(html, /Size the home and save the result/i);
+  assert.doesNotMatch(html, /Check your water\. See the math\. Get your price/i);
   assert.match(html, /"@type":"WebApplication"/i);
-  assert.match(html, /"@type":"FAQPage"/i);
   assert.match(html, /tel:\+15107255120/i);
   assert.doesNotMatch(html, /<input[^>]+type=["']email["']/i);
 });

@@ -2,7 +2,7 @@ import { sitesBackendOrigin } from "../../site-config";
 
 export async function GET(request: Request) {
   const sourceUrl = new URL(request.url);
-  const upstreamUrl = new URL("/api/water-report", sitesBackendOrigin);
+  const upstreamUrl = new URL("/api/address-suggestions", sitesBackendOrigin);
   upstreamUrl.search = sourceUrl.search;
 
   try {
@@ -20,9 +20,6 @@ export async function GET(request: Request) {
       },
     });
   } catch {
-    return Response.json(
-      { error: "The water report is temporarily unavailable. Please try again." },
-      { status: 503 },
-    );
+    return Response.json({ suggestions: [] }, { status: 503 });
   }
 }
