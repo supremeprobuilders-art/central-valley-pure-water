@@ -82,6 +82,24 @@ test("renders the service-area hub and static city pages with SEO signals", asyn
   assert.match(modestoHtml, /href=["']\/water-check\?zip=95351["']/i);
   assert.match(modestoHtml, /href=["']\/financing["']/i);
   assert.match(modestoHtml, /City of Modesto 2025 Consumer Confidence Report/i);
+
+  const stocktonResponse = await worker.fetch(
+    new Request("http://localhost/areas/stockton", { headers: { accept: "text/html" } }),
+    { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
+    { waitUntil() {}, passThroughOnException() {} },
+  );
+  const stocktonHtml = await stocktonResponse.text();
+  assert.match(stocktonHtml, /Free Stockton Water Report &amp; Installed System Prices/i);
+  assert.match(stocktonHtml, /Start with the provider—not a citywide assumption/i);
+  assert.match(stocktonHtml, /23,926 tests on 3,432 samples for 237 constituents/i);
+  assert.match(stocktonHtml, /150 ppm average groundwater hardness/i);
+  assert.match(stocktonHtml, /not a laboratory test of water from a Stockton faucet/i);
+  assert.match(stocktonHtml, /Standard \$3,495, Standard Plus \$3,995, or Dual Tank Full \$5,495 installed/i);
+  assert.match(stocktonHtml, /href=["']\/water-check\?zip=95205["']/i);
+  assert.match(stocktonHtml, /href=["']\/financing["']/i);
+  assert.match(stocktonHtml, /Cal Water Stockton 2025 Water Quality Report/i);
+  assert.match(stocktonHtml, /Free Stockton Water Report/i);
+  assert.doesNotMatch(stocktonHtml, /Free Modesto Water Report/i);
 });
 
 

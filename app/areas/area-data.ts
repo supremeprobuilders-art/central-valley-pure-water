@@ -22,6 +22,7 @@ export type AreaPage = {
   sources?: { label: string; href: string; note: string }[];
   report?: {
     zip: string;
+    modified: string;
     reviewed: string;
     title: string;
     intro: string;
@@ -140,6 +141,7 @@ export const areaPages: AreaPage[] = [
     ],
     report: {
       zip: "95351",
+      modified: "2026-08-28",
       reviewed: "Official 2025 report reviewed August 28, 2026",
       title: "A two-minute starting point for a Modesto address",
       intro:
@@ -176,84 +178,144 @@ export const areaPages: AreaPage[] = [
     slug: "stockton",
     city: "Stockton",
     county: "San Joaquin County",
-    title: "Water Filtration & Softener Installation in Stockton",
-    eyebrow: "Stockton whole-home water options",
-    metaTitle: "Water Filtration Stockton CA | Central Valley Pure Water",
+    title: "Free Stockton Water Report & Installed System Prices",
+    eyebrow: "Stockton water quality by ZIP code",
+    metaTitle: "Stockton Water Report & Installed Prices | CV Pure Water",
     metaDescription:
-      "Compare whole-home water filtration, softeners, and reverse osmosis installation in Stockton. Call for a source-aware recommendation and pricing.",
+      "Check the likely Stockton water provider, current public report context, system path, installed prices, and financing by ZIP—free, with no signup.",
     hero:
-      "Choose a Stockton water system by separating hardness, whole-home filtration, and drinking-water goals—not by starting with a generic package.",
-    overviewTitle: "Match the system to the job it needs to do",
+      "Enter a Stockton ZIP to identify the likely provider, review current public monitoring context, and continue to system sizing and installed pricing before any optional contact.",
+    overviewTitle: "Start with the provider—not a citywide assumption",
     overview: [
-      "Stockton homeowners often compare several categories at once: whole-home water softening, point-of-entry filtration, and reverse osmosis at the kitchen sink. These systems are not interchangeable. A useful proposal should explain which fixtures each component serves and connect every component to a stated household goal.",
-      "The property water source also needs to be confirmed rather than assumed. Homes within Stockton and properties outside the urban core can have different source and installation circumstances. Central Valley Pure Water reviews the address, household demand, plumbing access, available space, and the concerns behind the call before presenting equipment and current pricing.",
+      "Stockton does not have one public-water report that applies to every address. The City directs residents to an address lookup because service may come from the City of Stockton Municipal Utilities Department, California Water Service, or another local provider. A ZIP is a useful starting point, but the provider name and public-water-system ID on the current bill control which report should be reviewed.",
+      "California Water Service’s 2025 Stockton District report is one current example. Cal Water says its Stockton system used local groundwater plus water purchased from Stockton East Water District and met every applicable primary and secondary federal and state water-quality standard in 2025. Its source-specific table reports different hardness values for groundwater and purchased surface water, illustrating why a single Stockton-wide hardness number can be misleading.",
+      "The free Water Report summarizes selected public utility records; it is not a laboratory test of water from a Stockton faucet. Provider confirmation, the latest official report, source blending, property plumbing and goals, household and bathroom sizing, installation conditions, and model-specific performance still control the final recommendation.",
     ],
     highlights: [
-      "Stockton service availability",
-      "Source-aware system planning",
-      "Whole-home and point-of-use choices",
-      "Installation scope explained first",
+      "Provider confirmation first",
+      "2025 public records explained",
+      "All installed prices visible",
+      "Financing available",
     ],
     helpfulFor: [
-      "You are unsure whether the right starting point is softening or filtration.",
-      "You want treatment serving showers, laundry, and fixtures throughout the home.",
-      "You want separate drinking-water treatment at the kitchen sink.",
-      "You want equipment capacity and installation access considered together.",
+      "You do not know which water utility serves the Stockton address or which annual report applies.",
+      "You see scale or spotting and want to compare the provider’s hardness context with whole-home softening.",
+      "You want to separate whole-home filtration from dedicated reverse osmosis for drinking and cooking water.",
+      "You want installed pricing and financing availability before speaking with a sales representative.",
     ],
     decisions: [
       {
-        title: "Treatment objective",
-        copy: "Describe the visible symptom or practical goal first. Hardness, whole-home filtration, and drinking water should remain separate decisions until the plan is clear.",
+        title: "Confirm the provider",
+        copy: "Use the City’s address lookup and the current water bill to verify the utility and PWSID. ZIP and city boundaries alone cannot identify the controlling report with certainty.",
       },
       {
-        title: "Property water source",
-        copy: "Confirm whether the address receives municipal water or uses a private well. Do not use utility-wide assumptions as a substitute for property-specific information.",
+        title: "Separate the treatment goals",
+        copy: "Softening, whole-home filtration, and kitchen reverse osmosis perform different jobs. Match each proposed component to the stated concern without claiming universal contaminant removal.",
       },
       {
-        title: "Capacity and flow",
-        copy: "Household occupancy, simultaneous water use, fixture demand, and available plumbing access help determine a practical whole-home configuration.",
+        title: "Size and verify the property",
+        copy: "Household size, bathrooms, main-line access, drainage, power, cabinet space, and model-specific performance shape the final equipment and installation scope.",
       },
     ],
     process: [
       {
-        title: "Describe the Stockton property",
-        copy: "Provide the address, source, household size, and whether the priority is hardness, filtration, kitchen drinking water, or a combination.",
+        title: "Enter a Stockton ZIP",
+        copy: "Start the free report without an account. The lookup shows a likely supplier and asks you to confirm it against the current water bill.",
       },
       {
-        title: "Separate the treatment paths",
-        copy: "The team explains which options work at the main line and which are dedicated to a single drinking-water faucet.",
+        title: "Review dated public records",
+        copy: "See plain-English provider context and official source links. Utility-wide monitoring does not predict the water at one faucet.",
       },
       {
-        title: "Confirm site conditions",
-        copy: "Photos or an on-site review may be used to evaluate space, drainage, power, plumbing, equipment removal, and unusual work.",
+        title: "Size the starting system",
+        copy: "Choose household size and bathrooms to see Standard $3,495, Standard Plus $3,995, or Dual Tank Full $5,495 installed. Three or more bathrooms plus four or more people selects Dual Tank Full.",
       },
       {
-        title: "Review scope and pricing",
-        copy: "Compare the proposed equipment, standard installation, exclusions, current pricing, and available next steps before scheduling.",
+        title: "Choose the next step",
+        copy: "Review financing availability, call, text, or optionally share contact details after receiving the report and price. Lender terms and final property verification control.",
       },
     ],
     faqs: [
       {
-        question: "What is the difference between a Stockton water softener and whole-home filter?",
+        question: "Who provides water to my Stockton address?",
         answer:
-          "A softener is selected primarily for hardness minerals. Whole-home filtration is a broader category selected around a defined filtration objective. A recommendation should explain the purpose of each component.",
+          "Stockton has more than one water service provider. Use the City’s official address lookup, then confirm the provider name and public-water-system ID on the current bill before relying on a water-quality report.",
       },
       {
-        question: "Can reverse osmosis be installed without a whole-home system?",
+        question: "What does Cal Water’s 2025 Stockton report say?",
         answer:
-          "Yes. An under-sink reverse osmosis system can be considered as a dedicated drinking-water option even when no whole-home equipment is installed.",
+          "For the Cal Water Stockton District—not every Stockton address—the utility reports that it used local groundwater plus purchased Stockton East Water District water and met every applicable primary and secondary federal and state water-quality standard in 2025. Read the official report for the full tables and qualifications.",
       },
       {
-        question: "Do you serve private-well properties near Stockton?",
+        question: "How hard is Stockton water?",
         answer:
-          "Call with the property address and water source to confirm availability. Private-well recommendations begin with current information about that individual property.",
+          "There is no single reliable citywide number. Cal Water’s 2025 Stockton District table reports groundwater hardness from 22–290 ppm with a 150 ppm average, while its purchased surface-water column reports a 38.9 ppm average. Those source-specific values do not predict one address or apply to a different provider.",
       },
       {
-        question: "What can change a Stockton installation quote?",
+        question: "Is this a laboratory test of my Stockton tap water?",
         answer:
-          "Equipment capacity, plumbing access, drainage, electrical needs, trenching, code work, removal, major plumbing changes, and difficult conditions can affect the final scope.",
+          "No. It is a plain-English summary of relevant public utility monitoring records. Tap-specific questions may require appropriate property sampling, and provider, source, plumbing, installation, and model-performance confirmation still control the final recommendation.",
+      },
+      {
+        question: "What are the installed water-system prices in Stockton?",
+        answer:
+          "The confirmed starting installed prices are Standard $3,495, Standard Plus $3,995, and Dual Tank Full $5,495. Three or more bathrooms plus four or more people selects Dual Tank Full. Property conditions and final scope still control.",
+      },
+      {
+        question: "Is financing available for a Stockton water system?",
+        answer:
+          "Yes. Financing is available after you see the installed-price path. Approval, payment, rate, term, and other conditions are determined by the lender.",
       },
     ],
+    sources: [
+      {
+        label: "City of Stockton water quality and provider resources",
+        href: "https://www.stocktonca.gov/services/water,_sewer___stormwater/water_quality.php",
+        note: "Official City page linking the current 2025 annual report, public-health-goals report, and address-based water-provider lookup.",
+      },
+      {
+        label: "City of Stockton address and provider lookup",
+        href: "https://www.stocktonca.gov/aya",
+        note: "Official address lookup used to identify the water service provider before selecting an annual report.",
+      },
+      {
+        label: "Cal Water Stockton 2025 Water Quality Report",
+        href: "https://www.calwater.com/ccrs/stk-stk-2025/",
+        note: "Current official Cal Water report for its Stockton District, including 2025 compliance, source, and source-specific hardness context.",
+      },
+    ],
+    report: {
+      zip: "95205",
+      modified: "2026-08-30",
+      reviewed: "Official 2025 sources reviewed August 30, 2026",
+      title: "A provider-first starting point for a Stockton address",
+      intro:
+        "Use the City’s provider lookup and current utility records as context, then run the free ZIP lookup to identify the likely supplier and continue to system sizing, installed price, financing, and optional contact.",
+      facts: [
+        {
+          value: "Multiple",
+          label: "Water providers in Stockton",
+          copy: "The City directs residents to an address lookup because one provider and report do not apply across every Stockton address.",
+        },
+        {
+          value: "23,926",
+          label: "Cal Water tests in 2025",
+          copy: "Cal Water reports 23,926 tests on 3,432 samples for 237 constituents in its Stockton District—not all Stockton providers.",
+        },
+        {
+          value: "150 / 38.9 ppm",
+          label: "Cal Water source averages",
+          copy: "The 2025 table reports 150 ppm average groundwater hardness and 38.9 ppm for purchased surface water; an address-specific result can differ.",
+        },
+        {
+          value: "Standards met",
+          label: "Cal Water compliance statement",
+          copy: "Cal Water says its Stockton District met every applicable primary and secondary federal and state standard in 2025.",
+        },
+      ],
+      limitation:
+        "These facts apply to the cited provider records, not every Stockton address or an individual faucet. Confirm the provider and current report; property details and model-specific performance still control the final recommendation.",
+    },
     serviceSlugs: ["whole-home-water-filtration", "water-softeners", "reverse-osmosis"],
     relatedAreas: ["manteca", "tracy"],
   },

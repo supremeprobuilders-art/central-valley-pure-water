@@ -32,7 +32,7 @@ function StructuredData({ page }: { page: AreaPage }) {
       description: page.metaDescription,
       url: canonical,
       mainEntity: { "@id": `${canonical}#service` },
-      ...(page.report ? { dateModified: "2026-08-28", citation: page.sources?.map((source) => source.href) } : {}),
+      ...(page.report ? { dateModified: page.report.modified, citation: page.sources?.map((source) => source.href) } : {}),
     },
     {
       "@type": "Service",
@@ -156,7 +156,7 @@ export function AreaPageView({ page }: { page: AreaPage }) {
               <p>{page.report.limitation}</p>
             </div>
             <div className="area-report-links">
-              <Link href={`/water-check?zip=${page.report.zip}`}>Get my free Modesto Water Report <span aria-hidden="true">→</span></Link>
+              <Link href={`/water-check?zip=${page.report.zip}`}>Get my free {page.city} Water Report <span aria-hidden="true">→</span></Link>
               <Link href="/financing">See financing availability <span aria-hidden="true">→</span></Link>
             </div>
           </div>
@@ -224,9 +224,9 @@ export function AreaPageView({ page }: { page: AreaPage }) {
       </section>
 
       <section className="service-cta-band">
-        <div><span>{page.report ? "Free Modesto Water Report" : `${page.city} service availability`}</span><h2>{page.report ? "Get the report and installed price before you contact anyone." : "Discuss your property with the local team."}</h2><p>{page.report ? "Enter a ZIP, confirm the likely supplier, review public records, and size the starting system in about two minutes." : "Call with the address, water source, household needs, and the results you want from the system."}</p></div>
+        <div><span>{page.report ? `Free ${page.city} Water Report` : `${page.city} service availability`}</span><h2>{page.report ? "Get the report and installed price before you contact anyone." : "Discuss your property with the local team."}</h2><p>{page.report ? "Enter a ZIP, confirm the likely supplier, review public records, and size the starting system in about two minutes." : "Call with the address, water source, household needs, and the results you want from the system."}</p></div>
         {page.report ? (
-          <Link href={`/water-check?zip=${page.report.zip}`}><small>No signup required</small><strong>Start free</strong><span>Check Modesto water by ZIP →</span></Link>
+          <Link href={`/water-check?zip=${page.report.zip}`}><small>No signup required</small><strong>Start free</strong><span>Check {page.city} water by ZIP →</span></Link>
         ) : (
           <a href={phoneHref}><small>Tap or click to call</small><strong>{phoneDisplay}</strong><span>Call for pricing →</span></a>
         )}

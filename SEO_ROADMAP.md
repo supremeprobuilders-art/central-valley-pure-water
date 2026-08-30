@@ -1,6 +1,6 @@
 # Central Valley Pure Water SEO Roadmap
 
-Last updated: 2026-08-28
+Last updated: 2026-08-30
 
 ## Strategy pivot — Free Water Report acquisition engine (2026-08-24)
 
@@ -90,6 +90,7 @@ Last updated: 2026-08-28
 - A crawlable service-area hub and substantial city pages are present for Modesto, Stockton, Tracy, Manteca, and Turlock.
 - The production runtime error scan was clean on 2026-08-16.
 - Source-backed Sacramento, Elk Grove, and Merced pages are live, bringing the area cluster to eight city pages.
+- The owner-approved Water Check was restored to GitHub `main` and verified on production on 2026-08-30. `WATER_CHECK_PROTECTED.md`, the full protected route tree, API dependencies, product assets, and the rendered regression test are now mandatory release gates for every SEO sprint.
 
 ## Completed
 
@@ -203,6 +204,15 @@ Last updated: 2026-08-28
 - Repaired the broken homepage and area-hub route to `/areas/merced` by adding a substantial, distinct Merced page tied to the City’s official Reporting Year 2025 Consumer Confidence Report page, provider confirmation, home-system planning, installed pricing, and financing.
 - Updated area sitemap modification dates and expanded rendered coverage to Merced plus Modesto-specific source, pricing, disclaimer, schema, financing, and internal-link checks.
 
+### Sprint 11 — Provider-first Stockton report page
+
+- Rebuilt `/areas/stockton` around the distinct “Stockton water report” and “water hardness by ZIP” intent without changing the protected Water Check.
+- Used the City of Stockton’s current water-quality page and official address/provider lookup to explain why Stockton does not have one provider or annual report that applies to every address.
+- Added a bounded 2025 California Water Service Stockton District snapshot: 23,926 tests on 3,432 samples for 237 constituents; local groundwater plus purchased Stockton East Water District water; a statement that applicable primary and secondary standards were met; and source-specific hardness context of 22–290 ppm with a 150 ppm groundwater average versus 38.9 ppm for purchased surface water.
+- Kept every Cal Water fact expressly limited to that provider and report, required bill/PWSID confirmation, and stated that public utility records are not a laboratory test of an individual faucet.
+- Routed Stockton report discovery into `/water-check?zip=95205`, household and bathroom sizing, Standard `$3,495`, Standard Plus `$3,995`, Dual Tank Full `$5,495`, financing, call, text, and optional contact.
+- Removed hard-coded “Modesto” labels from the shared report-city template, added per-page `dateModified` schema, refreshed sitemap dates, and added Stockton rendered-route regression coverage.
+
 ## Current blockers
 
 - Vercel project metadata does not yet show native Git-triggered deployments from GitHub `main`; the automation currently deploys the exact repository artifact through the authenticated Vercel connection.
@@ -216,7 +226,7 @@ Last updated: 2026-08-28
 
 1. Connect or confirm Google Search Console and GA4/GTM so report impressions, organic clicks, report completions, price views, financing clicks, calls, optional contacts, and qualified leads can be reported rather than inferred.
 2. Review initial Modesto indexation and engagement evidence before repeating the pattern; do not create mass-generated ZIP or city pages.
-3. If official-source and distinct-intent research supports it, rebuild `/areas/stockton` around Stockton water-report discovery plus a differentiated whole-home filtration decision, using the current provider-specific official report and the same provider-confirmation safeguards.
+3. Review Stockton indexation and engagement evidence before repeating the report-page pattern. If research supports distinct value, strengthen `/areas/tracy` next around provider confirmation and kitchen RO versus whole-home hardness intent.
 4. Keep the Water Report as the organic front door and use service pages only as supporting decision content.
 
 ### Daily sprint priority order
