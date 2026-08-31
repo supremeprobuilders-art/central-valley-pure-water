@@ -1,6 +1,6 @@
 # Central Valley Pure Water SEO Roadmap
 
-Last updated: 2026-08-30
+Last updated: 2026-08-31
 
 ## Strategy pivot — Free Water Report acquisition engine (2026-08-24)
 
@@ -213,6 +213,16 @@ Last updated: 2026-08-30
 - Routed Stockton report discovery into `/water-check?zip=95205`, household and bathroom sizing, Standard `$3,495`, Standard Plus `$3,995`, Dual Tank Full `$5,495`, financing, call, text, and optional contact.
 - Removed hard-coded “Modesto” labels from the shared report-city template, added per-page `dateModified` schema, refreshed sitemap dates, and added Stockton rendered-route regression coverage.
 
+### Sprint 12 — Source-specific Tracy water report page
+
+- Rebuilt `/areas/tracy` around the connected “Tracy water report,” “water hardness by ZIP,” installed-price, and kitchen-RO-versus-whole-home-hardness intents without changing the protected Water Check.
+- Used the City of Tracy’s official 2025 Water Quality Report, created May 29, 2026, and the City’s current Water Quality & Supply index as the controlling primary sources.
+- Added the City’s reported 2025 supply mix: approximately 39% Delta-Mendota Canal, 56% Stanislaus River, 5% groundwater, and 0.15% aquifer-storage supply.
+- Added source-specific hardness context from the report’s secondary-standards table: 31.0 mg/L for South San Joaquin Irrigation District treated surface water and a 264 mg/L well-water average with a 58–390 mg/L well range.
+- Kept the City’s compliance statement separate from hardness and equipment selection, expressly stating that public monitoring records are not a laboratory test of an individual faucet and do not establish one universal system for every Tracy home.
+- Routed Tracy into `/water-check?zip=95376`, supplier confirmation, household and bathroom sizing, Standard `$3,495`, Standard Plus `$3,995`, Dual Tank Full `$5,495`, financing, call, text, and optional contact.
+- Refreshed area sitemap dates and added Tracy-specific rendered regression coverage for metadata, official facts, limitations, pricing, schema, report links, and financing.
+
 ## Current blockers
 
 - Vercel project metadata does not yet show native Git-triggered deployments from GitHub `main`; the automation currently deploys the exact repository artifact through the authenticated Vercel connection.
@@ -226,7 +236,7 @@ Last updated: 2026-08-30
 
 1. Connect or confirm Google Search Console and GA4/GTM so report impressions, organic clicks, report completions, price views, financing clicks, calls, optional contacts, and qualified leads can be reported rather than inferred.
 2. Review initial Modesto indexation and engagement evidence before repeating the pattern; do not create mass-generated ZIP or city pages.
-3. Review Stockton indexation and engagement evidence before repeating the report-page pattern. If research supports distinct value, strengthen `/areas/tracy` next around provider confirmation and kitchen RO versus whole-home hardness intent.
+3. Review Stockton and Tracy indexation and engagement evidence before repeating the report-page pattern. If research supports distinct value, strengthen `/areas/manteca` next around provider confirmation and complete-home sizing intent.
 4. Keep the Water Report as the organic front door and use service pages only as supporting decision content.
 
 ### Daily sprint priority order

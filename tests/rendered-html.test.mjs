@@ -100,6 +100,26 @@ test("renders the service-area hub and static city pages with SEO signals", asyn
   assert.match(stocktonHtml, /Cal Water Stockton 2025 Water Quality Report/i);
   assert.match(stocktonHtml, /Free Stockton Water Report/i);
   assert.doesNotMatch(stocktonHtml, /Free Modesto Water Report/i);
+
+  const tracyResponse = await worker.fetch(
+    new Request("http://localhost/areas/tracy", { headers: { accept: "text/html" } }),
+    { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
+    { waitUntil() {}, passThroughOnException() {} },
+  );
+  const tracyHtml = await tracyResponse.text();
+  assert.match(tracyHtml, /Free Tracy Water Report &amp; Installed System Prices/i);
+  assert.match(tracyHtml, /Why Tracy(?:’|&#x2019;)s changing water sources matter/i);
+  assert.match(tracyHtml, /39% from the Delta-Mendota Canal/i);
+  assert.match(tracyHtml, /56% from the Stanislaus River/i);
+  assert.match(tracyHtml, /31\.0 mg\/L for South San Joaquin Irrigation District treated surface water/i);
+  assert.match(tracyHtml, /264 mg\/L well-water average/i);
+  assert.match(tracyHtml, /not a laboratory test of water from your tap/i);
+  assert.match(tracyHtml, /Standard \$3,495, Standard Plus \$3,995, or Dual Tank Full \$5,495 installed/i);
+  assert.match(tracyHtml, /href=["']\/water-check\?zip=95376["']/i);
+  assert.match(tracyHtml, /href=["']\/financing["']/i);
+  assert.match(tracyHtml, /City of Tracy 2025 Water Quality Report/i);
+  assert.match(tracyHtml, /dateModified[^}]+2026-08-31/i);
+  assert.doesNotMatch(tracyHtml, /Free Modesto Water Report/i);
 });
 
 

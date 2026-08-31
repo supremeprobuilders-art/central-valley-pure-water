@@ -323,84 +323,134 @@ export const areaPages: AreaPage[] = [
     slug: "tracy",
     city: "Tracy",
     county: "San Joaquin County",
-    title: "Reverse Osmosis & Water Softener Installation in Tracy",
-    eyebrow: "Tracy kitchen and whole-home systems",
-    metaTitle: "Reverse Osmosis Tracy CA | Central Valley Pure Water",
+    title: "Free Tracy Water Report & Installed System Prices",
+    eyebrow: "Tracy water quality and hardness by ZIP",
+    metaTitle: "Tracy Water Report & Installed Prices | CV Pure Water",
     metaDescription:
-      "Plan reverse osmosis, water softener, or complete-home system installation in Tracy. Call Central Valley Pure Water for current pricing and scope.",
+      "See Tracy’s 2025 public water report, source-specific hardness context, likely supplier, system path, installed prices, and financing by ZIP—free.",
     hero:
-      "Plan dedicated drinking water at the kitchen sink, whole-home hardness treatment, or a coordinated combination for your Tracy home.",
-    overviewTitle: "Two locations, two different treatment decisions",
+      "Enter a Tracy ZIP to see the likely public-water supplier, dated City monitoring context, a suitable system path, and installed pricing before any optional contact.",
+    overviewTitle: "Why Tracy’s changing water sources matter for a home-system plan",
     overview: [
-      "Reverse osmosis is commonly installed beneath the kitchen sink and supplies a dedicated faucet for drinking and cooking water. A water softener is installed on the home’s incoming line to address hardness throughout the house. Tracy homeowners comparing both should evaluate the kitchen and main-line locations separately before treating them as one package.",
-      "Under-sink cabinet space, feed and drain access, faucet placement, and future filter changes shape the reverse osmosis installation. Main-line access, drainage, power, household demand, and equipment clearance shape the whole-home side. Reviewing both locations before equipment selection produces a clearer proposal and avoids assuming every home has the same layout.",
+      "The City of Tracy’s 2025 Water Quality Report says its supply came primarily from two treated surface-water sources, with smaller groundwater and aquifer-storage contributions. The report lists approximately 39% from the Delta-Mendota Canal, 56% from the Stanislaus River, 5% from groundwater, and 0.15% from aquifer storage and recovery. Because sources can blend and change, one citywide number cannot predict conditions at one address.",
+      "The City’s secondary-standards table shows why hardness should be read by source. It lists total hardness of 31.0 mg/L for South San Joaquin Irrigation District treated surface water and a 264 mg/L well-water average, with a 58–390 mg/L well range. Those public utility figures can help frame scale and spotting questions, but they are not a laboratory test of water from your tap and do not establish the correct equipment by themselves.",
+      "The report says water delivered from January 1 through December 31, 2025 met the applicable state and federal drinking-water requirements. That compliance statement and the hardness table answer different questions: regulatory compliance does not make hardness uniform, and hardness is not a reason to imply that every Tracy home needs the same system. Confirm the provider and current report, then verify the property, household demand, installation conditions, and model-specific performance.",
     ],
     highlights: [
-      "Dedicated kitchen RO options",
-      "Whole-home softener planning",
-      "Complete-home coordination",
-      "Serviceable equipment layouts",
+      "Free report before signup",
+      "2025 City sources explained",
+      "Source-specific hardness context",
+      "All installed prices visible",
     ],
     helpfulFor: [
-      "You want a dedicated faucet for drinking and cooking water.",
-      "You see whole-home hard-water signs such as spotting or scale.",
-      "You are comparing a standalone RO system with a coordinated package.",
-      "You want cabinet and main-line access checked before installation.",
+      "You see scale or spotting and want to understand why Tracy’s reported hardness varies by source.",
+      "You are searching what is in Tracy tap water and want the current City report summarized in plain English.",
+      "You want to compare whole-home hardness treatment with dedicated kitchen reverse osmosis without treating them as the same job.",
+      "You want installed pricing and financing availability before speaking with a sales representative.",
     ],
     decisions: [
       {
-        title: "Kitchen cabinet layout",
-        copy: "Confirm room for the RO components, feed connection, drain connection, faucet placement, tubing, and reasonable access for future filter service.",
+        title: "Confirm the provider",
+        copy: "Start with the supplier and PWSID on the current bill. ZIP boundaries, city limits, utility service areas, and private-well properties do not always align.",
       },
       {
-        title: "Main-line conditions",
-        copy: "A whole-home system needs a practical installation location with appropriate plumbing, drainage, power where required, clearance, and weather protection.",
+        title: "Separate hardness from drinking water",
+        copy: "A whole-home softener and a dedicated kitchen reverse-osmosis system serve different purposes. Any recommended component should be tied to the stated goal without promising universal contaminant removal.",
       },
       {
-        title: "One project or phases",
-        copy: "A softener and RO can be coordinated in one scope or considered separately. The proposal should make the purpose and price of each component clear.",
+        title: "Size and verify the property",
+        copy: "Household size, bathrooms, main-line access, drainage, power, cabinet space, source conditions, and model-specific performance control the final equipment and scope.",
       },
     ],
     process: [
       {
-        title: "Choose the first goal",
-        copy: "Decide whether the immediate priority is kitchen drinking water, whole-home hardness, or a combined installation.",
+        title: "Enter a Tracy ZIP",
+        copy: "Start the free Water Report without creating an account. The lookup shows the likely supplier and asks you to confirm it against the current bill.",
       },
       {
-        title: "Share layout details",
-        copy: "Provide photos or arrange a review of the kitchen cabinet, sink, incoming water line, equipment area, drainage, and power conditions.",
+        title: "Review the public record",
+        copy: "See dated utility context in plain English, including source-specific hardness, while keeping the City’s complete report and qualifications available as the controlling source.",
       },
       {
-        title: "Review the Tracy proposal",
-        copy: "Confirm the equipment role, installation scope, exclusions, current pricing, financing availability, and maintenance access.",
+        title: "Size the starting system",
+        copy: "Choose household size and bathrooms to see Standard $3,495, Standard Plus $3,995, or Dual Tank Full $5,495 installed. Three or more bathrooms plus four or more people selects Dual Tank.",
       },
       {
-        title: "Install and explain",
-        copy: "After installation, the system is checked and the homeowner is shown the faucet, shutoffs, basic operation, and service access.",
+        title: "Choose the next step",
+        copy: "Review financing availability, call, text, or optionally share contact details after receiving the report and price. Lender terms control financing; property verification controls the final scope.",
       },
     ],
     faqs: [
       {
-        question: "Where is a reverse osmosis system installed in a Tracy home?",
+        question: "Is the Tracy Water Report free and available without signup?",
         answer:
-          "Residential reverse osmosis systems are commonly installed beneath the kitchen sink and connected to a dedicated drinking-water faucet. The exact layout depends on cabinet and plumbing conditions.",
+          "Yes. Enter a California city or ZIP to see the likely public-water supplier, public-record context, a suitable system starting point, installed pricing, and financing availability before any optional contact request.",
       },
       {
-        question: "Does a kitchen RO system soften the whole Tracy home?",
+        question: "What does Tracy’s 2025 water report say about its supply?",
         answer:
-          "No. Kitchen RO is point-of-use drinking-water treatment. Whole-home hardness is addressed separately with a water softener installed on the incoming line.",
+          "The City report lists approximately 39% Delta-Mendota Canal water, 56% Stanislaus River water, 5% groundwater, and 0.15% aquifer-storage supply for 2025. Source blending can vary, so confirm the provider and current utility information for the address.",
       },
       {
-        question: "Can water softener and RO installation be quoted together?",
+        question: "How hard is Tracy water?",
         answer:
-          "Yes. They can be reviewed as a coordinated project, with the equipment and installation scope for each location shown clearly.",
+          "The City’s 2025 table lists total hardness of 31.0 mg/L for South San Joaquin Irrigation District treated surface water and a 264 mg/L average for well water, with a 58–390 mg/L well range. That source-specific utility context is not a tap measurement and does not predict every Tracy address.",
       },
       {
-        question: "How do I prepare for a Tracy reverse osmosis quote?",
+        question: "Does the 2025 City report mean every Tracy home needs a water softener?",
         answer:
-          "Have photos of the sink cabinet, faucet area, feed and drain plumbing, plus the property address and expected household use when you call.",
+          "No. The report says the City’s delivered water met applicable drinking-water requirements and separately shows wide hardness differences by source. The homeowner’s provider, actual source conditions, goals, household demand, property layout, and model-specific performance still control the recommendation.",
+      },
+      {
+        question: "Is this a laboratory test of my Tracy tap water?",
+        answer:
+          "No. It is a plain-English summary of public utility monitoring records. A tap-specific concern may require appropriate property sampling, and the final recommendation still requires provider, current-source, property, installation, and model-performance confirmation.",
+      },
+      {
+        question: "What are the installed water-system prices in Tracy?",
+        answer:
+          "The confirmed installed prices are Standard $3,495, Standard Plus $3,995, and Dual Tank Full $5,495. Three or more bathrooms plus four or more people selects Dual Tank. Final scope depends on property verification, and financing is available subject to lender terms.",
       },
     ],
+    sources: [
+      {
+        label: "City of Tracy 2025 Water Quality Report",
+        href: "https://www.cityoftracy.org/files/assets/city/v/2/public-works/documents/utilities/water-quality/532-26a-tracy-2025-ccr.pdf",
+        note: "The City’s current Consumer Confidence Report, created May 29, 2026, with 2025 source, compliance, and hardness tables.",
+      },
+      {
+        label: "City of Tracy Water Quality & Supply",
+        href: "https://www.cityoftracy.org/Departments/Public-Works/Water-Sewer-Stormwater/Water-Quality-Supply",
+        note: "The City’s official report index and current water-quality, source, and supply resources.",
+      },
+    ],
+    report: {
+      zip: "95376",
+      modified: "2026-08-31",
+      reviewed: "Official 2025 City report, reviewed August 31, 2026",
+      title: "A source-specific snapshot—not a test from your faucet",
+      intro:
+        "The City’s annual report combines treated surface-water and well-water information. These selected facts help explain why a provider and source check matters before choosing between kitchen RO, whole-home softening, or another path.",
+      facts: [
+        {
+          value: "39% / 56%",
+          label: "Two main surface sources",
+          copy: "The City lists 39% from the Delta-Mendota Canal and 56% from the Stanislaus River in 2025, plus smaller groundwater and aquifer-storage contributions.",
+        },
+        {
+          value: "31 / 264 mg/L",
+          label: "Source-specific hardness",
+          copy: "The table lists 31.0 mg/L for one treated surface-water source and a 264 mg/L well-water average, with wells ranging from 58 to 390 mg/L.",
+        },
+        {
+          value: "Standards met",
+          label: "2025 City compliance statement",
+          copy: "The City says water delivered from January 1 through December 31, 2025 met applicable state and federal drinking-water requirements.",
+        },
+      ],
+      limitation:
+        "These are selected City utility facts, not a laboratory result for one faucet. Confirm the provider and current source; property details, household sizing, installation conditions, and model-specific performance still control the final recommendation.",
+    },
     serviceSlugs: ["reverse-osmosis", "water-softeners", "whole-home-water-filtration"],
     relatedAreas: ["manteca", "stockton"],
   },

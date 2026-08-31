@@ -5,7 +5,7 @@ import { servicePages } from "./services/service-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const coreUpdated = new Date("2026-08-08");
-  const areaUpdated = new Date("2026-08-30");
+  const areaUpdated = new Date("2026-08-28");
   const waterCheckUpdated = new Date("2026-08-30");
   const growthUpdated = new Date("2026-08-22");
   return [
@@ -59,7 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...areaPages.map((page) => ({
       url: `https://www.cvpurewater.com/areas/${page.slug}`,
-      lastModified: areaUpdated,
+      lastModified: page.report ? new Date(page.report.modified) : areaUpdated,
       changeFrequency: "monthly" as const,
       priority: 0.85,
     })),
