@@ -216,3 +216,38 @@ test("validates water-check API inputs before calling upstream sources", async (
   assert.equal(invalidSystem.status, 400);
   assert.equal((await invalidSystem.json()).error.code, "INVALID_SYSTEM");
 });
+
+test("requires address verification for non-geographic Modesto postal ZIPs", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("postal-zip-guard-test", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+  const environment = {
+    ASSETS: {
+      fetch: async () => new Response("Not found", { status: 404 }),
+    },
+  };
+  const executionContext = {
+    waitUntil() {},
+    passThroughOnException() {},
+  };
+
+  for (const zip of ["95352", "95353", "95397"]) {
+    const response = await worker.fetch(
+      new Request(`http://localhost/api/water-report?zip=${zip}`, {
+        headers: { accept: "application/json" },
+      }),
+      environment,
+      executionContext,
+    );
+    const report = await response.json();
+
+    assert.equal(response.status, 200, `${zip} should return a safe report`);
+    assert.equal(report.zip, zip);
+    assert.equal(report.location.city, "Modesto");
+    assert.deepEqual(report.providers, []);
+    assert.equal(report.privateWellPath, true);
+    assert.equal(report.addressVerificationRequired, true);
+    assert.match(report.verificationReason, /no Census ZIP-area polygon/i);
+    assert.match(report.verificationReason, /rural or private-well path/i);
+  }
+});
