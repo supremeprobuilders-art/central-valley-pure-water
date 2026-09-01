@@ -458,84 +458,144 @@ export const areaPages: AreaPage[] = [
     slug: "manteca",
     city: "Manteca",
     county: "San Joaquin County",
-    title: "Whole-Home Water Systems in Manteca",
-    eyebrow: "Manteca complete-home planning",
-    metaTitle: "Water Softener Manteca CA | Central Valley Pure Water",
+    title: "Free Manteca Water Report & Installed System Prices",
+    eyebrow: "Manteca water quality by ZIP code",
+    metaTitle: "Manteca Water Report & Installed Prices | CV Pure Water",
     metaDescription:
-      "Compare water softeners, whole-home filtration, and kitchen reverse osmosis systems in Manteca. Call for a clear installation scope and price.",
+      "Check the likely Manteca water provider, current public-system context, system path, installed prices, and financing by ZIP—free, with no signup.",
     hero:
-      "Coordinate whole-home water softening and dedicated kitchen reverse osmosis without losing sight of what each system is intended to do.",
-    overviewTitle: "Build a complete-home plan one purpose at a time",
+      "Enter a Manteca ZIP to see the likely public-water supplier, current official source context, a suitable complete-home path, and installed pricing before any optional contact.",
+    overviewTitle: "Start with Manteca’s provider and mixed water sources",
     overview: [
-      "A complete-home project can include a softener serving the incoming water line and a reverse osmosis system serving a dedicated kitchen faucet. Manteca homeowners should still evaluate each component independently: the softener is sized around whole-home demand and hardness goals, while the RO system is planned around drinking-water use and the kitchen layout.",
-      "Whole-home filtration may also be considered when there is a separate, defined filtration objective. Central Valley Pure Water reviews the water source, household demand, plumbing, drainage, power, equipment footprint, and service access so the proposal explains the role and installation requirements of every component rather than presenting an unexplained bundle.",
+      "California Drinking Water Watch identifies Manteca, City of as active public water system CA3910005. The State record lists purchased treated surface water from South San Joaquin Irrigation District alongside multiple active City wells. Confirm that provider name and PWSID on the current bill because ZIP codes and water-service boundaries are not authoritative utility boundaries.",
+      "The City’s current Utilities Department page describes its supply as approximately 50% City groundwater and 50% purchased surface water from the South County Water Supply Project. The City’s Water System page says the system currently includes 17 groundwater wells and distributes water through approximately 330 miles of pipeline. Those system-level facts explain why one unsupported Manteca-wide hardness or contaminant number would be misleading.",
+      "This free Water Report summarizes selected public records; it is not a laboratory test of water from your tap. Confirm the provider and current official report before relying on the summary. Property plumbing and goals, household and bathroom sizing, installation conditions, and model-specific performance still control the final recommendation.",
     ],
     highlights: [
-      "Complete-home system planning",
-      "Household-specific softener sizing",
-      "Dedicated kitchen RO",
-      "One coordinated installation scope",
+      "Provider and PWSID first",
+      "Mixed-source context explained",
+      "All installed prices visible",
+      "Financing available",
     ],
     helpfulFor: [
-      "You want whole-home hardness treatment and dedicated drinking water.",
-      "You are comparing a complete package with standalone equipment.",
-      "You want capacity based on household demand rather than a generic label.",
-      "You want standard installation and possible extra work identified clearly.",
+      "You are searching for a Manteca water report and want to confirm which public system serves the address.",
+      "You see scale or spotting and want a responsible whole-home path without relying on an invented citywide hardness number.",
+      "You want to separate whole-home softening or filtration from dedicated reverse osmosis for drinking and cooking.",
+      "You want installed pricing and financing availability before speaking with a sales representative.",
     ],
     decisions: [
       {
-        title: "Purpose of each component",
-        copy: "Keep whole-home hardness, broad filtration, and kitchen drinking water as distinct objectives so every proposed component has a clear job.",
+        title: "Confirm the public system",
+        copy: "Check the current bill for Manteca, City of and PWSID CA3910005. A nearby address, ZIP, or city name alone cannot prove which provider record controls.",
       },
       {
-        title: "Household demand",
-        copy: "Occupancy, usage patterns, fixtures, and expected flow help shape whole-home equipment capacity and the practical installation layout.",
+        title: "Separate the treatment goals",
+        copy: "Softening, whole-home filtration, and kitchen reverse osmosis perform different jobs. Match each proposed component to a defined concern without claiming universal contaminant removal.",
       },
       {
-        title: "Standard versus added work",
-        copy: "Permits, electrical work, trenching, code upgrades, removal, major plumbing changes, and difficult conditions may be outside standard installation.",
+        title: "Size and verify the property",
+        copy: "Household size, bathrooms, main-line access, drainage, power, cabinet space, current source information, and model-specific performance shape the final equipment and installation scope.",
       },
     ],
     process: [
       {
-        title: "List the goals by location",
-        copy: "Separate what you want at showers and fixtures from what you want at the kitchen drinking-water faucet.",
+        title: "Enter a Manteca ZIP",
+        copy: "Start the free report without an account. The lookup shows a likely supplier and asks you to confirm it against the current water bill.",
       },
       {
-        title: "Review both installation areas",
-        copy: "Assess the main line and equipment space along with the sink cabinet, faucet location, feed connection, and drain access.",
+        title: "Review current public context",
+        copy: "See the PWSID, mixed groundwater and purchased-surface-water context, and official source links in plain English. Public system records do not predict one faucet.",
       },
       {
-        title: "Compare the complete scope",
-        copy: "Review the equipment roles, capacity, standard installation, exclusions, current price, and financing availability together.",
+        title: "Size the starting system",
+        copy: "Choose household size and bathrooms to see Standard $3,495, Standard Plus $3,995, or Dual Tank Full $5,495 installed. Three or more bathrooms plus four or more people selects Dual Tank Full.",
       },
       {
-        title: "Complete one coordinated install",
-        copy: "The approved components are installed, checked, and explained as one planned project with access for future service.",
+        title: "Choose the next step",
+        copy: "Review financing availability, call, text, or optionally share contact details after receiving the report and price. Lender terms and final property verification control.",
       },
     ],
     faqs: [
       {
-        question: "What is included in a complete-home water system for a Manteca property?",
+        question: "Who provides water to my Manteca address?",
         answer:
-          "A complete-home plan may combine whole-home softening with a dedicated under-sink reverse osmosis system. The exact equipment and installation scope depend on the property and goals.",
+          "California Drinking Water Watch lists Manteca, City of as active public water system CA3910005. Confirm the provider and PWSID on the current bill because a ZIP code is only a starting point.",
       },
       {
-        question: "Is whole-home filtration the same as water softening?",
+        question: "Where does Manteca’s public water come from?",
         answer:
-          "No. A softener is selected primarily for hardness minerals. Filtration uses different media and should be selected around a defined filtration objective.",
+          "The City’s current Utilities Department page says approximately half comes from City groundwater wells and half is purchased surface water from the South County Water Supply Project. Source proportions and distribution conditions can change, so review the current City source and bill.",
       },
       {
-        question: "Can I install only a water softener in Manteca?",
+        question: "How hard is Manteca water?",
         answer:
-          "Yes. Softening, filtration, and reverse osmosis can be considered separately. A combined project is an option, not an automatic requirement.",
+          "The current official pages used here establish a mixed groundwater and treated-surface-water system but do not support one address-specific hardness number. Confirm the provider, review its current report, and use appropriate property information before sizing hardness treatment.",
       },
       {
-        question: "What information helps with Manteca system pricing?",
+        question: "Is this a laboratory test of my Manteca tap water?",
         answer:
-          "Share the address, water source, household size, main-line and equipment-area photos, kitchen cabinet photos, and the goals you want each system to address.",
+          "No. It is a plain-English summary of selected public utility and regulator records. A tap-specific question may require appropriate property sampling, and final equipment still requires provider, source, property, installation, and model-performance confirmation.",
+      },
+      {
+        question: "What are the installed water-system prices in Manteca?",
+        answer:
+          "The confirmed starting installed prices are Standard $3,495, Standard Plus $3,995, and Dual Tank Full $5,495. Three or more bathrooms plus four or more people selects Dual Tank Full. Property conditions and final scope still control the final recommendation.",
+      },
+      {
+        question: "Is financing available for a Manteca water system?",
+        answer:
+          "Yes. Financing is available after you see the installed-price path. Approval, payment, rate, term, and other conditions are determined by the lender.",
       },
     ],
+    sources: [
+      {
+        label: "California Drinking Water Watch — Manteca, City of",
+        href: "https://sdwis.waterboards.ca.gov/PDWW/JSP/WaterSystemDetail.jsp?tinwsys_is_number=4019&tinwsys_st_code=CA",
+        note: "Official State Water Board system record for active PWSID CA3910005, including service population, active groundwater facilities, and purchased treated surface water.",
+      },
+      {
+        label: "City of Manteca Utilities Department",
+        href: "https://www.manteca.gov/415/Utilities-Department",
+        note: "Current City overview of Manteca’s approximate groundwater and purchased-surface-water supply split and South County Water Supply Project source.",
+      },
+      {
+        label: "City of Manteca Water System",
+        href: "https://www.manteca.gov/263/Water-System",
+        note: "Official system overview with current well and distribution context plus the City’s June 2026 final 2025 Urban Water Management Plan.",
+      },
+    ],
+    report: {
+      zip: "95337",
+      modified: "2026-09-01",
+      reviewed: "Official City and State records reviewed September 1, 2026",
+      title: "A provider-first starting point for a Manteca address",
+      intro:
+        "Use current City and State records to confirm the public system and understand the mixed-source context, then continue to household sizing, installed price, financing, and optional contact.",
+      facts: [
+        {
+          value: "CA3910005",
+          label: "Active public-water system",
+          copy: "California Drinking Water Watch identifies Manteca, City of as the active public system. Confirm the provider name and PWSID on the current bill.",
+        },
+        {
+          value: "~50% / ~50%",
+          label: "City’s current source overview",
+          copy: "The City describes an approximate split between City groundwater wells and purchased surface water from the South County Water Supply Project.",
+        },
+        {
+          value: "17 wells",
+          label: "Current City system context",
+          copy: "The City’s Water System page says the municipal system currently includes 17 groundwater wells and approximately 330 miles of distribution pipeline.",
+        },
+        {
+          value: "Confirm first",
+          label: "Address-level report rule",
+          copy: "A ZIP can suggest a provider, but the current bill and PWSID determine which official report should be used for the property.",
+        },
+      ],
+      limitation:
+        "These are selected public-system facts, not a laboratory result for one faucet. Provider confirmation, the current official source, property plumbing and goals, household sizing, installation conditions, and model-specific performance still control the final recommendation.",
+    },
     serviceSlugs: ["water-softeners", "whole-home-water-filtration", "reverse-osmosis"],
     relatedAreas: ["stockton", "tracy", "modesto"],
   },

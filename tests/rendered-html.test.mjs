@@ -120,6 +120,24 @@ test("renders the service-area hub and static city pages with SEO signals", asyn
   assert.match(tracyHtml, /City of Tracy 2025 Water Quality Report/i);
   assert.match(tracyHtml, /dateModified[^}]+2026-08-31/i);
   assert.doesNotMatch(tracyHtml, /Free Modesto Water Report/i);
+
+  const mantecaResponse = await worker.fetch(
+    new Request("http://localhost/areas/manteca", { headers: { accept: "text/html" } }),
+    { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
+    { waitUntil() {}, passThroughOnException() {} },
+  );
+  const mantecaHtml = await mantecaResponse.text();
+  assert.match(mantecaHtml, /Free Manteca Water Report &amp; Installed System Prices/i);
+  assert.match(mantecaHtml, /Start with Manteca(?:’|&#x2019;)s provider and mixed water sources/i);
+  assert.match(mantecaHtml, /active public water system CA3910005/i);
+  assert.match(mantecaHtml, /approximately 50% City groundwater and 50% purchased surface water/i);
+  assert.match(mantecaHtml, /not a laboratory test of water from your tap/i);
+  assert.match(mantecaHtml, /Standard \$3,495, Standard Plus \$3,995, or Dual Tank Full \$5,495 installed/i);
+  assert.match(mantecaHtml, /href=["']\/water-check\?zip=95337["']/i);
+  assert.match(mantecaHtml, /href=["']\/financing["']/i);
+  assert.match(mantecaHtml, /California Drinking Water Watch/i);
+  assert.match(mantecaHtml, /dateModified[^}]+2026-09-01/i);
+  assert.doesNotMatch(mantecaHtml, /Free Modesto Water Report/i);
 });
 
 
