@@ -1,6 +1,6 @@
 # Central Valley Pure Water SEO Roadmap
 
-Last updated: 2026-09-01
+Last updated: 2026-09-02
 
 ## Strategy pivot — Free Water Report acquisition engine (2026-08-24)
 
@@ -233,6 +233,17 @@ Last updated: 2026-09-01
 - Routed Manteca into `/water-check?zip=95337`, household and bathroom sizing, Standard `$3,495`, Standard Plus `$3,995`, Dual Tank Full `$5,495`, financing, call, text, and optional contact.
 - Added Manteca-specific rendered regression coverage for metadata, PWSID, source context, limitations, pricing, schema, official links, ZIP handoff, and financing.
 
+### Sprint 14 — Source-aware Turlock city-versus-well report page
+
+- Rebuilt `/areas/turlock` around “Turlock water report,” provider confirmation, municipal-versus-private-well intent, installed-price, and financing intent without changing any protected Water Check file.
+- Used California Drinking Water Watch’s active record for Turlock, City of (`CA5010019`), the current State facilities listing, the State 2025 CCR status page, and the City’s annual-report index as the controlling official sources.
+- Added the current State system context: purchased treated surface water from the Stanislaus Regional Water Authority plus 14 active City well facilities.
+- Kept the municipal and private-well paths separate and repeated the State’s caution that source monitoring may not represent water served because sources can be unused, treated, or blended.
+- Did not invent a 2025 monitoring summary because the current State CCR index marks Turlock’s 2025 report and certification as not available; visitors are directed to confirm the latest report with the provider.
+- Stated that the public-record summary is not a laboratory test of an individual tap and that provider confirmation, current source review, property evidence, household sizing, installation conditions, and model-specific performance still control the final recommendation.
+- Routed Turlock into `/water-check?zip=95380`, household and bathroom sizing, Standard `$3,495`, Standard Plus `$3,995`, Dual Tank Full `$5,495`, financing, call, text, and optional contact.
+- Added Turlock-specific rendered regression coverage for metadata, PWSID, source context, city-versus-well separation, limitations, pricing, schema, official links, ZIP handoff, and financing.
+
 ## Current blockers
 
 - Vercel project metadata does not yet show native Git-triggered deployments from GitHub `main`; the automation currently deploys the exact repository artifact through the authenticated Vercel connection.
@@ -246,7 +257,7 @@ Last updated: 2026-09-01
 
 1. Connect or confirm Google Search Console and GA4/GTM so report impressions, organic clicks, report completions, price views, financing clicks, calls, optional contacts, and qualified leads can be reported rather than inferred.
 2. Review initial Modesto indexation and engagement evidence before repeating the pattern; do not create mass-generated ZIP or city pages.
-3. Review Modesto, Stockton, Tracy, and Manteca indexation and engagement evidence before repeating the report-page pattern. If research supports distinct value, strengthen `/areas/turlock` next around municipal-versus-private-well intent and provider confirmation.
+3. Review Modesto, Stockton, Tracy, Manteca, and Turlock indexation and engagement evidence before repeating the report-page pattern. If current official research supports distinct value, evaluate Sacramento next for a provider-first report upgrade without duplicating the existing mixed-source decision content.
 4. Keep the Water Report as the organic front door and use service pages only as supporting decision content.
 
 ### Daily sprint priority order

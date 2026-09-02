@@ -138,6 +138,25 @@ test("renders the service-area hub and static city pages with SEO signals", asyn
   assert.match(mantecaHtml, /California Drinking Water Watch/i);
   assert.match(mantecaHtml, /dateModified[^}]+2026-09-01/i);
   assert.doesNotMatch(mantecaHtml, /Free Modesto Water Report/i);
+
+  const turlockResponse = await worker.fetch(
+    new Request("http://localhost/areas/turlock", { headers: { accept: "text/html" } }),
+    { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
+    { waitUntil() {}, passThroughOnException() {} },
+  );
+  const turlockHtml = await turlockResponse.text();
+  assert.match(turlockHtml, /Free Turlock Water Report &amp; Installed System Prices/i);
+  assert.match(turlockHtml, /Confirm Turlock city water or a private well first/i);
+  assert.match(turlockHtml, /active public water system CA5010019/i);
+  assert.match(turlockHtml, /14 active well facilities plus purchased treated surface water/i);
+  assert.match(turlockHtml, /2025 report and certification as not available/i);
+  assert.match(turlockHtml, /not a laboratory test of water from your tap/i);
+  assert.match(turlockHtml, /Standard \$3,495, Standard Plus \$3,995, or Dual Tank Full \$5,495 installed/i);
+  assert.match(turlockHtml, /href=["']\/water-check\?zip=95380["']/i);
+  assert.match(turlockHtml, /href=["']\/financing["']/i);
+  assert.match(turlockHtml, /City of Turlock Water Quality Annual Reports/i);
+  assert.match(turlockHtml, /dateModified[^}]+2026-09-02/i);
+  assert.doesNotMatch(turlockHtml, /Free Modesto Water Report/i);
 });
 
 

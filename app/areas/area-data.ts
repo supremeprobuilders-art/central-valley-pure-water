@@ -603,86 +603,152 @@ export const areaPages: AreaPage[] = [
     slug: "turlock",
     city: "Turlock",
     county: "Stanislaus County",
-    title: "City & Well Water Treatment in Turlock",
-    eyebrow: "Turlock source-aware system planning",
-    metaTitle: "Water Treatment Turlock CA | Central Valley Pure Water",
+    title: "Free Turlock Water Report & Installed System Prices",
+    eyebrow: "Turlock water quality by ZIP code",
+    metaTitle: "Turlock Water Report & Installed Prices | CV Pure Water",
     metaDescription:
-      "Plan city-water or private-well treatment, softening, filtration, and reverse osmosis in Turlock. Call for a property-specific recommendation.",
+      "Check the likely Turlock water provider, current public-system context, city-versus-well path, installed prices, and financing by ZIP—free.",
     hero:
-      "Start with the Turlock property’s actual water source, current information, household goals, and installation conditions before selecting equipment.",
-    overviewTitle: "City water and private wells require different first steps",
+      "Enter a Turlock ZIP to see the likely public-water supplier, current official system context, the municipal-versus-private-well path, and installed pricing before any optional contact.",
+    overviewTitle: "Confirm Turlock city water or a private well first",
     overview: [
-      "For a Turlock property on municipal water, the planning conversation can begin with the household goal: whole-home hardness, a defined filtration objective, dedicated drinking water, or a combination. The current utility water report is the appropriate source for system-wide information, while the home’s plumbing and the resident’s goals shape any in-home installation.",
-      "A private well is property-specific. Available test results, flow and pressure considerations, household demand, plumbing access, equipment space, and the concern being evaluated all matter. When the recommendation depends on water chemistry, appropriate current testing should come before equipment claims. That assessment-first path protects the homeowner from buying a universal package that is not tied to the property.",
+      "California Drinking Water Watch identifies Turlock, City of as active public water system CA5010019. The current State record lists purchased treated surface water from the Stanislaus Regional Water Authority alongside active City wells. Confirm the provider and PWSID on the current bill because a city name or ZIP code does not prove which utility record controls an address.",
+      "The State facilities listing shows 14 active well facilities plus purchased treated surface water. That mixed-source context is useful, but it does not support applying one citywide hardness or contaminant number to every Turlock home. The State monitoring-results page also cautions that source results may not represent water served because sources can be unused, treated, or blended.",
+      "A private well follows a separate, property-specific path; the City’s public-system record does not describe it. Appropriate current testing, flow and pressure, household demand, plumbing, equipment space, and the concern being evaluated should guide any well-water recommendation.",
+      "This free Water Report summarizes selected public records; it is not a laboratory test of water from your tap. Provider confirmation, current source review, property details, household and bathroom sizing, installation conditions, and model-specific performance still control the final recommendation.",
     ],
     highlights: [
-      "City and well pathways kept separate",
-      "Assessment before well equipment",
-      "Whole-home and drinking-water options",
-      "Property-specific installation plan",
+      "Provider and PWSID first",
+      "Municipal and well paths separated",
+      "All installed prices visible",
+      "Financing available",
     ],
     helpfulFor: [
-      "Your Turlock property uses city water and you want to compare in-home options.",
-      "Your property uses a private well and you have current water information.",
-      "You want to separate hardness, filtration, and drinking-water decisions.",
-      "You want the well system, demand, plumbing, and equipment space reviewed together.",
+      "You are searching for a Turlock water report and want to confirm which public system serves the address.",
+      "You see scale or spotting and want a responsible whole-home path without relying on one unsupported citywide hardness number.",
+      "Your property uses a private well and you want current testing and property conditions reviewed before equipment selection.",
+      "You want installed pricing and financing availability before speaking with a sales representative.",
     ],
     decisions: [
       {
-        title: "Confirm the source",
-        copy: "Establish municipal water or private well at the beginning. The information required and the responsible treatment path differ between them.",
+        title: "Confirm municipal or private well",
+        copy: "Check the current bill for Turlock, City of and PWSID CA5010019, or establish that the property uses a private well. The controlling evidence and responsible treatment path differ.",
       },
       {
         title: "Use current evidence",
-        copy: "Private-well concerns that depend on water chemistry should be supported by appropriate current testing before a treatment claim is made.",
+        copy: "Review the current provider report for municipal water. Private-well concerns that depend on water chemistry should be supported by appropriate current property testing before a treatment claim is made.",
       },
       {
-        title: "Plan for demand and service",
-        copy: "Household use, flow and pressure, plumbing, drainage, power, footprint, protection, and maintenance access influence the final configuration.",
+        title: "Size and verify the property",
+        copy: "Household size, bathrooms, flow and pressure, plumbing, drainage, power, footprint, maintenance access, current source information, and model-specific performance shape the final configuration.",
       },
     ],
     process: [
       {
-        title: "Identify city or well water",
-        copy: "Share the property address and confirm the source. For a well, gather recent water information and the basics of the well and pressure system.",
+        title: "Enter a Turlock ZIP",
+        copy: "Start the free report without an account. The lookup shows a likely supplier and asks you to confirm municipal service or a private well.",
       },
       {
-        title: "Define the treatment objective",
-        copy: "Explain what the household is noticing and whether the priority affects the whole home, kitchen drinking water, or a verified well-water condition.",
+        title: "Review the controlling evidence",
+        copy: "For City water, confirm the PWSID and review current public records. For a private well, use appropriate current property testing and well-system information.",
       },
       {
-        title: "Develop the property plan",
-        copy: "Review equipment role, capacity, order, plumbing, utilities, space, service access, installation assumptions, and exclusions.",
+        title: "Size the starting system",
+        copy: "Choose household size and bathrooms to see Standard $3,495, Standard Plus $3,995, or Dual Tank Full $5,495 installed. Three or more bathrooms plus four or more people selects Dual Tank Full.",
       },
       {
-        title: "Approve scope before installation",
-        copy: "Compare the recommendation and current pricing, ask questions, and schedule only after the property-specific scope is clear.",
+        title: "Choose the next step",
+        copy: "Review financing availability, call, text, or optionally share contact details after receiving the report and price. Lender terms and final property verification control.",
       },
     ],
     faqs: [
       {
-        question: "Do you work with both city and private-well properties in Turlock?",
+        question: "Who provides water to my Turlock address?",
         answer:
-          "Yes, subject to service availability and project scope. The planning process is different: private-well recommendations may require current property-specific testing and system information.",
+          "California Drinking Water Watch lists Turlock, City of as active public water system CA5010019. Confirm the provider and PWSID on the current bill because a ZIP code is only a starting point and some properties use private wells.",
       },
       {
-        question: "Can well-water equipment be selected from appearance, taste, or odor alone?",
+        question: "Where does Turlock’s public water come from?",
         answer:
-          "Not for concerns that depend on water chemistry. Appropriate current testing should support those decisions before a treatment claim is made.",
+          "The current State system and facilities records list purchased treated surface water from the Stanislaus Regional Water Authority plus multiple active City wells. Sources can be treated and blended, so confirm the provider and current report instead of assuming one source for every address.",
       },
       {
-        question: "Where should a Turlock city-water customer start?",
+        question: "Is a 2025 Turlock Consumer Confidence Report available in the State database?",
         answer:
-          "Start with the household goal—hardness, whole-home filtration, or kitchen drinking water—then review the home’s installation conditions and current utility information.",
+          "The current California Drinking Water Watch CCR page marks the 2025 report and certification as not available. This page therefore uses the current State system record and the City’s annual-report index without inventing a 2025 monitoring summary. Confirm the latest report directly with the provider.",
       },
       {
-        question: "Can a Turlock well-water plan include softening or reverse osmosis?",
+        question: "Does the Turlock public-water report apply to a private well?",
         answer:
-          "Those options may be considered when they match the property’s current information and household goals. They should not be assumed as a universal well package.",
+          "No. A private well is property-specific and is not represented by the City public-system record. Appropriate current testing plus well, pressure, flow, household, plumbing, and installation details should guide the recommendation.",
+      },
+      {
+        question: "What are the installed water-system prices in Turlock?",
+        answer:
+          "The confirmed starting installed prices are Standard $3,495, Standard Plus $3,995, and Dual Tank Full $5,495. Three or more bathrooms plus four or more people selects Dual Tank Full. Current source, property conditions, and final scope still control the recommendation.",
+      },
+      {
+        question: "Is financing available for a Turlock water system?",
+        answer:
+          "Yes. Financing is available after you see the installed-price path. Approval, payment, rate, term, and other conditions are determined by the lender.",
       },
     ],
+    sources: [
+      {
+        label: "California Drinking Water Watch — Turlock, City of",
+        href: "https://sdwis.waterboards.ca.gov/PDWW/JSP/WaterSystemDetail.jsp?tinwsys_is_number=5565&tinwsys_st_code=CA",
+        note: "Official State Water Board record for active PWSID CA5010019, including purchased treated surface water and active groundwater facilities.",
+      },
+      {
+        label: "City of Turlock Water Quality Annual Reports",
+        href: "https://www.cityofturlock.org/watersewergarbageservice/waterquality/waterqualityannualreport.asp",
+        note: "Official City index for annual public water-quality reports and provider information.",
+      },
+      {
+        label: "California Drinking Water Watch — 2025 CCR status",
+        href: "https://sdwis.waterboards.ca.gov/PDWW/JSP/CCR.jsp?Year=2025&tinwsys_is_number=5565&tinwsys_st_code=CA",
+        note: "Official State CCR index currently marking the 2025 report and certification as not available.",
+      },
+      {
+        label: "California Drinking Water Watch — facilities",
+        href: "https://sdwis.waterboards.ca.gov/PDWW/JSP/WaterSystemFacilities.jsp?tinwsys_is_number=5565&tinwsys_st_code=CA",
+        note: "Current State listing of 14 active City well facilities plus purchased treated surface water from the Stanislaus Regional Water Authority.",
+      },
+    ],
+    report: {
+      zip: "95380",
+      modified: "2026-09-02",
+      reviewed: "Official City and State records reviewed September 2, 2026",
+      title: "A source-aware starting point for a Turlock property",
+      intro:
+        "Confirm City water or a private well first, use the controlling current evidence, then continue to household sizing, installed price, financing, and optional contact.",
+      facts: [
+        {
+          value: "CA5010019",
+          label: "Active public-water system",
+          copy: "California Drinking Water Watch identifies Turlock, City of as the active public system. Confirm the provider name and PWSID on the current bill.",
+        },
+        {
+          value: "2 source paths",
+          label: "Mixed municipal supply",
+          copy: "The current State record lists purchased treated surface water from the Stanislaus Regional Water Authority plus active City wells.",
+        },
+        {
+          value: "14 active wells",
+          label: "Current State facilities listing",
+          copy: "The facilities record lists 14 active City well facilities. Sources may be treated or blended, so this count is system context—not an address-specific water result.",
+        },
+        {
+          value: "No 2025 file",
+          label: "Current State CCR status",
+          copy: "The State CCR page currently marks the 2025 report and certification as not available, so no unsupported 2025 monitoring claims are presented here.",
+        },
+      ],
+      limitation:
+        "These are selected public-system facts, not a laboratory result for one faucet. A private well requires separate property evidence. Provider confirmation, current source review, property details, household sizing, installation conditions, and model-specific performance still control the final recommendation.",
+    },
     serviceSlugs: ["well-water-treatment", "city-water-systems", "water-softeners"],
-    relatedAreas: ["modesto", "manteca"],
+    relatedAreas: ["modesto", "manteca", "merced"],
   },
   {
     slug: "sacramento",
