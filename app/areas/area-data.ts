@@ -754,103 +754,147 @@ export const areaPages: AreaPage[] = [
     slug: "sacramento",
     city: "Sacramento",
     county: "Sacramento County",
-    title: "Water Softener & Filtration Planning in Sacramento",
-    eyebrow: "Sacramento water system installation",
-    metaTitle: "Water Softener Sacramento CA | Central Valley Pure Water",
+    title: "Free Sacramento Water Report & Installed System Prices",
+    eyebrow: "Sacramento water quality by ZIP code",
+    metaTitle: "Sacramento Water Report & Installed Prices | CV Pure Water",
     metaDescription:
-      "Compare water softeners, whole-home filtration, and reverse osmosis for a Sacramento home using current utility information and property goals.",
+      "Check the likely Sacramento water provider, 2025 City hardness context, installed system prices, and financing by ZIP—free, with no signup.",
     hero:
-      "Start with your Sacramento address, water provider, and household goal—then choose softening, whole-home filtration, kitchen reverse osmosis, or a coordinated plan.",
-    overviewTitle: "Use the water report as context, not a one-size-fits-all prescription",
+      "Enter a Sacramento ZIP to see the likely public-water supplier, a plain-English public-record summary, a suitable system path, and installed pricing before any optional contact.",
+    overviewTitle: "Start with the Sacramento provider—not a citywide assumption",
     overview: [
-      "The City of Sacramento’s current Consumer Confidence Report covers water quality results from 2025 and was published June 1, 2026. It states that City-supplied water meets or exceeds federal and state drinking water standards. The report also explains that about 80 percent of the City’s supply comes from the American and Sacramento rivers and about 20 percent comes from groundwater wells, while the mix reaching an individual customer can change with supply, demand, and season.",
-      "That system-wide report is a useful first reference, but it does not select equipment for an individual home. Confirm the provider shown on the property’s water bill, review the current report for that provider, and define the result the household wants. Mineral scale and spotting point to a softening conversation; a defined taste, odor, or whole-home filtration goal follows a filtration path; drinking and cooking water at one sink may call for a point-of-use reverse osmosis discussion. Some homes may compare more than one path, while others may decide no in-home treatment is needed.",
+      "Sacramento does not have one water provider or annual report that applies to every address. The City’s official water-purveyor map shows City of Sacramento Water alongside Sacramento County Water Agency, Sacramento Suburban Water District, California American Water, Golden State Water Company, and smaller systems. Use the ZIP lookup as a starting point, then confirm the provider and PWSID on the current bill.",
+      "For an address served by City of Sacramento Main, California Drinking Water Watch identifies active public water system CA3410020. The City’s current Consumer Confidence Report was published June 1, 2026 and covers 2025 results. It says City-supplied water met or exceeded federal and state drinking-water standards and describes a supply drawn about 80% from the American and Sacramento rivers and about 20% from groundwater wells.",
+      "The report lists a 2023–2025 system-average hardness of 83 mg/L as calcium carbonate, or 4.9 grains per gallon. Its source columns differ: 34 mg/L at the E.A. Fairbairn plant, 63 mg/L at the Sacramento River plant, and 15–154 mg/L across City groundwater. That range is public-system context—not a prediction for one faucet or a reason to prescribe the same equipment to every home.",
+      "This free Water Report summarizes selected public records; it is not a laboratory test of water from your tap. Provider confirmation, the current official source, property plumbing and goals, household and bathroom sizing, installation conditions, and model-specific performance still control the final recommendation.",
     ],
     highlights: [
-      "Current utility report reviewed first",
-      "Softening and filtration kept distinct",
-      "Whole-home and kitchen options",
-      "Address-specific installation planning",
+      "Provider and PWSID first",
+      "2025 City records explained",
+      "All installed prices visible",
+      "Financing available",
     ],
     helpfulFor: [
-      "You want to understand whether a softener or filter matches the result you actually want.",
-      "You notice spotting or scale and want to discuss a whole-home hardness solution.",
-      "You want a dedicated reverse osmosis faucet for drinking and cooking water.",
-      "You want the provider, plumbing layout, household demand, and maintenance access reviewed before choosing equipment.",
+      "You are searching for a Sacramento water report and want to confirm which public system serves the address.",
+      "You notice spotting or scale and want to compare the City report’s source-specific hardness context with a whole-home softening path.",
+      "You want to separate whole-home softening or filtration from dedicated reverse osmosis for drinking and cooking water.",
+      "You want confirmed installed pricing and financing availability before speaking with a sales representative.",
     ],
     decisions: [
       {
         title: "Confirm the provider",
-        copy: "Use the water bill and service address to identify the utility. Read that provider’s current water-quality report instead of applying a citywide assumption to every property.",
+        copy: "Use the water bill and service address to identify the utility and PWSID. Read that provider’s current water-quality report instead of applying City of Sacramento data to every property in the region.",
       },
       {
-        title: "Name the treatment goal",
-        copy: "Hardness reduction, a defined whole-home filtration objective, and dedicated drinking water are separate jobs. A clear proposal connects each component to one of those jobs.",
+        title: "Separate the treatment goals",
+        copy: "Hardness reduction, a defined whole-home filtration objective, and dedicated drinking water are separate jobs. Match every proposed component to a stated concern without claiming universal contaminant removal.",
       },
       {
-        title: "Check the installation path",
-        copy: "Main-line access, pipe size, drainage, power, equipment clearance, kitchen cabinet space, and future service access influence what can be installed and quoted.",
+        title: "Size and verify the property",
+        copy: "Household size, bathrooms, main-line access, pipe size, drainage, power, equipment clearance, kitchen cabinet space, current source information, and model-specific performance shape the final scope.",
       },
     ],
     process: [
       {
-        title: "Bring the address and goal",
-        copy: "Share the Sacramento property address, water provider, household size, and whether the priority is scale, a defined filtration concern, drinking water, or a combination.",
+        title: "Enter a Sacramento ZIP",
+        copy: "Start the free report without an account. The lookup shows a likely supplier and asks you to confirm it against the current water bill.",
       },
       {
-        title: "Review current information",
-        copy: "Use the provider’s latest public report for system-wide context. If the decision depends on conditions inside the home, discuss whether more property-specific information is appropriate.",
+        title: "Review current public context",
+        copy: "See the provider, PWSID, dated source and hardness context, and official links in plain English. Public-system records do not predict one faucet.",
       },
       {
-        title: "Map the equipment location",
-        copy: "Review the incoming water line and, when reverse osmosis is considered, the kitchen cabinet, faucet placement, feed, drain, and filter-service clearance.",
+        title: "Size the starting system",
+        copy: "Choose household size and bathrooms to see Standard $3,495, Standard Plus $3,995, or Dual Tank Full $5,495 installed. Three or more bathrooms plus four or more people selects Dual Tank Full.",
       },
       {
-        title: "Compare scope and pricing",
-        copy: "Ask what each component is intended to do, what installation includes, which conditions could change the scope, and the current price before scheduling.",
+        title: "Choose the next step",
+        copy: "Review financing availability, call, text, or optionally share contact details after receiving the report and price. Lender terms and final property verification control.",
       },
     ],
     faqs: [
       {
-        question: "Does every Sacramento home need a water softener?",
+        question: "Who provides water to my Sacramento address?",
         answer:
-          "No. Start with the household’s goal, the property’s water provider, and the conditions you are trying to address. A softener is a hardness-focused option, not a universal requirement.",
+          "The official purveyor map shows several systems in and around Sacramento. California Drinking Water Watch lists City of Sacramento Main as active public water system CA3410020, but the provider and PWSID on the current bill control which report applies to the property.",
       },
       {
-        question: "Is a whole-home filter the same as a water softener?",
+        question: "What does Sacramento’s current City water report say?",
         answer:
-          "No. A softener is selected primarily to reduce hardness minerals. Whole-home filtration is selected around a defined filtration objective. A proposal should explain the purpose of each component rather than treating the terms as interchangeable.",
+          "The report published June 1, 2026 covers 2025 results, says City-supplied water met or exceeded federal and state drinking-water standards, and describes an approximate 80% river-water and 20% groundwater supply. Review the complete official report for all tables and qualifications.",
       },
       {
-        question: "What does Sacramento’s current city water report say?",
+        question: "How hard is City of Sacramento water?",
         answer:
-          "The City’s report published June 1, 2026 covers 2025 results, says City-supplied water meets or exceeds federal and state drinking water standards, and describes a supply drawn mainly from the American and Sacramento rivers with a smaller groundwater share. Check the official report for full results and updates.",
+          "The City’s 2025 report lists a 2023–2025 system average of 83 mg/L as calcium carbonate, or 4.9 grains per gallon. Source values range from 34 and 63 mg/L at the two river-water plants to 15–154 mg/L across groundwater, so the average does not establish one address-specific result.",
       },
       {
-        question: "Can I install reverse osmosis without a whole-home system?",
+        question: "Is this a laboratory test of my Sacramento tap water?",
         answer:
-          "Yes. Under-sink reverse osmosis can be considered as a dedicated drinking-and-cooking-water option. Cabinet space, feed and drain access, faucet placement, and future filter access should be reviewed first.",
+          "No. It is a plain-English summary of selected public utility records. A tap-specific question may require appropriate property sampling, and final equipment still requires provider, source, property, installation, household-sizing, and model-performance confirmation.",
       },
       {
-        question: "How do I get current Sacramento installation pricing?",
+        question: "What are the installed water-system prices in Sacramento?",
         answer:
-          "Call (510) 725-5120 with the address, water provider, household goals, and photos of the likely main-line or under-sink installation locations. Pricing depends on equipment, capacity, access, and project scope.",
+          "The confirmed starting installed prices are Standard $3,495, Standard Plus $3,995, and Dual Tank Full $5,495. Three or more bathrooms plus four or more people selects Dual Tank Full. Property conditions and final scope still control the final recommendation.",
+      },
+      {
+        question: "Is financing available for a Sacramento water system?",
+        answer:
+          "Yes. Financing is available after you see the installed-price path. Approval, payment, rate, term, and other conditions are determined by the lender.",
       },
     ],
     sources: [
       {
         label: "City of Sacramento 2025 Consumer Confidence Report",
         href: "https://www.cityofsacramento.gov/utilities/water-quality/consumer-confidence-report",
-        note: "Published June 1, 2026; includes the City’s current annual water-quality results, source summary, and service-area information.",
+        note: "Published June 1, 2026; includes the City’s 2025 monitoring results, source summary, compliance statement, and source-specific hardness table.",
       },
       {
-        label: "City of Sacramento drinking water quality information",
-        href: "https://www.cityofsacramento.gov/utilities/water-quality",
-        note: "Official updates, contacts, and current drinking-water resources from the City Department of Utilities.",
+        label: "California Drinking Water Watch — City of Sacramento Main",
+        href: "https://sdwis.waterboards.ca.gov/PDWW/JSP/WaterSystemDetail.jsp?tinwsys_is_number=3627&tinwsys_st_code=CA",
+        note: "Official State Water Board record for active public water system CA3410020 and its current system classification.",
+      },
+      {
+        label: "City of Sacramento Water Purveyor Map",
+        href: "https://www.cityofsacramento.gov/content/dam/portal/dou/utilities/development-standards/Water_Purveyor_Map.pdf",
+        note: "Official map showing why the provider must be confirmed at the address rather than inferred from the city or county name alone.",
       },
     ],
+    report: {
+      zip: "95814",
+      modified: "2026-09-04",
+      reviewed: "Official City and State records reviewed September 4, 2026",
+      title: "A provider-first starting point for a Sacramento address",
+      intro:
+        "Confirm the provider and current report, then use the City record as applicable context before continuing to household sizing, installed price, financing, and optional contact.",
+      facts: [
+        {
+          value: "CA3410020",
+          label: "City public-water system",
+          copy: "California Drinking Water Watch identifies City of Sacramento Main as an active system. Confirm this provider and PWSID on the current bill.",
+        },
+        {
+          value: "80% / 20%",
+          label: "Approximate City source mix",
+          copy: "The 2025 report says about 80% comes from the American and Sacramento rivers and about 20% comes from groundwater wells.",
+        },
+        {
+          value: "83 mg/L",
+          label: "System-average hardness",
+          copy: "The 2023–2025 average equals 4.9 grains per gallon. Reported source values differ, so one address may not match the average.",
+        },
+        {
+          value: "Standards met",
+          label: "2025 City compliance statement",
+          copy: "The City says its supplied water met or exceeded federal and state drinking-water standards; that does not select one universal in-home system.",
+        },
+      ],
+      limitation:
+        "These are selected City public-system facts, not a laboratory result for one faucet. Provider confirmation, the current official source, property plumbing and goals, household sizing, installation conditions, and model-specific performance still control the final recommendation.",
+    },
     serviceSlugs: ["water-softeners", "whole-home-water-filtration", "reverse-osmosis"],
-    relatedAreas: ["elk-grove", "stockton", "tracy", "manteca"],
+    relatedAreas: ["elk-grove", "stockton", "modesto"],
   },
   {
     slug: "elk-grove",

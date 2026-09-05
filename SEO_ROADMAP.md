@@ -1,6 +1,6 @@
 # Central Valley Pure Water SEO Roadmap
 
-Last updated: 2026-09-02
+Last updated: 2026-09-04
 
 ## Strategy pivot — Free Water Report acquisition engine (2026-08-24)
 
@@ -244,6 +244,17 @@ Last updated: 2026-09-02
 - Routed Turlock into `/water-check?zip=95380`, household and bathroom sizing, Standard `$3,495`, Standard Plus `$3,995`, Dual Tank Full `$5,495`, financing, call, text, and optional contact.
 - Added Turlock-specific rendered regression coverage for metadata, PWSID, source context, city-versus-well separation, limitations, pricing, schema, official links, ZIP handoff, and financing.
 
+### Sprint 15 — Provider-first Sacramento report and financing crawl path
+
+- Rebuilt `/areas/sacramento` around the connected “Sacramento water report,” “water quality by ZIP,” “water softener installation cost,” installed-price, and financing intents without changing any protected Water Check file.
+- Used the City of Sacramento’s current 2025 Consumer Confidence Report, California Drinking Water Watch’s active record for City of Sacramento Main (`CA3410020`), and the City’s official water-purveyor map as the controlling sources.
+- Added the City’s approximate 80% river-water/20% groundwater supply context and its 2023–2025 system-average hardness of 83 mg/L, or 4.9 grains per gallon, while showing the reported source variation instead of presenting one address-level number.
+- Explained that Sacramento has multiple water purveyors, required current bill/PWSID confirmation, and kept the City’s compliance statement separate from equipment selection and address-specific conclusions.
+- Stated that the public-record summary is not a laboratory test of an individual tap and that provider confirmation, current source review, property conditions, household sizing, installation conditions, and model-specific performance still control the final recommendation.
+- Routed Sacramento into `/water-check?zip=95814`, household and bathroom sizing, Standard `$3,495`, Standard Plus `$3,995`, Dual Tank Full `$5,495`, financing, call, text, and optional contact.
+- Added a crawlable Financing link to the shared desktop navigation, mobile navigation, and footer used by every service-area and service page.
+- Added Sacramento-specific rendered coverage plus a financing-link assertion across the full eight-city route set.
+
 ## Current blockers
 
 - Vercel project metadata does not yet show native Git-triggered deployments from GitHub `main`; the automation currently deploys the exact repository artifact through the authenticated Vercel connection.
@@ -257,7 +268,7 @@ Last updated: 2026-09-02
 
 1. Connect or confirm Google Search Console and GA4/GTM so report impressions, organic clicks, report completions, price views, financing clicks, calls, optional contacts, and qualified leads can be reported rather than inferred.
 2. Review initial Modesto indexation and engagement evidence before repeating the pattern; do not create mass-generated ZIP or city pages.
-3. Review Modesto, Stockton, Tracy, Manteca, and Turlock indexation and engagement evidence before repeating the report-page pattern. If current official research supports distinct value, evaluate Sacramento next for a provider-first report upgrade without duplicating the existing mixed-source decision content.
+3. Review Modesto, Stockton, Tracy, Manteca, Turlock, and Sacramento indexation and engagement evidence before repeating the report-page pattern. If current official research supports distinct value, evaluate Elk Grove next for a provider-specific report upgrade without losing its useful replacement-installation intent.
 4. Keep the Water Report as the organic front door and use service pages only as supporting decision content.
 
 ### Daily sprint priority order

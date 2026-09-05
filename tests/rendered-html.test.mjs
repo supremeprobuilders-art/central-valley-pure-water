@@ -64,6 +64,7 @@ test("renders the service-area hub and static city pages with SEO signals", asyn
     assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
     assert.match(html, new RegExp(`<link[^>]+rel=["']canonical["'][^>]+href=["']https:\\/\\/www\\.cvpurewater\\.com${route.replaceAll("/", "\\/")}["']`, "i"));
     assert.match(html, /tel:\+15107255120/i);
+    assert.match(html, /href=["']\/financing["']/i);
     assert.match(html, /application\/ld\+json/i);
   }
 
@@ -157,6 +158,25 @@ test("renders the service-area hub and static city pages with SEO signals", asyn
   assert.match(turlockHtml, /City of Turlock Water Quality Annual Reports/i);
   assert.match(turlockHtml, /dateModified[^}]+2026-09-02/i);
   assert.doesNotMatch(turlockHtml, /Free Modesto Water Report/i);
+
+  const sacramentoResponse = await worker.fetch(
+    new Request("http://localhost/areas/sacramento", { headers: { accept: "text/html" } }),
+    { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
+    { waitUntil() {}, passThroughOnException() {} },
+  );
+  const sacramentoHtml = await sacramentoResponse.text();
+  assert.match(sacramentoHtml, /Free Sacramento Water Report &amp; Installed System Prices/i);
+  assert.match(sacramentoHtml, /Start with the Sacramento provider—not a citywide assumption/i);
+  assert.match(sacramentoHtml, /active public water system CA3410020/i);
+  assert.match(sacramentoHtml, /about 80% from the American and Sacramento rivers and about 20% from groundwater wells/i);
+  assert.match(sacramentoHtml, /system-average hardness of 83 mg\/L/i);
+  assert.match(sacramentoHtml, /not a laboratory test of water from your tap/i);
+  assert.match(sacramentoHtml, /Standard \$3,495, Standard Plus \$3,995, or Dual Tank Full \$5,495 installed/i);
+  assert.match(sacramentoHtml, /href=["']\/water-check\?zip=95814["']/i);
+  assert.match(sacramentoHtml, /href=["']\/financing["']/i);
+  assert.match(sacramentoHtml, /City of Sacramento Water Purveyor Map/i);
+  assert.match(sacramentoHtml, /dateModified[^}]+2026-09-04/i);
+  assert.doesNotMatch(sacramentoHtml, /Free Modesto Water Report/i);
 });
 
 
