@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import verifiedWaterSystems from "../app/water-check/verified-water-systems.json" with { type: "json" };
 
 const developmentPreviewMeta =
   /<meta(?=[^>]*\bname=["']codex-preview["'])(?=[^>]*\bcontent=["']development["'])[^>]*>/i;
@@ -289,4 +290,57 @@ test("requires address verification for non-geographic Modesto postal ZIPs", asy
     assert.match(report.verificationReason, /no Census ZIP-area polygon/i);
     assert.match(report.verificationReason, /rural or private-well path/i);
   }
+});
+
+test("requires an exact address for ZIP 95356 and records every verified system", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("95356-guard-test", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+  const environment = {
+    ASSETS: {
+      fetch: async () => new Response("Not found", { status: 404 }),
+    },
+  };
+  const executionContext = {
+    waitUntil() {},
+    passThroughOnException() {},
+  };
+
+  const response = await worker.fetch(
+    new Request("http://localhost/api/water-report?zip=95356", {
+      headers: { accept: "application/json" },
+    }),
+    environment,
+    executionContext,
+  );
+  const report = await response.json();
+
+  assert.equal(response.status, 200);
+  assert.equal(report.zip, "95356");
+  assert.equal(report.location.city, "Modesto");
+  assert.deepEqual(report.providers, []);
+  assert.equal(report.privateWellPath, true);
+  assert.equal(report.addressVerificationRequired, true);
+  assert.match(report.verificationReason, /multiple public-water systems/i);
+  assert.match(report.verificationReason, /rural or private-well properties/i);
+
+  const expectedSystems = {
+    CA5010010: ["City of Modesto", "5556"],
+    CA3910003: ["City of Escalon", "4017"],
+    CA5010029: ["City of Modesto – Del Rio", "5573"],
+    CA5000263: ["Oasis Investments", "7375"],
+    CA5000067: ["Tully Mobile Estates", "7334"],
+    CA5010005: ["City of Modesto – Salida", "5551"],
+    CA5000099: ["Del Rio East HOA Water System", "7349"],
+    CA5000562: ["Los Indios Water System", "7299"],
+  };
+
+  for (const [pwsId, [name, stateKey]] of Object.entries(expectedSystems)) {
+    const system = verifiedWaterSystems[pwsId];
+    assert.equal(system.name, name);
+    assert.ok(system.source.length > 0);
+    assert.match(system.officialReportUrl, new RegExp(`tinwsys_is_number=${stateKey}.*wsnumber=${pwsId}`));
+  }
+  assert.equal(verifiedWaterSystems.CA5000099.utilityReportUrl, undefined);
+  assert.equal(verifiedWaterSystems.CA5000562.utilityReportUrl, undefined);
 });

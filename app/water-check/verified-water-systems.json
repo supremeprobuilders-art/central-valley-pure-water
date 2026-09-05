@@ -1,0 +1,80 @@
+{
+  "CA5010010": {
+    "name": "City of Modesto",
+    "county": "Stanislaus",
+    "population": 218771,
+    "serviceConnections": 70586,
+    "source": "Modesto Reservoir surface water and groundwater wells",
+    "owner": "Local Government",
+    "officialReportUrl": "https://sdwis.waterboards.ca.gov/PDWW/JSP/WaterSystemDetail.jsp?tinwsys_is_number=5556&tinwsys_st_code=CA&wsnumber=CA5010010",
+    "utilityReportUrl": "https://www.modestogov.com/DocumentCenter/View/26815/Modesto-Consumer-Confidence-Report-2025"
+  },
+  "CA3910003": {
+    "name": "City of Escalon",
+    "county": "San Joaquin",
+    "population": 7264,
+    "serviceConnections": 2527,
+    "source": "Groundwater wells",
+    "owner": "Local Government",
+    "officialReportUrl": "https://sdwis.waterboards.ca.gov/PDWW/JSP/WaterSystemDetail.jsp?tinwsys_is_number=4017&tinwsys_st_code=CA&wsnumber=CA3910003",
+    "utilityReportUrl": "https://ear.waterboards.ca.gov/Home/ViewCCR?PwsID=CA3910003&Year=2025&isCert=false"
+  },
+  "CA5010029": {
+    "name": "City of Modesto – Del Rio",
+    "county": "Stanislaus",
+    "population": 1327,
+    "serviceConnections": 407,
+    "source": "Groundwater wells",
+    "owner": "Local Government",
+    "officialReportUrl": "https://sdwis.waterboards.ca.gov/PDWW/JSP/WaterSystemDetail.jsp?tinwsys_is_number=5573&tinwsys_st_code=CA&wsnumber=CA5010029",
+    "utilityReportUrl": "https://www.modestogov.com/DocumentCenter/View/26818/Del-Rio-Consumer-Confidence-Report-2025"
+  },
+  "CA5000263": {
+    "name": "Oasis Investments",
+    "county": "Stanislaus",
+    "population": 75,
+    "serviceConnections": 31,
+    "source": "Groundwater well",
+    "owner": "Private",
+    "officialReportUrl": "https://sdwis.waterboards.ca.gov/PDWW/JSP/WaterSystemDetail.jsp?tinwsys_is_number=7375&tinwsys_st_code=CA&wsnumber=CA5000263",
+    "utilityReportUrl": "https://ear.waterboards.ca.gov/Home/ViewCCR?PwsID=CA5000263&Year=2025&isCert=false"
+  },
+  "CA5000067": {
+    "name": "Tully Mobile Estates",
+    "county": "Stanislaus",
+    "population": 56,
+    "serviceConnections": 18,
+    "source": "Groundwater well",
+    "owner": "Private",
+    "officialReportUrl": "https://sdwis.waterboards.ca.gov/PDWW/JSP/WaterSystemDetail.jsp?tinwsys_is_number=7334&tinwsys_st_code=CA&wsnumber=CA5000067",
+    "utilityReportUrl": "https://ear.waterboards.ca.gov/Home/ViewCCR?PwsID=CA5000067&Year=2025&isCert=false"
+  },
+  "CA5010005": {
+    "name": "City of Modesto – Salida",
+    "county": "Stanislaus",
+    "population": 14537,
+    "serviceConnections": 4416,
+    "source": "Groundwater wells",
+    "owner": "Local Government",
+    "officialReportUrl": "https://sdwis.waterboards.ca.gov/PDWW/JSP/WaterSystemDetail.jsp?tinwsys_is_number=5551&tinwsys_st_code=CA&wsnumber=CA5010005",
+    "utilityReportUrl": "https://www.modestogov.com/DocumentCenter/View/26813/Salida-Consumer-Confidence-Report-2025"
+  },
+  "CA5000099": {
+    "name": "Del Rio East HOA Water System",
+    "county": "Stanislaus",
+    "population": 110,
+    "serviceConnections": 55,
+    "source": "Groundwater well",
+    "owner": "Private",
+    "officialReportUrl": "https://sdwis.waterboards.ca.gov/PDWW/JSP/WaterSystemDetail.jsp?tinwsys_is_number=7349&tinwsys_st_code=CA&wsnumber=CA5000099"
+  },
+  "CA5000562": {
+    "name": "Los Indios Water System",
+    "county": "Stanislaus",
+    "population": 25,
+    "serviceConnections": 4,
+    "source": "Groundwater well",
+    "owner": "Private",
+    "officialReportUrl": "https://sdwis.waterboards.ca.gov/PDWW/JSP/WaterSystemDetail.jsp?tinwsys_is_number=7299&tinwsys_st_code=CA&wsnumber=CA5000562"
+  }
+}
